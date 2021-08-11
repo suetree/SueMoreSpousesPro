@@ -5,3 +5,8 @@ D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\LordFromFamily\obj\Debug\SueLord
 D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\LordFromFamily\obj\Debug\SueLordFromFamily.dll
 F:\steam\steamapps\common\Mount & Blade II Bannerlord\Modules\SueMoreSpouses\bin\Win64_Shipping_Client\SueLordFromFamily.pdb
 D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\LordFromFamily\obj\Debug\SueLordFromFamily.pdb
+D:\work\net\SueMoreSpousesPro\LordFromFamily\obj\Debug\SueLordFromFamily.csprojAssemblyReference.cache
+D:\work\net\SueMoreSpousesPro\LordFromFamily\obj\Debug\SueLordFromFamily.csproj.CoreCompileInputs.cache
+D:\work\net\SueMoreSpousesPro\LordFromFamily\obj\Debug\SueLordFromFamily.csproj.CopyComplete
+D:\work\net\SueMoreSpousesPro\LordFromFamily\obj\Debug\SueLordFromFamily.dll
+D:\work\net\SueMoreSpousesPro\LordFromFamily\obj\Debug\SueLordFromFamily.pdb
