@@ -1,0 +1,73 @@
+﻿<Prefab>
+  <Window>
+
+    <BrushWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" >
+      <Children>
+        <ListPanel   HeightSizePolicy="CoverChildren" MarginLeft="5" MarginRight="5" WidthSizePolicy="StretchToParent" LayoutImp.LayoutMethod="VerticalBottomToTop" >
+          <Children>
+
+            <BrushWidget  WidthSizePolicy="StretchToParent"  HeightSizePolicy="CoverChildren"  Brush="Clan.Management.Collapser">
+              <Children>
+            <BrushWidget  WidthSizePolicy="StretchToParent"  HeightSizePolicy="CoverChildren" MarginLeft="16" MarginRight="16" MarginTop="8" MarginBottom="8">
+              <Children>
+
+                <ListPanel LayoutImp.LayoutMethod="VerticalBottomToTop" MarginTop="5" MarginBottom="5"  WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" SuggestedWidth="340" HorizontalAlignment="Left" VerticalAlignment="Center" >
+                <Children>
+                  <TextWidget WidthSizePolicy="CoverChildren"  HeightSizePolicy="CoverChildren" Brush.FontSize="20"   HorizontalAlignment="Left"   Brush="Clan.LeftPanel.Header.Text" Text="@Name"  />
+                  <TextWidget WidthSizePolicy="CoverChildren"   HeightSizePolicy="CoverChildren" Brush.FontSize="15"  HorizontalAlignment="Left" Brush="Recruitment.Popup.Title.Text" Text="@Describe"  />
+                </Children>
+               </ListPanel>
+                <!-- Boolean switch widget start-->
+                <Widget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Right"
+                         UpdateChildrenStates="true" >
+                  <Children>
+                    <ButtonWidget DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="40" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                  Brush="SPOptions.Checkbox.Empty.Button" ButtonType="Toggle" IsSelected="@BoolValue" ToggleIndicator="ToggleIndicator" UpdateChildrenStates="true" >
+                      <Children>
+                        <ImageWidget Id="ToggleIndicator" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center"
+                                     Brush="SPOptions.Checkbox.Full.Button"/>
+                      </Children>
+                    </ButtonWidget>
+                  </Children>
+                </Widget>
+                <!-- Boolean switch widget end-->
+              </Children>
+            </BrushWidget>
+              </Children>
+            </BrushWidget>
+
+            <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" IsVisible="@BoolValue">
+              <Children>
+
+                <ScrollablePanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginLeft="3" MarginBottom="3" AutoHideScrollBars="true" ClipRect="ClanListClipRect" InnerPanel="ClanListClipRect\ClanList" VerticalScrollbar="..\ClansListScrollbar\Scrollbar">
+                  <Children>
+                    <Widget Id="ClanListClipRect" WidthSizePolicy="StretchToParent"  SuggestedHeight="800" ClipContents="true">
+                      <Children>
+                
+                      <ListPanel  Id="ClanList" DataSource="{OptionItems}"   LayoutImp.LayoutMethod="VerticalBottomToTop" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" HorizontalAlignment="Center" >
+                        <ItemTemplate>
+                          <EMOptionGroupItem />
+                        </ItemTemplate>
+                      </ListPanel>
+                            
+                     </Children>
+                  </Widget>
+
+                  </Children>
+               </ScrollablePanel>
+                <Standard.VerticalScrollbar  IsVisible="false" Id="ClansListScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" MarginRight="2" MarginLeft="2" MarginBottom="3" />
+
+              </Children>
+            </ListPanel>
+         
+            
+          </Children>
+        </ListPanel>
+         
+
+      </Children>
+      
+    </BrushWidget>
+
+  </Window>
+</Prefab>

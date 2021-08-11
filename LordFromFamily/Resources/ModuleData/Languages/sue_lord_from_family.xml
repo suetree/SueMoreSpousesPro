@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="English" />
+  </tags>
+	<strings>
+		<string id="sue_clan_create_from_family_request" text="I want you to be a vassal of my kindom" />
+		<string id="sue_clan_create_from_family_need_spouse" text="I need a spouse." />
+		<string id="sue_clan_create_from_family_need_money" text="I need some money to hire soldiers." />
+		<string id="sue_clan_create_from_family_complete" text="I would go through fire and water for you." />
+		<string id="sue_clan_create_from_family_of_forget" text=" Or forget " />
+		<string id="sue_clan_create_from_family_choice_spouse_item_change" text=" The next group. " />
+		<string id="sue_clan_create_from_family_choice_spouse_item_change_tip" text=" Help me choose a nice one." />
+		<string id="sue_clan_create_from_family_choice_settlement_tip" text="Really? Which territory am I going to get?" />
+		<string id="sue_clan_create_from_family_need_spouse_not" text="Not spouse to you" />
+		<string id="sue_clan_create_from_family_your_are_commander" text="Your are a commander" />
+		<string id="sue_clan_create_from_family_your_are_commander_accept" text="Thank you, I already know who I am" />
+
+    <string id="sue_clan_create_from_family_vassal_request_children" text="I want our kids to come with us" />
+    <string id="sue_clan_create_from_family_vassal_request_children_result_1" text="Well, as much as I like them, having them with you will make them happier" />
+    <string id="sue_clan_create_from_family_vassal_request_children_result_2" text="I'm sorry. I can't do this. It's safer for your children to stay with me" />
+
+    <string id="sue_clan_create_from_family_edit_banner" text="Edit Banner" />
+    <string id="sue_clan_create_from_family_edit_name" text="Edit Name" />
+    <string id="sue_clan_create_from_family_kindom_screen_btn" text="Vassal Service" />
+    <string id="sue_clan_create_from_family_clan_service" text="Vassal Service" />
+
+    <string id="sue_clan_create_from_family_change_clan_request" text="I want you to work for another clan " />
+    <string id="sue_clan_create_from_family_change_clan_answer" text="Yes, i do. Please tell me which clan I'm going to" />
+
+    <!-- 2021-08-05-->
+    <string id="slff_label_spouse" text="Spouse" />
+	</strings>
+</base>

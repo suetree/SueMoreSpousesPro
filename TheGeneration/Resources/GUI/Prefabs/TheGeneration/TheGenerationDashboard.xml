@@ -1,0 +1,62 @@
+﻿<Prefab>
+  <Window>
+    <BrushWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" Brush="Encyclopedia.SoundBrush"
+                 UpdateChildrenStates="true"
+                 MarginRight="-10"
+                 MarginLeft="-10"
+                 Sprite="highscore_bar_9" >
+      <Children>
+
+        <BrushWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" 
+              VerticalAlignment="Top"  >
+          <Children>
+            
+            <Widget  HeightSizePolicy="Fixed" SuggestedHeight="150"  WidthSizePolicy="Fixed" SuggestedWidth="500"
+                                      PositionYOffset="-5" HorizontalAlignment="Center" Sprite="StdAssets\tabbar_popup"
+                                      DoNotAcceptEvents="true"  >
+              <Children>
+
+                <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" VerticalAlignment="Center"
+                   Brush="Recruitment.Popup.Title.Text"
+                                PositionYOffset="-25"
+                   Text="父辈遗产目录" Brush.FontSize="40" />
+              </Children>
+            </Widget>
+
+
+            <ListPanel  DataSource="{Groups}"  MarginTop="150" MarginLeft="60" MarginRight="60"  HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" HorizontalAlignment="Center" >
+              <ItemTemplate>
+                <EMHorizontalGroup />
+              </ItemTemplate>
+            </ListPanel>
+
+            <ButtonWidget Command.Click="ExecuteClose" HeightSizePolicy ="Fixed" WidthSizePolicy="Fixed" SuggestedHeight="80" SuggestedWidth="80" VerticalAlignment="Top" HorizontalAlignment="Right" MarginTop="20" MarginRight="20" Brush="Popup.CloseButton"/>
+
+
+            <ButtonWidget
+                 DoNotPassEventsToChildren="true"
+                 SuggestedWidth="120"
+                 SuggestedHeight="60"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Bottom"
+                 MarginBottom="20"
+                 Brush="ButtonBrush4"
+                 Command.Click="ExcuteTheSecondBusiness">
+
+              <Children>
+                <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@BtnName" />
+              </Children>
+            </ButtonWidget>
+          </Children>
+        </BrushWidget>
+
+
+
+
+
+       
+      </Children>
+
+      </BrushWidget>
+  </Window>
+</Prefab>

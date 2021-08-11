@@ -1,0 +1,7 @@
+F:\steam\steamapps\common\Mount & Blade II Bannerlord\Modules\TheGeneration\bin\Win64_Shipping_Client\TheGeneration.dll
+F:\steam\steamapps\common\Mount & Blade II Bannerlord\Modules\TheGeneration\bin\Win64_Shipping_Client\TheGeneration.pdb
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\TheGeneration\obj\Debug\TheGeneration.csprojAssemblyReference.cache
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\TheGeneration\obj\Debug\TheGeneration.csproj.CoreCompileInputs.cache
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\TheGeneration\obj\Debug\TheGeneration.csproj.CopyComplete
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\TheGeneration\obj\Debug\TheGeneration.dll
+F:\steam\steamapps\common\Mount & Blade II Bannerlord\Modules\SueMoreSpouses\bin\Win64_Shipping_Client\TheGeneration.dll

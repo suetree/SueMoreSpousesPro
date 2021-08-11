@@ -1,0 +1,158 @@
+﻿<Prefab>
+  <Window>
+    <BrushWidget HeightSizePolicy="CoverChildren"   Brush="@BackgroundBrushName"  WidthSizePolicy="StretchToParent" MarginTop="2" VerticalAlignment="Top" HorizontalAlignment="Left"
+                  UpdateChildrenStates="true">
+      <Children>
+
+        <ListPanel  IsVisible="@IsNotGroupProperty" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left"  MarginLeft="16" MarginRight="16" MarginTop="8" MarginBottom="8">
+          <Children>
+
+            <ListPanel HeightSizePolicy="Fixed" SuggestedHeight="90"  LayoutImp.LayoutMethod="VerticalBottomToTop"  WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left" >
+              <Children>
+                <Widget HeightSizePolicy="CoverChildren" UpdateChildrenStates="true" WidthSizePolicy="StretchToParent"  VerticalAlignment="Center" HorizontalAlignment="Left" >
+                  <Children>
+                    <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left"  VerticalAlignment="Center"
+                                    Brush="Recruitment.Popup.Title.Text" Text="@DisplayName">
+                    </RichTextWidget>
+
+
+                    <!-- Boolean switch widget start-->
+                    <Widget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Right"
+                            IsVisible="@IsBoolProperty" UpdateChildrenStates="true" IsEnabled="@IsBoolProperty">
+                      <Children>
+                        <ButtonWidget   IsVisible="@IsBoolProperty" DoNotPassEventsToChildren="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="40" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                      Brush="SPOptions.Checkbox.Empty.Button" ButtonType="Toggle" IsSelected="@BoolValue" ToggleIndicator="ToggleIndicator" UpdateChildrenStates="true" >
+                          <Children>
+                            <ImageWidget   IsVisible="@IsBoolProperty" Id="ToggleIndicator" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center"
+                                         Brush="SPOptions.Checkbox.Full.Button"/>
+                          </Children>
+                        </ButtonWidget>
+                      </Children>
+                    </Widget>
+                    <!-- Boolean switch widget end-->
+                  </Children>
+                  
+                  
+                </Widget>
+
+                <Widget HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                  <Children>
+
+                    <ListPanel  HeightSizePolicy="CoverChildren" MarginLeft="20" WidthSizePolicy="StretchToParent"  VerticalAlignment="Center" HorizontalAlignment="Center" UpdateChildrenStates="true">
+                      <Children>
+                        <!-- Boolean slider widget start -->
+                        <SliderWidget  WidthSizePolicy="StretchToParent" SuggestedHeight="42"    VerticalAlignment="Center" HorizontalAlignment="Center"
+                                      Filler="Filler" Handle="SliderHandle" MaxValueFloat="@MaxValue" MinValueFloat="@MinValue" ValueFloat="@NumberValue"
+                                 IsVisible="@IsFloatProperty"  IsDiscrete="false" DoNotUpdateHandleSize="true">
+                          <Children>
+                            <Widget HeightSizePolicy="StretchToParent"  MarginLeft="-12"  MarginRight="-12"   WidthSizePolicy="StretchToParent"  MarginTop="8" MarginBottom="8"  VerticalAlignment="Center" HorizontalAlignment="Center"
+                                    Sprite="SPGeneral\SPOptions\standart_slider_canvas" IsEnabled="false" />
+
+                            <Widget Id="Filler" HeightSizePolicy="StretchToParent"  MarginLeft="-4"  MarginRight="-4" WidthSizePolicy="StretchToParent"  MarginTop="8" MarginBottom="8" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                    Sprite="SPGeneral\SPOptions\standart_slider_fill" ClipContents="true" >
+                              <Children>
+                                <Widget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                        Sprite="SPGeneral\SPOptions\standart_slider_fill"/>
+                              </Children>
+                            </Widget>
+                            <Widget WidthSizePolicy="StretchToParent" MarginLeft="-31"  MarginRight="-31" SuggestedHeight="65" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                    IsEnabled="false" Sprite="SPGeneral\SPOptions\standart_slider_frame" />
+                            <ImageWidget Id="SliderHandle" SuggestedWidth="14" SuggestedHeight="38" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                     Brush="SPOptions.Slider.Handle" DoNotAcceptEvents="true" />
+                          </Children>
+                        </SliderWidget>
+                        <!-- Boolean slider widget end -->
+
+                        <!-- Value text/button -->
+                        <ButtonWidget  HeightSizePolicy="Fixed" SuggestedHeight="42" WidthSizePolicy="Fixed" SuggestedWidth="42" MarginLeft="20" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                       IsVisible="@IsFloatProperty" DoNotPassEventsToChildren="true" Brush="Recruitment.Popup.Title.Text" >
+                          <Children>
+                            <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                            IsVisible="@IsFloatProperty"  Text="@ShowValueText" Brush="Recruitment.Popup.Title.Text"/>
+                          </Children>
+                        </ButtonWidget>
+                      </Children>
+                    </ListPanel>
+                   
+
+
+                    <!-- Dropdown widget start -->
+                    <Widget WidthSizePolicy="StretchToParent" SuggestedHeight="42" VerticalAlignment="Center" HorizontalAlignment="Left"
+                    IsEnabled="@IsDropdownProperty" IsVisible="@IsDropdownProperty">
+                      <Children>
+                        <EMDropdownWithHorizontalControl WidthSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center" Parameter.SelectorDataSource="{DropdownValue}" />
+                      </Children>
+                    </Widget>
+                    <!-- Dropdown widget end -->
+
+
+                    <ButtonWidget  WidthSizePolicy="StretchToParent" SuggestedHeight="42" VerticalAlignment="Center" HorizontalAlignment="Left"
+                          IsEnabled="@IsTextInputProperty" IsVisible="@IsTextInputProperty" DoNotPassEventsToChildren="true" Brush="SPOptions.Dropdown.Center" Command.Click="OnTextValueClick">
+                      <Children>
+                        <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        IsEnabled="@IsTextInputProperty" IsVisible="@IsTextInputProperty" Text="@TextValue" />
+                      </Children>
+                    </ButtonWidget>
+
+                  </Children>
+                </Widget>
+              </Children>
+            </ListPanel>
+          </Children>
+        </ListPanel>
+    
+        <ListPanel IsVisible="@IsGroupProperty"  HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" LayoutImp.LayoutMethod="VerticalBottomToTop" VerticalAlignment="Top" HorizontalAlignment="Left"  MarginLeft="16" MarginRight="16" MarginTop="8" MarginBottom="8">
+          <Children>
+
+            <Widget HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent">
+              <Children>
+
+                <TextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" Brush="Popup.Button.Text"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"
+                            Text="@DisplayName" />
+
+                <ButtonWidget
+                DoNotPassEventsToChildren="true"
+                SuggestedWidth="60"
+                SuggestedHeight="40"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                MarginBottom="5"
+                MarginTop="5"
+                MarginRight="16"
+                Brush="ButtonBrush4"
+                Command.Click="ExcuteNewListItem">
+
+                <Children>
+                  <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@ListAddBtnName" />
+                </Children>
+              </ButtonWidget>
+              </Children>
+            </Widget>
+
+            <ListPanel   DataSource="{OptionItemGroupList}" MarginLeft="16" MarginRight="16"  LayoutImp.LayoutMethod="VerticalBottomToTop" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" HorizontalAlignment="Center" >
+              <ItemTemplate>
+                <BrushWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" MarginTop="16" >
+                  <Children>
+
+                    <ListPanel   DataSource="{OptionItems}"   LayoutImp.LayoutMethod="VerticalBottomToTop" HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" MarginTop="8" HorizontalAlignment="Center" >
+                    <ItemTemplate>
+                      <EMOptionGroupItem />
+                    </ItemTemplate>
+                  </ListPanel>
+
+                    <ButtonWidget Command.Click="ExecuteDeleteItemFromGroup" HeightSizePolicy ="Fixed" WidthSizePolicy="Fixed" SuggestedHeight="50" SuggestedWidth="50" VerticalAlignment="Top" HorizontalAlignment="Right"  Brush="Popup.CloseButton"/>
+
+                  </Children>
+                </BrushWidget>
+              
+              </ItemTemplate>
+            </ListPanel>
+          </Children>
+          
+        </ListPanel>
+      </Children>
+    </BrushWidget>
+  </Window>
+</Prefab>

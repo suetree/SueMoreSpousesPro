@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="English" />
+  </tags>
+  <strings>
+   <string id="tsg_setting_clan" text="Clan" />
+   <string id="tsg_setting_clan_describe" text="Enable clan settings" />
+   <string id="tsg_setting_kindom_creation" text="Enable kindom creation" />
+   <string id="tsg_setting_kindom_cultrue" text="Kindom cultrue" />
+   <string id="tsg_setting_fielf" text="Fielf" />
+   <string id="tsg_setting_clan_tier" text="Clan tier" />
+   <string id="tsg_setting_clan_renown" text="Clan renown" />
+   <string id="tsg_setting_gold" text="Gold" />
+   <string id="tsg_setting_meat" text="Meat" />
+
+  <string id="tsg_setting_companion" text="Companion" />
+  <string id="tsg_setting_companion_describe" text="Enable companion settings" />
+  <string id="tsg_setting_companion_couple_max_num" text="Maximum number of couples" />
+  <string id="tsg_setting_companion_couple_has_children_probility" text="Probability of couples having children" />
+  <string id="tsg_setting_companion_tier" text="Companion tier" />
+  <string id="tsg_setting_companion_skill_level" text="Companion sill level" />
+  <string id="tsg_setting_companion_perk_auto" text="Companion perk auto" />
+
+  <string id="tsg_setting_troop" text="Troop" />
+  <string id="tsg_setting_troop_describe" text="Enable troop settings" />
+  <string id="tsg_setting_troop_list" text="Troop List" />
+
+  <string id="tsg_setting_player_family" text="Player family" />
+  <string id="tsg_setting_player_family_describe" text="Enable player family settings" />
+  <string id="tsg_setting_player_skill_level" text="Player skill level" />
+  <string id="tsg_setting_player_spouse" text="Player spouse" />
+  <string id="tsg_setting_player_children_list" text="Children List" />
+  <string id="tsg_setting_player_children_mother" text="Children Mother" />
+
+  <string id="tsg_setting_character" text="Character" />
+  <string id="tsg_setting_number" text="Number" />
+  <string id="tsg_setting_age" text="Age" />
+  <string id="tsg_setting_is_female" text="Is female" />
+  <string id="tsg_setting_skill_level_min" text="Min skill level" />
+  <string id="tsg_setting_skill_level_max" text="Max skill level" />
+  <string id="tsg_complete" text ="Complete"/>
+
+
+
+  <string id="tsg_event_the_second" text ="The second generation event"/>
+  <string id="tsg_event_the_second_describe" text ="An old man with a tired, ragged face comes slowly limping towards you.He comes up to you and looks at your face.Then he said he was an old subordinate of your father and asked you to give him 1000 gold. He wanted to go home and plow the fields.And will tell you a secret."/>
+  <string id="tsg_event_the_second_neg" text ="To take him off"/>
+  <string id="tsg_event_the_second_aff" text ="To give him gold"/>
+  <string id="tsg_event_the_second_old_faild_leave" text ="The old man walked away, scolding and swearing"/>
+  <string id="tsg_father_heritage" text ="List of Fathers' Heritage"/>
+  <string id="tsg_father_heritage_describe" text ="The old man hands you a catalog of your father's unknown legacy"/>
+  <string id="tsg_father_heritage_accept" text ="Accept"/>
+  <string id="tsg_father_heritage_refuse" text ="Refuse"/>
+</strings>
+</base>

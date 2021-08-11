@@ -1,0 +1,41 @@
+﻿<Brushes>
+
+  <Brush Name="EasyMenu.Divider.Yellow" >
+    <Layers>
+      <BrushLayer Name="Default" Sprite="GradientDivider_9" Color="#FFEBC1FF"/>
+    </Layers>
+    <Styles>
+      <Style Name="Default">
+        <BrushLayer Name="Default" AlphaFactor="0.6" />
+      </Style>
+    </Styles>
+  </Brush>
+
+  <Brush Name="EasyMenu.Item.Tuple">
+    <Layers>
+      <BrushLayer Name="Default" Sprite="Clan\clan_collapser" Color="#FFFFFFFF" ExtendBottom="8" ExtendTop="3" SaturationFactor="20" HueFactor="-10"/>
+    </Layers>
+    <Styles>
+      <Style Name="Default">
+        <BrushLayer Name="Default"  />
+      </Style>
+      <Style Name="Hovered">
+        <BrushLayer Name="Default" ColorFactor="1.2" />
+      </Style>
+      <Style Name="Selected">
+        <BrushLayer Name="Default" ColorFactor="1.5" Color="#FFC349FF" />
+      </Style>
+      <Style Name="Pressed">
+        <BrushLayer Name="Default" ColorFactor="0.9" />
+      </Style>
+    </Styles>
+    <SoundProperties>
+      <StateSounds>
+      </StateSounds>
+      <EventSounds>
+        <EventSound EventName="Click" Audio="filter" />
+      </EventSounds>
+    </SoundProperties>
+  </Brush>
+
+</Brushes>

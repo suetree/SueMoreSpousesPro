@@ -1,0 +1,28 @@
+﻿<Brushes>
+
+  <Brush Name="TheSecondGenerationBrush.Checkbox.Image" >
+    <Layers>
+      <BrushLayer Name="Default" Sprite="SPOptions\checkbox_full" />
+    </Layers>
+    <Styles>
+      <Style Name="Default">
+        <BrushLayer Name="Default" ColorFactor="0.1" />
+      </Style>
+    
+      <Style Name="Selected">
+        <BrushLayer Name="Default" ColorFactor="1.5"  />
+      </Style>
+    
+      <Style Name="Disabled">
+        <BrushLayer Name="Default"  ColorFactor="0.1" />
+      </Style>
+    </Styles>
+    <SoundProperties>
+      <EventSounds>
+        <EventSound EventName="Click" Audio="checkbox" />
+      </EventSounds>
+    </SoundProperties>
+  </Brush>
+
+</Brushes>
+

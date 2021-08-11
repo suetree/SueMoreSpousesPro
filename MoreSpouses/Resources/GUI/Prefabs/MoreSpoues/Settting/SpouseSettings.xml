@@ -1,0 +1,12 @@
+﻿<Prefab>
+  <Window>
+    <Widget HeightSizePolicy="StretchToParent"  MarginRight="30"  WidthSizePolicy="StretchToParent"  UpdateChildrenStates="true" IsVisible="@IsSettingSelected">
+      <Children>
+        <EMClassicsGroup  />
+      </Children>
+    </Widget>
+
+
+  </Window>
+</Prefab>
+
