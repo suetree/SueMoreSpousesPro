@@ -1,0 +1,149 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Common.props', '$(MSBuildThisFileDirectory)..\'))" />
+  <!-- Main Project Properties -->
+  <PropertyGroup>
+    <ProjectGuid>{BE5ED9EE-831B-4DAC-B53E-540D1B3D1527}</ProjectGuid>
+    <RootNamespace>SueMoreSpouses</RootNamespace>
+    <AssemblyName>SueMoreSpouses</AssemblyName>
+  </PropertyGroup>
+  <!-- Files & Classes -->
+  <ItemGroup>
+    <Compile Include="Behaviors\SpouseClanLeaderFixBehavior.cs" />
+    <Compile Include="Behaviors\SpouseFromPrisonerBehavior.cs" />
+    <Compile Include="Behaviors\SpousesSneakBehavior.cs" />
+    <Compile Include="Behaviors\SpousesStatsBehavior.cs" />
+    <Compile Include="CheckAreNearbyPath.cs" />
+    <Compile Include="ChildConceivedPath.cs" />
+    <Compile Include="DailyTickHeroPath.cs" />
+    <Compile Include="GameComponent.cs" />
+    <Compile Include="GauntletUI\FaceDetailsCreatorScreen.cs" />
+    <Compile Include="GauntletUI\SpouseCharacterTableauTextureProvider.cs" />
+    <Compile Include="GauntletUI\States\FaceDetailsCreatorState.cs" />
+    <Compile Include="GauntletUI\Tableaus\SpouseCharacterTableau.cs" />
+    <Compile Include="GauntletUI\ViewModels\BattleHitoryRecordVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\Sneack\GauntletMenuSpousesSelectTroops.cs" />
+    <Compile Include="GauntletUI\ViewModels\Sneack\SpousesDefaultSelectTroops.cs" />
+    <Compile Include="GauntletUI\ViewModels\Sneack\SpousesSelectTroopsItemVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\Sneack\SpousesSelectTroopsVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SpouseCharacterVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SpouseClanVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SpouseDashboardVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SpousesBattleStatisticVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SpouseServiceItemVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SpouseServiceVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SpousesStatisticsVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SpouseStatisticsItemVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SP\BattleHistoryMainVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SP\BattleHistorySPCharacterVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SP\BattleHistorySPPartyVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SP\BattleHistorySPRewardVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SP\BattleHistorySPScoreVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SP\BattleHistorySPSideVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\SP\BattleHistorySPVM.cs" />
+    <Compile Include="GauntletUI\Widgets\ADOptionsScreenWidget.cs" />
+    <Compile Include="GauntletUI\Widgets\SPBattleResultTitleBackgroundWidget.cs" />
+    <Compile Include="GauntletUI\Widgets\SpouseCharacterTableauWidget.cs" />
+    <Compile Include="GetDailyChanceOfPregnancyForHero.cs" />
+    <Compile Include="HeroRlationOperation.cs" />
+    <Compile Include="KindomPath.cs" />
+    <Compile Include="Logics\BattleHeroJustTroopSpawnHandlerLogic.cs" />
+    <Compile Include="Logics\BattleInLordShallLogic.cs" />
+    <Compile Include="Logics\SpousesDateSpawnLogic.cs" />
+    <Compile Include="Models\SettingData.cs" />
+    <Compile Include="Models\SpousesBattleRecord.cs" />
+    <Compile Include="Models\SpousesBattleRecordCharacter.cs" />
+    <Compile Include="Models\SpousesBattleRecordSide.cs" />
+    <Compile Include="Models\SpousesHeroStatistic.cs" />
+    <Compile Include="Models\SpousesSaveDefiner.cs" />
+    <Compile Include="Models\SP\SpousesBattleRecordParty.cs" />
+    <Compile Include="Models\SP\SpousesBattleRecordReward.cs" />
+    <Compile Include="OccuptionChange.cs" />
+    <Compile Include="Operations\ChildrenGrowthOperation.cs" />
+    <Compile Include="Operations\DistinctSpouse.cs" />
+    <Compile Include="Operations\SpouseOperation.cs" />
+    <Compile Include="Patchs\AgingCampaignBehaviorPatch.cs" />
+    <Compile Include="Patchs\BattleSimulationInitializePath.cs" />
+    <Compile Include="Patchs\BattleSimulationOnExitBattlePath.cs" />
+    <Compile Include="Patchs\BattleSimulationTroopNumberChangedPath.cs" />
+    <Compile Include="Patchs\ClanMemberRolesCampaignBehavior_AddClanMembersAsAccompanyingCharacter_Path.cs" />
+    <Compile Include="Patchs\ClanScreenLayerPatch.cs" />
+    <Compile Include="Patchs\GameBUGFixPath.cs" />
+    <Compile Include="Patchs\HeroCreatorDeliverOffSpringPath.cs" />
+    <Compile Include="Patchs\LocationContainsCharacterrPath.cs" />
+    <Compile Include="Patchs\LocationGetLocationCharacterPath.cs" />
+    <Compile Include="Patchs\LocatonCanPlayerEnterPath.cs" />
+    <Compile Include="Patchs\LocatonCanPlayerSeePath.cs" />
+    <Compile Include="Patchs\LocatonDeserializeDelegatePath.cs" />
+    <Compile Include="Patchs\OccpationFullPath.cs" />
+    <Compile Include="Patchs\TestGameProgressPath.cs" />
+    <Compile Include="Settings\ChildrenFastGrowthSetting.cs" />
+    <Compile Include="Settings\EXSpouseGetPregnancySetting.cs" />
+    <Compile Include="Settings\MoreSpouseSetting.cs" />
+    <Compile Include="Settings\NamelessNPCSetting.cs" />
+    <Compile Include="SpousesMissons.cs" />
+    <Compile Include="SpousesStatsMissionLogic.cs" />
+    <Compile Include="SpouseStatsBusiness.cs" />
+    <Compile Include="SubModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ConversationUtils.cs" />
+    <Compile Include="Utils\HeroFaceUtils.cs" />
+    <Compile Include="Utils\HeroInitPropertyUtils.cs" />
+    <Compile Include="Utils\ReflectUtils.cs" />
+    <Content Include="Readme.txt" />
+    <Content Include="Resources\GUI\Brushes\SMSBrush.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\ATest.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\BattleRecord\SpousesBattleHistory.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\BattleRecord\SpousesBattleHistoryRecord.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\BattleRecord\SpousesBattleHistoryRecordSP.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\BattleRecord\SpousesBattleHistoryRecordSPCharacter.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\BattleRecord\SpousesBattleHistoryRecordSPHead.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\BattleRecord\SpousesBattleHistoryRecordSPParty.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\BattleRecord\SpousesBattleHistoryRecordSPReward.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\BattleRecord\SpousesBattleHistoryRecordSPSide.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\BattleRecord\SpousesBattleHistoryRecordSPSideHead.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\Service\SpouseCharayer.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\Service\SpouseServiceItem.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\Settting\SpouseSettings.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\SpouseBattleStatistic.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\SpouseDashboard.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\SpouseScreen.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\SpouseService.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\Statistic\SpousesStatistics.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\Statistic\SpousesStatisticsItem.xml" />
+    <Content Include="Resources\GUI\Prefabs\MoreSpoues\Troop\SpousesSelectTroops.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNs\sue_more_spoues-CN.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNt\sue_more_spoues-CNt.xml" />
+    <Content Include="Resources\ModuleData\Languages\sue_more_spoues-EN.xml" />
+    <Content Include="Resources\ModuleData\Languages\TR\sue_more_spoues-TR.xml" />
+    <Content Include="Resources\SceneObj\sms_prison\atmosphere.xml" />
+    <Content Include="Resources\SceneObj\sms_prison\references.txt" />
+    <Content Include="Resources\SubModule.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\SceneObj\sms_prison\navmesh.bin" />
+    <None Include="Resources\SceneObj\sms_prison\scene.xscene" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyMenu\SueEasyMenu.csproj">
+      <Project>{9c79a997-dcfe-4fa2-b21a-6dea3828316f}</Project>
+      <Name>SueEasyMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LordFromFamily\SueLordFromFamily.csproj">
+      <Project>{9159c2aa-3dad-4ef7-a77d-5dc460b0335d}</Project>
+      <Name>SueLordFromFamily</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MBService\SueMBService.csproj">
+      <Project>{20e93e5d-ec26-4194-b48a-9e8ca87f03c9}</Project>
+      <Name>SueMBService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheGeneration\SueTheGeneration.csproj">
+      <Project>{a9523583-7730-4cb6-9487-99f07b547237}</Project>
+      <Name>SueTheGeneration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <!-- Post-Build -->
+  <PropertyGroup>
+    <PostBuildEvent>xcopy  /Y /S "$(MSBuildProjectDirectory)\Resources" "$(GamePath)\Modules\SueMoreSpouses\"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

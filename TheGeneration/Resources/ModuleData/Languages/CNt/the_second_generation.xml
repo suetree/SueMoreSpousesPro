@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="繁體中文" />
+  </tags>
+  <strings>
+    <string id="tsg_setting_clan" text="家族" />
+    <string id="tsg_setting_clan_describe" text="啟用家族設定" />
+    <string id="tsg_setting_kindom_creation" text="創建王國" />
+    <string id="tsg_setting_kindom_cultrue" text="王國文化" />
+    <string id="tsg_setting_fielf" text="封地" />
+    <string id="tsg_setting_clan_tier" text="家族等級" />
+    <string id="tsg_setting_clan_renown" text="家族聲望" />
+    <string id="tsg_setting_gold" text="金錢" />
+    <string id="tsg_setting_meat" text="肉" />
+
+    <string id="tsg_setting_companion" text="同伴" />
+    <string id="tsg_setting_companion_describe" text="啟用同伴設定" />
+    <string id="tsg_setting_companion_couple_max_num" text="最大夫妻數量" />
+    <string id="tsg_setting_companion_couple_has_children_probility" text="夫妻有孩子概率" />
+    <string id="tsg_setting_companion_tier" text="同伴來源士兵等級" />
+    <string id="tsg_setting_companion_skill_level" text="同伴技能等級" />
+    <string id="tsg_setting_companion_perk_auto" text="專精自動點" />
+
+    <string id="tsg_setting_troop" text="部隊" />
+    <string id="tsg_setting_troop_describe" text="啟用部隊設定" />
+    <string id="tsg_setting_troop_list" text="部隊列表" />
+
+    <string id="tsg_setting_player_family" text="玩家家庭" />
+    <string id="tsg_setting_player_family_describe" text="啟用玩家家庭設定" />
+    <string id="tsg_setting_player_skill_level" text="玩家技能等級" />
+    <string id="tsg_setting_player_spouse" text="玩家配偶" />
+    <string id="tsg_setting_player_children_list" text="孩子列表" />
+    <string id="tsg_setting_player_children_mother" text="孩子母親" />
+
+    <string id="tsg_setting_character" text="角色" />
+    <string id="tsg_setting_number" text="數量" />
+    <string id="tsg_setting_age" text="年齡" />
+    <string id="tsg_setting_is_female" text="女性" />
+    <string id="tsg_setting_skill_level_min" text="最小技能等級" />
+    <string id="tsg_setting_skill_level_max" text="最大技能等級" />
+    <string id="tsg_complete" text ="完成"/>
+
+
+
+    <string id="tsg_event_the_second" text ="二代事件"/>
+    <string id="tsg_event_the_second_describe" text ="一個一臉疲憊衣衫襤褸的老人瘸著腿慢慢地向你走來。 他走到你跟前，仔細端詳了下你的臉。然後說他是你父親老部下，要求你給他1000塊錢，他要回家耕田。並且會告訴你一個秘密。"/>
+    <string id="tsg_event_the_second_neg" text ="趕他走"/>
+    <string id="tsg_event_the_second_aff" text ="給他錢"/>
+    <string id="tsg_event_the_second_old_faild_leave" text ="老人邊罵邊走開了"/>
+    <string id="tsg_father_heritage" text ="父輩的遺產"/>
+    <string id="tsg_father_heritage_describe" text ="老人遞給你一本目錄，上面記錄著你父親生前不為人知的遺產目錄"/>
+    <string id="tsg_father_heritage_accept" text ="接受"/>
+    <string id="tsg_father_heritage_refuse" text ="拒絕"/>
+  </strings>
+</base>

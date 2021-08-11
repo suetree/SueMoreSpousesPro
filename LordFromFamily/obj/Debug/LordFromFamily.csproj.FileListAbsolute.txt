@@ -1,0 +1,7 @@
+F:\steam\steamapps\common\Mount & Blade II Bannerlord\Modules\LordFromFamily\bin\Win64_Shipping_Client\LordFromFamily.dll
+F:\steam\steamapps\common\Mount & Blade II Bannerlord\Modules\LordFromFamily\bin\Win64_Shipping_Client\LordFromFamily.pdb
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\LordFromFamily\obj\Debug\LordFromFamily.csprojAssemblyReference.cache
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\LordFromFamily\obj\Debug\LordFromFamily.csproj.CoreCompileInputs.cache
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\LordFromFamily\obj\Debug\LordFromFamily.csproj.CopyComplete
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\LordFromFamily\obj\Debug\LordFromFamily.dll
+F:\steam\steamapps\common\Mount & Blade II Bannerlord\Modules\SueMoreSpouses\bin\Win64_Shipping_Client\LordFromFamily.dll

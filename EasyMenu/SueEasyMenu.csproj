@@ -1,0 +1,44 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Common.props', '$(MSBuildThisFileDirectory)..\'))" />
+  <!-- Main Project Properties -->
+  <PropertyGroup>
+    <ProjectGuid>{9C79A997-DCFE-4FA2-B21A-6DEA3828316F}</ProjectGuid>
+    <RootNamespace>SueEasyMenu</RootNamespace>
+    <AssemblyName>SueEasyMenu</AssemblyName>
+  </PropertyGroup>
+  <!-- Files & Classes -->
+  <ItemGroup>
+    <Compile Include="Attributes\EMGroupAttribute.cs" />
+    <Compile Include="Attributes\EMGroupItemAttribute.cs" />
+    <Compile Include="Attributes\EMSaveSettingAttribute.cs" />
+    <Compile Include="GauntletUI\ViewModels\EMOptionClassicsGroupVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\EMOptionGroupItemGroupVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\EMOptionGroupItemVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\EMOptionGroupVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\EMSelectorItemVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\EMSelectorVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\EMTestItemVM.cs" />
+    <Compile Include="GauntletUI\Widgets\EMOptionsDropdownWidget.cs" />
+    <Compile Include="Models\EMBaseOption.cs" />
+    <Compile Include="Models\EMOptionBuilder.cs" />
+    <Compile Include="Models\EMOptionGroup.cs" />
+    <Compile Include="Models\EMOptionItem.cs" />
+    <Compile Include="Models\EMOptionPair.cs" />
+    <Compile Include="Models\EMOptionType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\EMBaseGroupSetting.cs" />
+    <Compile Include="Settings\EMBaseSaveSettings.cs" />
+    <Compile Include="Settings\EMSettingFileManager.cs" />
+    <Compile Include="Settings\EMSettingSaveParams.cs" />
+    <Content Include="Readme.txt" />
+    <Content Include="Resources\GUI\Brushes\EasyMenuBrush.xml" />
+    <Content Include="Resources\GUI\Prefabs\EasyMenu\EMClassicsGroup.xml" />
+    <Content Include="Resources\GUI\Prefabs\EasyMenu\EMDropdownWithHorizontalControl.xml" />
+    <Content Include="Resources\GUI\Prefabs\EasyMenu\EMHorizontalGroup.xml" />
+    <Content Include="Resources\GUI\Prefabs\EasyMenu\EMOptionGroupItem.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+</Project>

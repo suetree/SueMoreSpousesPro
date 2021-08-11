@@ -1,0 +1,47 @@
+﻿using TaleWorlds.MountAndBlade;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using HarmonyLib;
+using TaleWorlds.Localization;
+using System;
+using SueTheGeneration.Behavior;
+using SueLordFromFamily.Behaviors;
+using SueMoreSpouses.Behaviors;
+using System.Reflection;
+
+namespace SueMoreSpouses
+{
+    public class SubModule : MBSubModuleBase
+    {
+        protected override void OnSubModuleLoad()
+        {
+            Harmony harmony = new Harmony("sue.mod.mb2.SueMoreSpouses");
+            harmony.PatchAll();
+
+          
+        }
+
+    
+
+        protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+        {
+            //InformationManager.DisplayMessage(new InformationMessage("SueBloodTies OnGameStart"));
+            bool flag = gameStarterObject.GetType() == typeof(CampaignGameStarter);
+            if (flag)
+            {
+                CampaignGameStarter gameInitializer = (CampaignGameStarter)gameStarterObject;
+       
+
+                //gameInitializer.AddBehavior(new LordFromFamilyBehavior());
+
+                //gameInitializer.LoadGameTexts(string.Format("{0}/Modules/{1}/ModuleData/sue_chat_prisoner.xml", BasePath.Name, "SueMoreSpouses"));
+                gameInitializer.AddBehavior(new SpouseFromPrisonerBehavior());
+                gameInitializer.AddBehavior(new SpousesStatsBehavior());
+                gameInitializer.AddBehavior(new SpouseClanLeaderFixBehavior());
+                gameInitializer.AddBehavior(new SpousesSneakBehavior());
+            }
+        }
+
+
+    }
+}

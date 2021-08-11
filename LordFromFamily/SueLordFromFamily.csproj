@@ -1,0 +1,52 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Common.props', '$(MSBuildThisFileDirectory)..\'))" />
+  <!-- Main Project Properties -->
+  <PropertyGroup>
+    <ProjectGuid>{9159C2AA-3DAD-4EF7-A77D-5DC460B0335D}</ProjectGuid>
+    <RootNamespace>SueLordFromFamily</RootNamespace>
+    <AssemblyName>SueLordFromFamily</AssemblyName>
+  </PropertyGroup>
+  <!-- Files & Classes -->
+  <ItemGroup>
+    <Compile Include="Actions\ClanCreateAction.cs" />
+    <Compile Include="Behaviors\LordFromFamilyBehavior.cs" />
+    <Compile Include="Dialogues\ChaneHeroClanDialogue.cs" />
+    <Compile Include="Dialogues\CreateClanDialogue.cs" />
+    <Compile Include="GauntletUI\MBVassalBannerEditorGauntletScreen.cs" />
+    <Compile Include="GauntletUI\States\NewClanBannerEditorState.cs" />
+    <Compile Include="GauntletUI\ViewModels\KindomScreenVM .cs" />
+    <Compile Include="GauntletUI\ViewModels\MemberItemVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\VassalClanVM.cs" />
+    <Compile Include="GauntletUI\ViewModels\VassalServiceVM .cs" />
+    <Compile Include="Paths\KindomScreenLayerPatc.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubModule.cs" />
+    <Content Include="Readme.txt" />
+    <Content Include="Resources\GUI\Brushes\LordFromFamilyBrush.xml" />
+    <Content Include="Resources\GUI\Prefabs\LordFromFamily\KindomScreen.xml" />
+    <Content Include="Resources\GUI\Prefabs\LordFromFamily\MemberItem.xml" />
+    <Content Include="Resources\GUI\Prefabs\LordFromFamily\VassalClan.xml" />
+    <Content Include="Resources\GUI\Prefabs\LordFromFamily\VassalService.xml" />
+    <Content Include="Resources\GUI\Prefabs\LordFromFamily\VassalsPannel.xml" />
+    <Content Include="Resources\GUI\Prefabs\LordFromFamily\VassalsPannelOld.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNs\sue_lord_from_family.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNt\sue_lord_from_family.xml" />
+    <Content Include="Resources\ModuleData\Languages\sue_lord_from_family.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GauntletUI\Widgets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyMenu\SueEasyMenu.csproj">
+      <Project>{9c79a997-dcfe-4fa2-b21a-6dea3828316f}</Project>
+      <Name>SueEasyMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MBService\SueMBService.csproj">
+      <Project>{20e93e5d-ec26-4194-b48a-9e8ca87f03c9}</Project>
+      <Name>SueMBService</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

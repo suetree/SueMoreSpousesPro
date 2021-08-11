@@ -1,0 +1,39 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Common.props', '$(MSBuildThisFileDirectory)..\'))" />
+  <!-- Main Project Properties -->
+  <PropertyGroup>
+    <ProjectGuid>{A9523583-7730-4CB6-9487-99F07B547237}</ProjectGuid>
+    <RootNamespace>SueTheGeneration</RootNamespace>
+    <AssemblyName>SueTheGeneration</AssemblyName>
+  </PropertyGroup>
+  <!-- Files & Classes -->
+  <ItemGroup>
+    <Compile Include="Actions\TheGenerationAction.cs" />
+    <Compile Include="Behaviors\TheGenerateBehavior.cs" />
+    <Compile Include="GauntletUI\State\TheGenerationState.cs" />
+    <Compile Include="GauntletUI\TheGenerationScreen.cs" />
+    <Compile Include="GauntletUI\ViewModel\TheSecondGernationVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubModule.cs" />
+    <Compile Include="TheGenerationDataSetting.cs" />
+    <Content Include="Resources\GUI\Brushes\TheSecondGenerationBrushs.xml" />
+    <Content Include="Resources\GUI\Prefabs\TheGeneration\TheGenerationDashboard.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNs\the_second_generation.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNt\the_second_generation.xml" />
+    <Content Include="Resources\ModuleData\Languages\the_second_generation.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyMenu\SueEasyMenu.csproj">
+      <Project>{9c79a997-dcfe-4fa2-b21a-6dea3828316f}</Project>
+      <Name>SueEasyMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MBService\SueMBService.csproj">
+      <Project>{20e93e5d-ec26-4194-b48a-9e8ca87f03c9}</Project>
+      <Name>SueMBService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+</Project>

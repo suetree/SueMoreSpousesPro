@@ -1,0 +1,83 @@
+﻿<Prefab>
+  <Window>
+
+    <BrushWidget  HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" >
+      <Children>
+
+        <Widget  DataSource="{ClassicsGroup}" HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" MarginTop="20">
+          <Children>
+            <ListPanel  HeightSizePolicy="StretchToParent"  WidthSizePolicy="StretchToParent" MarginLeft="5" MarginRight="5">
+                 <Children>
+                   
+                <ListPanel  DataSource="{SettingGroups}" HeightSizePolicy="CoverChildren"  WidthSizePolicy="Fixed" SuggestedWidth="350"
+                             MarginLeft="10" MarginRight="10" 
+                            LayoutImp.LayoutMethod="VerticalBottomToTop" >
+                  <ItemTemplate>
+                  <ButtonWidget   WidthSizePolicy="StretchToParent"   HeightSizePolicy="Fixed" DoNotAcceptEvents="true" SuggestedHeight="80"  Brush="EasyMenu.Item.Tuple" IsSelected="@IsSelected">
+                      <Children>
+
+                    <ListPanel WidthSizePolicy="StretchToParent"   HeightSizePolicy="StretchToParent"  MarginLeft="20" MarginRight="20">
+                      <Children>
+                            <ButtonWidget DoNotPassEventsToChildren="true"  IsVisible="@ShowEnableController"   WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="40" VerticalAlignment="Center" HorizontalAlignment="Center"
+                               Brush="SPOptions.Checkbox.Empty.Button" ButtonType="Toggle" IsSelected="@BoolValue" ToggleIndicator="ToggleIndicator" UpdateChildrenStates="true" >
+                              <Children>
+                                <ImageWidget Id="ToggleIndicator" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Center"
+                                             Brush="SPOptions.Checkbox.Full.Button"/>
+                              </Children>
+                            </ButtonWidget>
+
+                            <ButtonWidget  WidthSizePolicy="StretchToParent"  HeightSizePolicy="StretchToParent"   Command.Click="OnGroupSelected" >
+                              <Children>
+                                <TextWidget WidthSizePolicy="CoverChildren"  HeightSizePolicy="CoverChildren" Brush.FontSize="20"  DoNotAcceptEvents="true" HorizontalAlignment="Center" VerticalAlignment="Center"  Brush="Clan.LeftPanel.Header.Text" Text="@Name"  />
+                              </Children>
+                            </ButtonWidget>
+                        </Children>
+                      </ListPanel>
+                      </Children>
+                  </ButtonWidget>
+                      
+                  
+                </ItemTemplate>
+                </ListPanel>
+
+
+                <ListPanel HeightSizePolicy="CoverChildren" WidthSizePolicy="StretchToParent" IsVisible="@EnableGroup" >
+                  <Children>
+
+                    <ScrollablePanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginLeft="3" MarginBottom="3" AutoHideScrollBars="true" ClipRect="ClanListClipRect" InnerPanel="ClanListClipRect\ClanList" VerticalScrollbar="..\ClansListScrollbar\Scrollbar">
+                      <Children>
+                        <Widget Id="ClanListClipRect" WidthSizePolicy="StretchToParent"   SuggestedHeight="800" ClipContents="true">
+                          <Children>
+
+                            <ListPanel  Id="ClanList" DataSource="{OptionItems}"   LayoutImp.LayoutMethod="VerticalBottomToTop" HeightSizePolicy="CoverChildren" WidthSizePolicy="Fixed"  SuggestedWidth="500"
+                                        HorizontalAlignment="Center" >
+                              <ItemTemplate>
+                                <EMOptionGroupItem />
+                              </ItemTemplate>
+                            </ListPanel>
+
+                          </Children>
+                        </Widget>
+
+                      </Children>
+                    </ScrollablePanel>
+                    <Standard.VerticalScrollbar  IsVisible="false" Id="ClansListScrollbar" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" MarginRight="2" MarginLeft="2" MarginBottom="3" />
+
+                  </Children>
+                </ListPanel>
+
+              </Children>
+            </ListPanel>
+
+          </Children>
+
+        </Widget>
+
+
+
+      </Children>
+      
+    </BrushWidget>
+
+  </Window>
+</Prefab>

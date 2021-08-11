@@ -1,0 +1,30 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Common.props', '$(MSBuildThisFileDirectory)..\'))" />
+  <!-- Main Project Properties -->
+  <PropertyGroup>
+    <ProjectGuid>{20E93E5D-EC26-4194-B48A-9E8CA87F03C9}</ProjectGuid>
+    <RootNamespace>SueMBService</RootNamespace>
+    <AssemblyName>SueMBService</AssemblyName>
+  </PropertyGroup>
+  <!-- Files & Classes -->
+  <ItemGroup>
+    <Compile Include="API\CharacterCreateService.cs" />
+    <Compile Include="API\ClanLordService.cs" />
+    <Compile Include="API\OccuptionService.cs" />
+    <Compile Include="API\SpouseService.cs" />
+    <Compile Include="Dialogue\AbsCreateDialogue.cs" />
+    <Compile Include="Dialogue\DialogueCreator.cs" />
+    <Compile Include="Events\ISueEvent.cs" />
+    <Compile Include="Events\SueBaseEvent.cs" />
+    <Compile Include="Events\SueEventManager.cs" />
+    <Compile Include="Events\SueEventStep.cs" />
+    <Compile Include="Paths\CampaignEventsPath.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubModule.cs" />
+    <Compile Include="Utils\RandomUtils.cs" />
+    <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+F:\steam\steamapps\common\Mount & Blade II Bannerlord\Modules\SueMoreSpouses\bin\Win64_Shipping_Client\SueEasyMenu.dll
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\EasyMenu\obj\Debug\SueEasyMenu.csprojAssemblyReference.cache
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\EasyMenu\obj\Debug\SueEasyMenu.csproj.CoreCompileInputs.cache
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\EasyMenu\obj\Debug\SueEasyMenu.csproj.CopyComplete
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\EasyMenu\obj\Debug\SueEasyMenu.dll
+F:\steam\steamapps\common\Mount & Blade II Bannerlord\Modules\SueMoreSpouses\bin\Win64_Shipping_Client\SueEasyMenu.pdb
+D:\work\net\SueMoreSpousesPro\SueMoreSpousesPro\EasyMenu\obj\Debug\SueEasyMenu.pdb

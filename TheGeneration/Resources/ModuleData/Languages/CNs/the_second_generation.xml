@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+  <tags>
+    <tag language="简体中文" />
+  </tags>
+  <strings>
+   <string id="tsg_setting_clan" text="家族" />
+   <string id="tsg_setting_clan_describe" text="启用家族设定" />
+   <string id="tsg_setting_kindom_creation" text="创建王国" />
+   <string id="tsg_setting_kindom_cultrue" text="王国文化" />
+   <string id="tsg_setting_fielf" text="封地" />
+   <string id="tsg_setting_clan_tier" text="家族等级" />
+   <string id="tsg_setting_clan_renown" text="家族声望" />
+   <string id="tsg_setting_clan_influence" text="家族影响力" />
+   <string id="tsg_setting_gold" text="金钱(单位:万)" />
+   <string id="tsg_setting_meat" text="肉" />
+
+  <string id="tsg_setting_companion" text="同伴" />
+  <string id="tsg_setting_companion_describe" text="启用同伴设定" />
+  <string id="tsg_setting_companion_couple_max_num" text="最大夫妻数量" />
+  <string id="tsg_setting_companion_couple_has_children_probility" text="夫妻有孩子概率(十分之)" />
+  <string id="tsg_setting_companion_tier" text="同伴来源士兵等级" />
+  <string id="tsg_setting_companion_skill_level" text="同伴技能等级" />
+  <string id="tsg_setting_companion_perk_auto" text="专精自动点" />
+
+  <string id="tsg_setting_troop" text="部队" />
+  <string id="tsg_setting_troop_describe" text="启用部队设定" />
+  <string id="tsg_setting_troop_list" text="部队列表" />
+
+  <string id="tsg_setting_player_family" text="玩家家庭" />
+  <string id="tsg_setting_player_family_describe" text="启用玩家家庭设定" />
+  <string id="tsg_setting_player_skill_level" text="玩家技能等级" />
+  <string id="tsg_setting_player_spouse" text="玩家配偶" />
+  <string id="tsg_setting_player_children_list" text="孩子列表" />
+  <string id="tsg_setting_player_children_mother" text="孩子母亲" />
+
+  <string id="tsg_setting_character" text="角色" />
+  <string id="tsg_setting_number" text="数量" />
+  <string id="tsg_setting_age" text="年龄" />
+  <string id="tsg_setting_is_female" text="女性" />
+  <string id="tsg_setting_skill_level_min" text="最小技能等级" />
+  <string id="tsg_setting_skill_level_max" text="最大技能等级" />
+    <string id="tsg_complete" text ="完成"/>
+
+
+
+  <string id="tsg_event_the_second" text ="二代事件"/>
+  <string id="tsg_event_the_second_describe" text ="一个一脸疲惫衣衫褴褛的老人瘸着腿慢慢地向你走来。 他走到你跟前，仔细端详了下你的脸。然后说他是你父亲老部下，要求你给他1000块钱，他要回家耕田。并且会告诉你一个秘密。"/>
+  <string id="tsg_event_the_second_neg" text ="赶他走"/>
+  <string id="tsg_event_the_second_aff" text ="给他钱"/>
+  <string id="tsg_event_the_second_old_faild_leave" text ="老人边骂边走开了"/>
+  <string id="tsg_father_heritage" text ="父辈的遗产"/>
+  <string id="tsg_father_heritage_describe" text ="老人递给你一本目录，上面记录着你父亲生前不为人知的遗产目录"/>
+  <string id="tsg_father_heritage_accept" text ="接受"/>
+  <string id="tsg_father_heritage_refuse" text ="拒绝"/>
+</strings>
+</base>
