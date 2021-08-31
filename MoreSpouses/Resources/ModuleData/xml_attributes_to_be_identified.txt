@@ -1,0 +1,1 @@
+SueMoreSpouses/ModuleData/sue_more_spoues.xml: strings.string.text

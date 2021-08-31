@@ -18,6 +18,9 @@
 
                     <ListPanel WidthSizePolicy="StretchToParent"   HeightSizePolicy="StretchToParent"  MarginLeft="20" MarginRight="20">
                       <Children>
+                        <Widget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" VerticalAlignment="Center" HorizontalAlignment="Right"
+                             UpdateChildrenStates="true" >
+                          <Children>
                             <ButtonWidget DoNotPassEventsToChildren="true"  IsVisible="@ShowEnableController"   WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="40" SuggestedHeight="40" VerticalAlignment="Center" HorizontalAlignment="Center"
                                Brush="SPOptions.Checkbox.Empty.Button" ButtonType="Toggle" IsSelected="@BoolValue" ToggleIndicator="ToggleIndicator" UpdateChildrenStates="true" >
                               <Children>
@@ -25,6 +28,8 @@
                                              Brush="SPOptions.Checkbox.Full.Button"/>
                               </Children>
                             </ButtonWidget>
+                          </Children>
+                        </Widget>
 
                             <ButtonWidget  WidthSizePolicy="StretchToParent"  HeightSizePolicy="StretchToParent"   Command.Click="OnGroupSelected" >
                               <Children>

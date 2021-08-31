@@ -102,8 +102,9 @@ namespace SueMoreSpouses.Behaviors
 			bool flag8 = MobileParty.MainParty != null && MobileParty.MainParty.Party != null && MobileParty.MainParty.Party.Owner != null && MobileParty.MainParty.Party.Owner != Hero.MainHero;
 			if (flag8)
 			{
-				MobileParty.MainParty.Party.SetCustomOwner(Hero.MainHero);
-			}
+                //MobileParty.MainParty.Party.SetCustomOwner(Hero.MainHero);
+                MobileParty.MainParty.Party.SetCustomOwner (Hero.MainHero);
+            }
 		}
 	}
 }

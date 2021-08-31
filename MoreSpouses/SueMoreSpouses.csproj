@@ -115,6 +115,8 @@
     <Content Include="Resources\ModuleData\Languages\CNt\sue_more_spoues-CNt.xml" />
     <Content Include="Resources\ModuleData\Languages\sue_more_spoues-EN.xml" />
     <Content Include="Resources\ModuleData\Languages\TR\sue_more_spoues-TR.xml" />
+    <Content Include="Resources\ModuleData\sue_more_spoues.xml" />
+    <Content Include="Resources\ModuleData\xml_attributes_to_be_identified.txt" />
     <Content Include="Resources\SceneObj\sms_prison\atmosphere.xml" />
     <Content Include="Resources\SceneObj\sms_prison\references.txt" />
     <Content Include="Resources\SubModule.xml" />

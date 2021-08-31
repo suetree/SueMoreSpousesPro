@@ -19,20 +19,20 @@ namespace SueMoreSpouses.Patch
 		{
 			private static void Prefix(Hero hero)
 			{
-				bool flag = AgingCampaignBehaviorPatch.AgingCampaignBehaviorDailyTickPatch.IsInScope(hero);
-				if (flag)
-				{
+				
 					ChildrenFastGrowthSetting setting = MoreSpouseSetting.GetInstance().ChildrenFastGrowthSetting;
                     if (setting.Enable)
                     {
-						bool flag2 = hero.Age < (float)setting.ChildrenFastGrowtStopGrowUpAge ;
-						if (flag2)
-						{
-							ChildrenGrowthOperation.FastGrowth(hero);
-						}
+                        bool flag = AgingCampaignBehaviorPatch.AgingCampaignBehaviorDailyTickPatch.IsInScope(hero);
+                        if (flag)
+                        {
+                            bool flag2 = hero.Age < (float)setting.ChildrenFastGrowtStopGrowUpAge;
+                            if ( flag2)
+                            {
+                                ChildrenGrowthOperation.FastGrowth(hero);
+                            }
+                        }
 					}
-				
-				}
 			}
 
 			private static bool IsInScope(Hero hero)
@@ -43,41 +43,48 @@ namespace SueMoreSpouses.Patch
 				if (flag)
 				{
 					EMOptionPair childrenFastGrowUpScope = setting.ChildrenFastGrowUpScope;
-					switch (childrenFastGrowUpScope.Value)
-					{
-					case 0:
-					{
-						bool flag2 = hero == Hero.MainHero || Hero.MainHero.Children.Contains(hero) || (Hero.MainHero.Father != null && Hero.MainHero.Father.Children.Contains(hero));
-						if (flag2)
-						{
-							result = true;
-						}
-						break;
-					}
-					case 1:
-					{
-						bool flag3 = hero.Clan != null && hero.Clan == Hero.MainHero.Clan;
-						if (flag3)
-						{
-							result = true;
-						}
-						break;
-					}
-					case 2:
-					{
-						Kingdom kingdom = Hero.MainHero.MapFaction as Kingdom;
-						Kingdom kingdom2 = hero.MapFaction as Kingdom;
-						bool flag4 = kingdom != null && kingdom2 != null && kingdom == kingdom2;
-						if (flag4)
-						{
-							result = true;
-						}
-						break;
-					}
-					case 3:
-						result = true;
-						break;
-					}
+                    if (null != childrenFastGrowUpScope.Value)
+                    {
+                        int val = Convert.ToInt32(childrenFastGrowUpScope.Value) ;
+                        switch (val)
+                        {
+                            case 0:
+
+                                bool flag2 = hero == Hero.MainHero || Hero.MainHero.Children.Contains(hero) || (Hero.MainHero.Father != null && Hero.MainHero.Father.Children.Contains(hero));
+                                if (flag2)
+                                {
+                                    result = true;
+                                }
+                                break;
+
+                            case 1:
+
+                                bool flag3 = hero.Clan != null && hero.Clan == Hero.MainHero.Clan;
+                                if (flag3)
+                                {
+                                    result = true;
+                                }
+                                break;
+
+                            case 2:
+
+                                Kingdom kingdom = Hero.MainHero.MapFaction as Kingdom;
+                                Kingdom kingdom2 = hero.MapFaction as Kingdom;
+                                bool flag4 = kingdom != null && kingdom2 != null && kingdom == kingdom2;
+                                if (flag4)
+                                {
+                                    result = true;
+                                }
+                                break;
+
+                            case 3:
+                                result = true;
+                                break;
+                        }
+                    }
+                  
+
+                    
 				}
 				return result;
 			}
