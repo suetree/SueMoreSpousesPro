@@ -80,17 +80,18 @@ namespace SueMBService.API
 		public static void SetHeroCoupleAndChildren(List<Hero> list, int maxNumber , float childrenProbability)
         {
 			List<Hero> list2 = new List<Hero>();
-			List<Hero> list3 = new List<Hero>();
-			while (list.Count > 1 && list3.Count < maxNumber)
+			List<Hero> spouseList = new List<Hero>();
+			while (list.Count > 1 && spouseList.Count < maxNumber)
 			{
 				Hero randomElement = list.GetRandomElement<Hero>();
 				list.Remove(randomElement);
 				list2.Add(randomElement);
 				Hero randomElement2 = list.GetRandomElement<Hero>();
 				randomElement.Spouse = randomElement2;
+     
 				list.Remove(randomElement2);
 				list2.Add(randomElement2);
-				list3.Add(randomElement2);
+				spouseList.Add(randomElement2);
 			}
 			float num = childrenProbability;
 			bool flag6 = num > 0f;
@@ -101,7 +102,7 @@ namespace SueMBService.API
 				{
 					num /= 10f;
 				}
-				list3.ForEach(delegate (Hero obj)
+				spouseList.ForEach(delegate (Hero obj)
 				{
 					bool flag9 = MBRandom.RandomFloat <= childrenProbability;
 					bool flag10 = flag9;

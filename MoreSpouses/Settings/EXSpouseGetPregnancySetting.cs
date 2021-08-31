@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SueMoreSpouses.Settings
 {
-    [EMGroup("{=suems_setting_group_exspouse_pregnancy} EX-Spouse Get Pregnancy", "{=suems_setting_exspouse_pregnancy_enable}", true)]
+    [EMGroup("{=suems_setting_group_exspouse_pregnancy} EX-Spouse Get Pregnancy", "{=suems_setting_exspouse_pregnancy_enable}", false)]
     public class EXSpouseGetPregnancySetting : EMBaseGroupSetting
     {
 

@@ -147,11 +147,11 @@ namespace SueMoreSpouses
 				{
 					Hero randomElement = list.GetRandomElement<Hero>();
 					ChangeClanLeaderAction.ApplyWithSelectedNewLeader(clan, randomElement);
-					TextObject textObject = new TextObject("{=sue_more_spouses_clan_leave}");  
-					StringHelpers.SetCharacterProperties("SUE_HERO", hero.CharacterObject, textObject);
+                    TextObject textObject = GameTexts.FindText("sue_more_spouses_clan_leave", null);
+                    StringHelpers.SetCharacterProperties("SUE_HERO", hero.CharacterObject, textObject);
 					InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
-					textObject = new TextObject("{=sue_more_spouses_clan_change}"); 
-					StringHelpers.SetCharacterProperties("SUE_HERO", randomElement.CharacterObject, textObject);
+                    textObject = GameTexts.FindText("sue_more_spouses_clan_change", null);
+                    StringHelpers.SetCharacterProperties("SUE_HERO", randomElement.CharacterObject, textObject);
 					InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
 				}
 				else
@@ -206,8 +206,8 @@ namespace SueMoreSpouses
 					IEnumerable<Clan> source = list.OrderByDescending((item) => item.Renown);
 					Clan clan2 = source.First<Clan>();
 					clan.Kingdom.RulingClan = clan2;
-					TextObject textObject = new TextObject("{=sue_more_spouses_kindom_leader_change}"); 
-					StringHelpers.SetCharacterProperties("SUE_HERO", clan2.Leader.CharacterObject, textObject);
+                    TextObject textObject = GameTexts.FindText("sue_more_spouses_kindom_leader_change", null);
+                    StringHelpers.SetCharacterProperties("SUE_HERO", clan2.Leader.CharacterObject, textObject);
 					InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
 				}
 				else
@@ -260,8 +260,8 @@ namespace SueMoreSpouses
 					Hero.MainHero.PartyBelongedTo.MemberRoster.AddToCounts(hero.CharacterObject, 1, false, 0, 0, true, -1);
 				}
 				SpouseOperation.RemoveRepeatExspouses(Hero.MainHero, Hero.MainHero.Spouse);
-				TextObject textObject = new TextObject("{=sue_more_spouses_marry_target}");
-				StringHelpers.SetCharacterProperties("SUE_HERO", hero.CharacterObject, textObject);
+                TextObject textObject = GameTexts.FindText("sue_more_spouses_marry_target", null);
+                StringHelpers.SetCharacterProperties("SUE_HERO", hero.CharacterObject, textObject);
 				InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
 				bool flag7 = spouse != null;
 				if (flag7)

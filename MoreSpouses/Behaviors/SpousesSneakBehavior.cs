@@ -92,8 +92,9 @@ namespace SueMoreSpouses.Behaviors
 							MobileParty.MainParty.MemberRoster.AddToCounts(current.Character, current.Number, false, 0, 0, true, -1);
 						}
 					}
-					MobileParty.MainParty.Party.SetCustomOwner(Hero.MainHero);
-					bool flag2 = mapEvent.WinningSide == mapEvent.PlayerSide;
+                    //MobileParty.MainParty.Party.SetCustomOwner(Hero.MainHero);
+                    MobileParty.MainParty.Party.SetCustomOwner (Hero.MainHero);
+                    bool flag2 = mapEvent.WinningSide == mapEvent.PlayerSide;
 					if (flag2)
 					{
 						this.AlertCoefficientIncrease();
@@ -370,7 +371,7 @@ namespace SueMoreSpouses.Behaviors
 			string scene = LocationComplex.Current.GetLocationWithId("prison").GetSceneName(upgradeLevel);
 			scene = "sms_prison";
 			this._tempTargetParty = MBObjectManager.Instance.CreateObject<MobileParty>("sms_prison");
-			this._tempTargetParty.Party.SetCustomOwner(Settlement.CurrentSettlement.OwnerClan.Leader) ;
+			this._tempTargetParty.Party.SetCustomOwner  (Settlement.CurrentSettlement.OwnerClan.Leader) ;
 			this.AddRandomTroopToParty(this._tempTargetParty);
 			MobileParty arg_C3_0 = this._tempTargetParty;
 			TextObject expr_A7 = Settlement.CurrentSettlement.Name;

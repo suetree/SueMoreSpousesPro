@@ -42,7 +42,7 @@ namespace SueMoreSpouses.Operation
 							bool flag7 = child == Hero.MainHero || Hero.MainHero.Children.Contains(child) || (Hero.MainHero.Father != null && Hero.MainHero.Father.Children.Contains(child));
 							if (flag7)
 							{
-								TextObject textObject = GameTexts.FindText("suems_children_grow_up_to_hero_age", null);
+                                TextObject textObject = GameTexts.FindText("suems_children_grow_up_to_hero_age");
 								StringHelpers.SetCharacterProperties("SUE_HERO", child.CharacterObject, textObject);
 								InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
 							}

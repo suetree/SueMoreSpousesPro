@@ -63,5 +63,7 @@ namespace SueMoreSpouses.Settings
                 ChildrenFastGrowUpScope = list.First();
             }
         }
+
+     
     }
 }

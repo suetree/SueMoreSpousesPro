@@ -15,7 +15,7 @@ namespace SueLordFromFamily
             harmony.PatchAll();
         }
 
-        protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+        protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
 
             if (gameStarterObject.GetType() == typeof(CampaignGameStarter))

@@ -180,7 +180,9 @@ namespace SueTheGeneration
 			{
 				List<EMOptionPair> list = new List<EMOptionPair>();
 				IEnumerable<CharacterObject> heros = CharacterObject.All.Where(
-					obj => obj.IsHero && CharacterObject.PlayerCharacter != obj && (obj.Occupation == Occupation.Lord || obj.Occupation == Occupation.Wanderer));
+					obj => obj.IsHero
+                    && obj.Age < 45 && obj.IsFemale && obj.HeroObject.IsActive
+                    &&  obj.IsHero && CharacterObject.PlayerCharacter != obj && (obj.Occupation == Occupation.Lord || obj.Occupation == Occupation.Wanderer));
 				foreach (CharacterObject current in heros)
 				{
 					list.Add(new EMOptionPair(current, current.Name.ToString()));

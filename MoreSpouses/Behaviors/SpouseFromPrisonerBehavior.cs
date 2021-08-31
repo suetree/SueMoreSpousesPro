@@ -68,7 +68,7 @@ namespace SueMoreSpouses.Behaviors
             }), 100, null, null);
             starter.AddRepeatablePlayerLine("sms_tavernmaid_ask_what_result", "sms_tavernmaid_ask_what", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);
             starter.AddDialogLine("sms_tavernmaid_accept_result", "sms_tavernmaid_accept_result", "sue_more_spouses_companion_become_spouse_accept", "{=sms_tavernmaid_accept_result}Thank you very much for the beginning of my wonderful life", null, null, 100, null);
-            starter.AddPlayerLine("conversation_prisoner_chat_player", "prisoner_recruit_start_player_sue", "sue_more_spouses_prisoner_punish_start", "{=sue_more_spouses_prisoner_punish_start}I will punish you", this.Condition(new SpouseFromPrisonerBehavior.ConditionDelegate(this.IsPrisioner)), null, 100, null, null);
+            starter.AddPlayerLine("conversation_prisoner_chat_player", "prisoner_recruit_start_player", "sue_more_spouses_prisoner_punish_start", "{=sue_more_spouses_prisoner_punish_start}I will punish you", this.Condition(new SpouseFromPrisonerBehavior.ConditionDelegate(this.IsPrisioner)), null, 100, null, null);
             starter.AddDialogLine("sue_more_spouses_prisoner_beg_for_mercy", "sue_more_spouses_prisoner_punish_start", "sue_more_spouses_prisoner_beg_for_mercy", "{=sue_more_spouses_prisoner_beg_for_mercy}Forgive me, my Lord, for my sins", null, null, 100, null);
             starter.AddPlayerLine("sue_more_spouses_prisoner_punish_lord_become_spouse", "sue_more_spouses_prisoner_beg_for_mercy", "sue_more_spouses_prisoner_punish_result", "{=sue_more_spouses_prisoner_punish_lord_become_spouse}Give up everything you have to be my spouse", this.Condition(new SpouseFromPrisonerBehavior.ConditionDelegate(this.IsLord)), this.Result(delegate
             {
@@ -82,15 +82,16 @@ namespace SueMoreSpouses.Behaviors
             starter.AddDialogLine("sue_more_spouses_prisoner_punish_result", "sue_more_spouses_prisoner_punish_result", "sue_more_spouses_companion_become_spouse_accept", "{=sue_more_spouses_prisoner_punish_accept}Thank you for your forgiveness", null, null, 100, null);
 
             ///官方已经关闭了。俘虏招募，这里自己加上俘虏对话
-            starter.AddDialogLine("conversation_prisoner_chat_start", "start", "prisoner_recruit_start_player_sue", "{=k7ebznzr}Yes?", new ConversationSentence.OnConditionDelegate(this.conversation_prisoner_chat_start_on_condition), null, 100, null);
-            starter.AddRepeatablePlayerLine("sue_more_spouses_prisoner_punish_cancel", "prisoner_recruit_start_player_sue", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);
+            starter.AddDialogLine("conversation_prisoner_chat_start", "start", "prisoner_recruit_start_player", "{=k7ebznzr}Yes?", new ConversationSentence.OnConditionDelegate(this.conversation_prisoner_chat_start_on_condition), null, 100, null);
+            starter.AddRepeatablePlayerLine("sue_more_spouses_prisoner_punish_cancel", "prisoner_recruit_start_player", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);
 
         }
 
         private bool conversation_prisoner_chat_start_on_condition()
         {
             bool flag = (CharacterObject.OneToOneConversationCharacter.IsHero && (Hero.OneToOneConversationHero.PartyBelongedTo == null || !Hero.OneToOneConversationHero.PartyBelongedTo.IsActive)) || (CharacterObject.OneToOneConversationCharacter.Occupation != Occupation.PrisonGuard && CharacterObject.OneToOneConversationCharacter.Occupation != Occupation.Guard && CharacterObject.OneToOneConversationCharacter.Occupation != Occupation.CaravanGuard && MobileParty.ConversationParty != null && MobileParty.ConversationParty.IsMainParty);
-            return MobileParty.MainParty.PrisonRoster.Contains(CharacterObject.OneToOneConversationCharacter) & flag;
+            bool b = MobileParty.MainParty.PrisonRoster.Contains(CharacterObject.OneToOneConversationCharacter) & flag;
+            return b;
         }
 
         public void changeSpousePrisonerStatusToActive()

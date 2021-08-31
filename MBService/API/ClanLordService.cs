@@ -87,9 +87,9 @@ namespace SueMBService.API
                     IEnumerable<Clan> sortedStudents = from item in oteherClans orderby item.Renown descending select item;
                     Clan targetClan = sortedStudents.First();
                     clan.Kingdom.RulingClan = targetClan;
-                   // TextObject textObject = GameTexts.FindText("sue_more_spouses_kindom_leader_change", null);
-                  //  StringHelpers.SetCharacterProperties("SUE_HERO", targetClan.Leader.CharacterObject, null, textObject);
-                   // InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
+                    TextObject textObject = GameTexts.FindText("sue_more_spouses_kindom_leader_change", null);
+                    StringHelpers.SetCharacterProperties("SUE_HERO", targetClan.Leader.CharacterObject,  textObject);
+                    InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
                 }
                 else
                 {
