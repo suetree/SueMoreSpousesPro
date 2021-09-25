@@ -62,8 +62,8 @@ namespace SueLordFromFamily.Actions
 							oneToOneConversationHero.SyncLastSeenInformation();
 						}
 						ClanLordService.DealApplyByFire(oneToOneConversationHero);
-						OccuptionService.ChangeToLord(oneToOneConversationHero.CharacterObject);
-						oneToOneConversationHero.ChangeState(Hero.CharacterStates.Active);
+                        OccuptionService.ChangeOccupation0fHero(oneToOneConversationHero, Occupation.Lord);
+                        oneToOneConversationHero.ChangeState(Hero.CharacterStates.Active);
 						//Clan clan = MBObjectManager.Instance.CreateObject<Clan>("sue_clan_" + str);
 						Clan clan = Clan.CreateClan("sue_clan_" + str);
 						Banner banner = Banner.CreateRandomClanBanner(-1);
@@ -124,8 +124,8 @@ namespace SueLordFromFamily.Actions
 							ClanLordService.DealApplyByFire( this.targetSpouse);
 							this.targetSpouse.ChangeState(Hero.CharacterStates.Active);
 							this.targetSpouse.IsNoble = true;
-							OccuptionService.ChangeToLord(this.targetSpouse.CharacterObject);
-							this.targetSpouse.CompanionOf = null;
+                            OccuptionService.ChangeOccupation0fHero(this.targetSpouse, Occupation.Lord);
+                            this.targetSpouse.CompanionOf = null;
 							this.targetSpouse.Clan = clan;
 							//this.targetSpouse.SetTraitLevel(DefaultTraits.Commander, 1);
 							MobileParty mobileParty2 = clan.CreateNewMobileParty(this.targetSpouse);

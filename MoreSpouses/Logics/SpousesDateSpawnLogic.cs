@@ -101,7 +101,7 @@ namespace SueMoreSpouses.Logics
 				invalid = new WorldFrame(gameEntity.GetGlobalFrame().rotation, new WorldPosition(gameEntity.Scene, gameEntity.GetGlobalFrame().origin));
 				SimpleAgentOrigin troopOrigin = new SimpleAgentOrigin(current.CharacterObject, -1, null, default(UniqueTroopDescriptor));
 				bool spawnWithHorse = true;
-				Agent agent = Mission.Current.SpawnTroop(troopOrigin, true, false, spawnWithHorse, false, false, 0, 0, true, false, false, null, new MatrixFrame?(invalid.ToGroundMatrixFrame()));
+				Agent agent = Mission.Current.SpawnTroop(troopOrigin, true, false, spawnWithHorse, false, false, 0, 0, true, false, false, null, new Vec2?(invalid.ToGroundMatrixFrame().rotation.f.AsVec2));
 				agent.UpdateSpawnEquipmentAndRefreshVisuals(current.CivilianEquipment);
 				bool flag = !agent.IsMainAgent;
 				if (flag)

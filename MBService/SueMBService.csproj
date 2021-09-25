@@ -22,6 +22,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Utils\RandomUtils.cs" />
+    <Compile Include="Utils\ReflectUtils.cs" />
     <Content Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>

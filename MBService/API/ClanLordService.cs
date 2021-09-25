@@ -106,7 +106,7 @@ namespace SueMBService.API
             if (flag)
             {
                 DealApplyByFire( hero);
-                OccuptionService.ChangeToLord(hero.CharacterObject);
+                OccuptionService.ChangeOccupation0fHero(hero, Occupation.Lord);
                 hero.Clan = clan;
                 hero.CompanionOf = null;
                 hero.ChangeState(Hero.CharacterStates.Active);

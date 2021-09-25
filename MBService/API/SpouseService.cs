@@ -17,7 +17,7 @@ namespace SueMBService.API
         {
             hero.CompanionOf = null;
             ClanLordService.DealLordForClan(hero);
-            OccuptionService.ChangeOccupationToLord(hero.CharacterObject);
+            OccuptionService.ChangeOccupation0fHero(hero, Occupation.Lord);
             MarryHero(hero);
             hero.IsNoble = true;
             RefreshClanPanelList(hero);

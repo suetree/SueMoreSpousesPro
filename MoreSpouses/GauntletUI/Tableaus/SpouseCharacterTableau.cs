@@ -510,7 +510,7 @@ namespace SueMoreSpouses.GauntletUI.Tableaus
                 if (flag4)
                 {
                     _agentVisuals = AgentVisuals.Create(new AgentVisualsData().Banner(_banner).Equipment(_equipment).BodyProperties(_bodyProperties).Frame(_frame).UseMorphAnims(true).ActionSet(MBGlobals.HumanWarriorActionSet).ActionCode(act_inventory_idle_start).Scene(_tableauScene).Monster(Game.Current.HumanMonster).PrepareImmediately(true).SkeletonType(_isFemale ? SkeletonType.Female : SkeletonType.Male).ClothColor1(_clothColor1).ClothColor2(_clothColor2), "CharacterTableaue", true, false);
-                    _agentVisuals.SetAgentLodLevelExternal(0f);
+                    //_agentVisuals.SetAgentLodLevelExternal(0f);
                 }
                 _initialized = true;
             }
