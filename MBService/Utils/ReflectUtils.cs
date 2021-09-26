@@ -1,9 +1,9 @@
 using System;
 using System.Reflection;
 
-namespace SueMoreSpouses.Utils
+namespace SueMBService.Utils
 {
-	internal class ReflectUtils
+	public class ReflectUtils
 	{
 		public static BindingFlags GetBindingFlags()
 		{
@@ -22,7 +22,17 @@ namespace SueMoreSpouses.Utils
 			return result;
 		}
 
-		public static object ReflectPropertyAndSetValue(string key, object value, object instance)
+        public static void  ReflectFieldAndSetValue(string key, object value, object instance)
+        {
+            FieldInfo field = instance.GetType().GetField(key, ReflectUtils.GetBindingFlags());
+            bool flag = null != field;
+            if (flag)
+            {
+                field.SetValue(instance, value);
+            }
+        }
+
+        public static object ReflectPropertyAndSetValue(string key, object value, object instance)
 		{
 			object result = null;
 			PropertyInfo property = instance.GetType().GetProperty(key, ReflectUtils.GetBindingFlags());

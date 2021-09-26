@@ -71,7 +71,7 @@ namespace SueMBService.API
 					}
 				}
 
-				OccuptionService.ChangeToWanderer(hero.CharacterObject);
+				OccuptionService.ChangeOccupation0fHero(hero, Occupation.Wanderer);
 				list.Add(hero);
 			}
 			return list;

@@ -1,5 +1,6 @@
 using HarmonyLib;
 using SueEasyMenu.Models;
+using SueMBService.Utils;
 using SueMoreSpouses.Operation;
 using SueMoreSpouses.Settings;
 using SueMoreSpouses.Utils;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SueMBService.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -12,89 +13,43 @@ namespace SueMBService.API
     public class OccuptionService
     {
 
-        public static void ChangeToLord(CharacterObject characterObject)
+        public static void ChangeOccupation0fHero(Hero hero, Occupation occupation)
         {
+            if (hero.Occupation == occupation) return;
+            ReflectUtils.ReflectPropertyAndSetValue("Occupation", occupation, hero);
 
-            ChangeOccupation(characterObject, Hero.MainHero.CharacterObject);
-        }
-
-        public static void ChangeToWanderer(CharacterObject target)
-        {
-            if (target.Occupation == Occupation.Wanderer) return;
-
-            FieldInfo fieldInfo = target.GetType().GetField("_originCharacter", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-            PropertyInfo propertyInfo = typeof(CharacterObject).GetProperty("Occupation");
-            if (null != propertyInfo && null != propertyInfo.DeclaringType)
+            if (Occupation.Lord == occupation)
             {
-                propertyInfo = propertyInfo.DeclaringType.GetProperty("Occupation");
-                if (null != propertyInfo)
-                {
-                    propertyInfo.SetValue(target, Occupation.Wanderer, null);
-                }
-            }
-            List<CharacterObject> list = CharacterObject.Templates.Where(obj => obj.Occupation == Occupation.Wanderer).ToList();
-            CharacterObject wanderer = list.OrderBy(_ => Guid.NewGuid()).First();
-            if (null != fieldInfo)
-            {
-                fieldInfo.SetValue(target, wanderer);
+                hero.IsNoble = true;
             }
             else
             {
-                FieldInfo fieldInfoId = target.GetType().GetField("_originCharacterStringId", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-                if (null != fieldInfoId)
-                {
-
-                    fieldInfoId.SetValue(target, wanderer.StringId);
-                }
+                hero.IsNoble = false;
             }
+        } 
+     
 
-            target.HeroObject.IsNoble = false;
-        }
-
-        public static void ChangeOccupationToLord(CharacterObject target)
+        /**
+         * 修改 Character  职业，要修改两个字段 _originCharacter 和 _originCharacterStringId；
+         * Character  职业是从xml 模板里面读取，所以这里修改逻辑就是修改角色的绑定原始模板
+         * 
+         */
+        public static void ChangeOccupation0fCharacter(CharacterObject target, Occupation occupation)
         {
-            if (target.Occupation == Occupation.Lord) return;
-
-            FieldInfo fieldInfo = target.GetType().GetField("_originCharacter", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-            PropertyInfo propertyInfo = typeof(CharacterObject).GetProperty("Occupation");
-            if (null != propertyInfo && null != propertyInfo.DeclaringType)
+            if (target.Occupation == occupation) return;
+            List<CharacterObject> list = CharacterObject.Templates.Where(obj => obj.Occupation == occupation ).ToList();
+            if (list.Count > 0)
             {
-                propertyInfo = propertyInfo.DeclaringType.GetProperty("Occupation");
-                if (null != propertyInfo)
-                {
-                    propertyInfo.SetValue(target, Occupation.Lord, null);
-                }
-            }
-            if (null != fieldInfo)
-            {
-                fieldInfo.SetValue(target, CharacterObject.PlayerCharacter);
-            }
-            else
-            {
-                FieldInfo fieldInfoId = target.GetType().GetField("_originCharacterStringId", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-                if (null != fieldInfoId)
-                {
-                    fieldInfoId.SetValue(target, CharacterObject.PlayerCharacter.StringId);
-                }
+                CharacterObject source = list.OrderBy(_ => Guid.NewGuid()).First();
+                CopyOccupation(target, source);
             }
         }
 
-        private static void ChangeOccupation(CharacterObject target, CharacterObject origin)
+        private static void CopyOccupation(CharacterObject target, CharacterObject source)
         {
-            if (target.Occupation == origin.Occupation) return;
-            FieldInfo fieldInfo = target.GetType().GetField("_originCharacter", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-            CharacterObject originalCharacterObject = (CharacterObject)fieldInfo.GetValue(target);
-            PropertyInfo propertyInfo = typeof(CharacterObject).GetProperty("Occupation");
-            if (null != propertyInfo && null != propertyInfo.DeclaringType)
-            {
-                propertyInfo = propertyInfo.DeclaringType.GetProperty("Occupation");
-                if (null != propertyInfo)
-                {
-                    propertyInfo.SetValue(target, origin.Occupation, null);
-                }
-            }
-
-            fieldInfo.SetValue(target, origin);
+           if (target.Occupation == source.Occupation) return;
+            ReflectUtils.ReflectFieldAndSetValue("_originCharacter", source, target);
+            ReflectUtils.ReflectFieldAndSetValue("_originCharacterStringId", source.StringId, target);
         }
 
 

@@ -12,9 +12,9 @@
     <Compile Include="Behaviors\SpouseFromPrisonerBehavior.cs" />
     <Compile Include="Behaviors\SpousesSneakBehavior.cs" />
     <Compile Include="Behaviors\SpousesStatsBehavior.cs" />
-    <Compile Include="CheckAreNearbyPath.cs" />
-    <Compile Include="ChildConceivedPath.cs" />
-    <Compile Include="DailyTickHeroPath.cs" />
+    <Compile Include="Patchs\CheckAreNearbyPath.cs" />
+    <Compile Include="Patchs\ChildConceivedPath.cs" />
+    <Compile Include="Patchs\DailyTickHeroPath.cs" />
     <Compile Include="GameComponent.cs" />
     <Compile Include="GauntletUI\FaceDetailsCreatorScreen.cs" />
     <Compile Include="GauntletUI\SpouseCharacterTableauTextureProvider.cs" />
@@ -45,7 +45,7 @@
     <Compile Include="GauntletUI\Widgets\SpouseCharacterTableauWidget.cs" />
     <Compile Include="GetDailyChanceOfPregnancyForHero.cs" />
     <Compile Include="HeroRlationOperation.cs" />
-    <Compile Include="KindomPath.cs" />
+    <Compile Include="Patchs\KindomPath.cs" />
     <Compile Include="Logics\BattleHeroJustTroopSpawnHandlerLogic.cs" />
     <Compile Include="Logics\BattleInLordShallLogic.cs" />
     <Compile Include="Logics\SpousesDateSpawnLogic.cs" />
@@ -88,7 +88,6 @@
     <Compile Include="Utils\ConversationUtils.cs" />
     <Compile Include="Utils\HeroFaceUtils.cs" />
     <Compile Include="Utils\HeroInitPropertyUtils.cs" />
-    <Compile Include="Utils\ReflectUtils.cs" />
     <Content Include="Readme.txt" />
     <Content Include="Resources\GUI\Brushes\SMSBrush.xml" />
     <Content Include="Resources\GUI\Prefabs\MoreSpoues\ATest.xml" />

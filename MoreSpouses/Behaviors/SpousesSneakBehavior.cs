@@ -1,5 +1,6 @@
 using SandBox.View.Menu;
 using SueMBService.Events;
+using SueMBService.Utils;
 using SueMoreSpouses.GauntletUI.ViewModels;
 using SueMoreSpouses.Utils;
 using System;
