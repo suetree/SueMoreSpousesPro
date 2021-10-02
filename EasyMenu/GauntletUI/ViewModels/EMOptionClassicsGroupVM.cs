@@ -62,7 +62,6 @@ namespace SueEasyMenu.GauntletUI.ViewModels
             }
         }
 
-
         public EMOptionClassicsGroupVM(MBBindingList<EMOptionGroupVM> groups)
         {
             _optionGroupVMs = groups;
@@ -77,8 +76,6 @@ namespace SueEasyMenu.GauntletUI.ViewModels
                     item.BackgroundBrushName = "";
                 }
             }
-
-
         }
 
         private void OnGroupSelected(EMOptionGroupVM group)
@@ -96,7 +93,5 @@ namespace SueEasyMenu.GauntletUI.ViewModels
         {
             OnPropertyChanged("EnableGroup");
         }
-
-
     }
 }

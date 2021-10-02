@@ -83,7 +83,6 @@ namespace SueTheGeneration.GauntletUI
 			this._spriteCategory = spriteData.SpriteCategories["ui_clan"];
 			this._spriteCategory.Load(resourceContext, uIResourceDepot);
 			InitLayer();
-			
 		}
 
 		protected override void OnDeactivate()

@@ -10,7 +10,7 @@ using TaleWorlds.Localization;
 
 namespace SueEasyMenu.GauntletUI.ViewModels
 {
-	public class EMSelectorVM<T> : TaleWorlds.Library.ViewModel where T : SelectorItemVM
+	public class EMSelectorVM<T> : ViewModel where T : SelectorItemVM
     {
 
 		private Action<EMSelectorVM<T>> _onChange;
