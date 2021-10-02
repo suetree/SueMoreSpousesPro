@@ -1,4 +1,5 @@
 using Helpers;
+using SueMBService.API;
 using SueMoreSpouses.Operation;
 using SueMoreSpouses.Utils;
 using System;
@@ -42,7 +43,7 @@ namespace SueMoreSpouses
 				if (!flag2)
 				{
 					hero.CompanionOf = null;
-					OccuptionChange.ChangeOccupationToLord(hero.CharacterObject);
+                    OccuptionService.ChangeOccupation0fHero(hero, Occupation.Wanderer);
 					HeroRlationOperation.MarryHero(hero);
 					hero.IsNoble = true;
 					HeroRlationOperation.RefreshClanPanelList(hero);
@@ -57,7 +58,7 @@ namespace SueMoreSpouses
 			if (flag)
 			{
 				hero.CompanionOf = null;
-				OccuptionChange.ChangeOccupationToLord(hero.CharacterObject);
+                OccuptionService.ChangeOccupation0fHero(hero, Occupation.Lord);
 				HeroRlationOperation.MarryHero(hero);
 				hero.IsNoble = true;
 				HeroRlationOperation.RefreshClanPanelList(hero);
@@ -67,7 +68,7 @@ namespace SueMoreSpouses
 		public static void NPCToCompanion(CharacterObject character, CampaignGameStarter campaignGameStarter)
 		{
 			Hero hero = HeroRlationOperation.DealNPC(character, campaignGameStarter);
-			OccuptionChange.ChangeToWanderer(hero.CharacterObject);
+            OccuptionService.ChangeOccupation0fHero(hero, Occupation.Wanderer);
 			bool flag = !MobileParty.MainParty.MemberRoster.Contains(hero.CharacterObject);
 			if (flag)
 			{
@@ -118,7 +119,7 @@ namespace SueMoreSpouses
 			if (!flag)
 			{
 				HeroRlationOperation.ChangePrisonerToParty(hero);
-				OccuptionChange.ChangeOccupationToLord(hero.CharacterObject);
+                OccuptionService.ChangeOccupation0fHero(hero, Occupation.Lord);
 				HeroRlationOperation.MarryHero(hero);
 			}
 		}

@@ -1,6 +1,6 @@
 ﻿<Project>
   <PropertyGroup>
-    <GamePath>E:\steam\steamapps\common\Mount &amp; Blade II Bannerlord</GamePath>
+    <GamePath>F:\steam\steamapps\common\Mount &amp; Blade II Bannerlord</GamePath>
     <GameResourcesPath>$(GamePath)\Modules\SueMoreSpouses</GameResourcesPath>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,7 +40,7 @@
     <StartAction>Program</StartAction>
     <StartProgram>$(GamePath)\bin\Win64_Shipping_Client\Bannerlord.exe</StartProgram>
     <StartArguments>/singleplayer _MODULES_*BetterExceptionWindow*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*SueMoreSpouses*_MODULES_</StartArguments>
-    <StartWorkingDirectory>F:\steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client</StartWorkingDirectory>
+    <StartWorkingDirectory>$(GamePath)\bin\Win64_Shipping_Client</StartWorkingDirectory>
   </PropertyGroup>
 
   <!-- Bannerlord Native Assemblies -->

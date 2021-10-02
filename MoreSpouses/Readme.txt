@@ -1,6 +1,6 @@
 ﻿This is a work in progress!
 
-Helpful information:
+
 
 (CTRL+Left Click on link to open in your browser)
 Bannerlord Modding Documentation:   https://docs.bannerlordmodding.com/
