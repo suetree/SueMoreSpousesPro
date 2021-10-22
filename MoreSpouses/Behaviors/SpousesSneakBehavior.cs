@@ -260,11 +260,11 @@ namespace SueMoreSpouses.Behaviors
 				int count = this._lastSettlement.Parties.Count;
 				this._prisoners = Settlement.CurrentSettlement.GetComponent<Town>().GetPrisonerHeroes();
 			}
-			GameMenuManager gameMenuManager = (GameMenuManager)ReflectUtils.ReflectField("_gameMenuManager", this._gameStarter);
+			GameMenuManager gameMenuManager = ReflectUtils.ReflectField<GameMenuManager>("_gameMenuManager", this._gameStarter);
 			bool flag3 = gameMenuManager != null;
 			if (flag3)
 			{
-				Dictionary<string, GameMenu> dictionary = (Dictionary<string, GameMenu>)ReflectUtils.ReflectField("_gameMenus", gameMenuManager);
+				Dictionary<string, GameMenu> dictionary = ReflectUtils.ReflectField<Dictionary<string, GameMenu>>("_gameMenus", gameMenuManager);
 				List<string> list = dictionary.Keys.ToList<string>();
 				List<GameMenu> list2 = dictionary.Values.ToList<GameMenu>();
 				for (int i = 1; i < list2.Count; i++)

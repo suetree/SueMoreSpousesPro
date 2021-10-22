@@ -10,14 +10,14 @@ namespace SueMBService.Utils
 			return BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 		}
 
-		public static object ReflectField(string key, object instance)
+		public static T ReflectField<T>(string key, object instance)
 		{
-			object result = null;
+			T result = default;
 			FieldInfo field = instance.GetType().GetField(key, ReflectUtils.GetBindingFlags());
 			bool flag = null != field;
 			if (flag)
 			{
-				result = field.GetValue(instance);
+				result = (T)field.GetValue(instance);
 			}
 			return result;
 		}
@@ -44,14 +44,17 @@ namespace SueMBService.Utils
 			return result;
 		}
 
-		public static void ReflectMethodAndInvoke(string mothodName, object instance, object[] paramObjects)
+		public static object ReflectMethodAndInvoke(string mothodName, object instance, object[] paramObjects)
 		{
-			MethodInfo method = instance.GetType().GetMethod(mothodName, ReflectUtils.GetBindingFlags());
+            object result = default;
+            MethodInfo method = instance.GetType().GetMethod(mothodName, ReflectUtils.GetBindingFlags());
 			bool flag = null != method;
 			if (flag)
 			{
-				method.Invoke(instance, paramObjects);
+                result = method.Invoke(instance, paramObjects);
 			}
-		}
+            return result;
+
+        }
 	}
 }

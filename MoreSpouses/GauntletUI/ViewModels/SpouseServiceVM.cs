@@ -1,4 +1,5 @@
 using Helpers;
+using SueMBService.API;
 using SueMoreSpouses.GauntletUI.States;
 using SueMoreSpouses.Operation;
 using System;
@@ -234,6 +235,7 @@ namespace SueMoreSpouses.GauntletUI.ViewModels
                 InquiryData data = new InquiryData(textObject.ToString(), string.Empty, true, true, GameTexts.FindText("sms_sure", null).ToString(), GameTexts.FindText("sms_cancel", null).ToString(), delegate
                 {
                     SpouseOperation.Divorce(_selectedHero);
+                    SpouseService.ResetPositionInClan(_selectedHero);
                     RefreshSpouseViews();
                 }, null, "");
                 InformationManager.ShowInquiry(data, false);
