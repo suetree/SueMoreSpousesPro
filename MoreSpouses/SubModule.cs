@@ -18,11 +18,7 @@ namespace SueMoreSpouses
         {
             Harmony harmony = new Harmony("sue.mod.mb2.SueMoreSpouses");
             harmony.PatchAll();
-
-          
         }
-
-    
 
         protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
         {
@@ -31,8 +27,6 @@ namespace SueMoreSpouses
             if (flag)
             {
                 CampaignGameStarter gameInitializer = (CampaignGameStarter)gameStarterObject;
-       
-
                 //gameInitializer.AddBehavior(new LordFromFamilyBehavior());
 
                 gameInitializer.LoadGameTexts(string.Format("{0}/Modules/{1}/ModuleData/sue_more_spoues.xml", BasePath.Name, "SueMoreSpouses"));

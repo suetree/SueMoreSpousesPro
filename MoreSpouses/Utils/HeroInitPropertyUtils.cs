@@ -170,7 +170,8 @@ namespace SueMoreSpouses.Utils
 			}
 			NamelessNPCSetting setting = MoreSpouseSetting.GetInstance().NamelessNPCSetting;
 			int tier = setting.NPCCharaObjectFromTier;
-			bool flag = tier > 6;
+            // 如果  tier = 0； 下面逻辑也能因为是0级别找不到随机获取
+            bool flag = tier > 6;
 			if (flag)
 			{
 				tier = 6;

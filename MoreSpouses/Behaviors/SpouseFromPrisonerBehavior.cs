@@ -54,7 +54,7 @@ namespace SueMoreSpouses.Behaviors
                 bool flag = oneToOneConversationCharacter != null;
                 if (flag)
                 {
-                    HeroRlationOperation.NPCToSouse(oneToOneConversationCharacter, this.currStarter);
+                    HeroRlationOperation.NameLessNPCToSpouse(oneToOneConversationCharacter, this.currStarter);
                 }
             }), 100, null, null);
             starter.AddPlayerLine("sms_tavernmaid_ask_what_result", "sms_tavernmaid_ask_what", "sms_tavernmaid_accept_result", "{=sue_more_spouses_prisoner_punish_lord_become_wanderer_companion}Give up everything you have and become one of my clan", this.Condition(new SpouseFromPrisonerBehavior.ConditionDelegate(this.IsNormalNPC)), this.Result(delegate
@@ -63,7 +63,7 @@ namespace SueMoreSpouses.Behaviors
                 bool flag = oneToOneConversationCharacter != null;
                 if (flag)
                 {
-                    HeroRlationOperation.NPCToCompanion(oneToOneConversationCharacter, this.currStarter);
+                    HeroRlationOperation.NameLessNPCToCompanion(oneToOneConversationCharacter, this.currStarter);
                 }
             }), 100, null, null);
             starter.AddRepeatablePlayerLine("sms_tavernmaid_ask_what_result", "sms_tavernmaid_ask_what", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);

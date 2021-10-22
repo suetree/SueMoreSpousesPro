@@ -9,11 +9,16 @@
 
             <ListPanel HeightSizePolicy="Fixed" SuggestedHeight="90"  LayoutImp.LayoutMethod="VerticalBottomToTop"  WidthSizePolicy="StretchToParent" VerticalAlignment="Top" HorizontalAlignment="Left" >
               <Children>
-                <Widget HeightSizePolicy="CoverChildren" UpdateChildrenStates="true" WidthSizePolicy="StretchToParent"  VerticalAlignment="Center" HorizontalAlignment="Left" >
+                <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" UpdateChildrenStates="true"   VerticalAlignment="Center" HorizontalAlignment="Left" >
                   <Children>
+                    
+                    <Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="CoverChildren" UpdateChildrenStates="true"   VerticalAlignment="Center" HorizontalAlignment="Left" >
+                      <Children>
                     <RichTextWidget HeightSizePolicy="CoverChildren" WidthSizePolicy="CoverChildren" HorizontalAlignment="Left"  VerticalAlignment="Center"
                                     Brush="Recruitment.Popup.Title.Text" Text="@DisplayName">
                     </RichTextWidget>
+                      </Children>
+                    </Widget>
 
 
                     <!-- Boolean switch widget start-->
@@ -64,7 +69,7 @@
                         <!-- Boolean slider widget end -->
 
                         <!-- Value text/button -->
-                        <ButtonWidget  HeightSizePolicy="Fixed" SuggestedHeight="42" WidthSizePolicy="Fixed" SuggestedWidth="42" MarginLeft="20" VerticalAlignment="Center" HorizontalAlignment="Right"
+                        <ButtonWidget  HeightSizePolicy="Fixed" SuggestedHeight="42" WidthSizePolicy="Fixed" SuggestedWidth="60" MarginLeft="20" VerticalAlignment="Center" HorizontalAlignment="Right"
                                        IsVisible="@IsFloatProperty" DoNotPassEventsToChildren="true" Brush="Recruitment.Popup.Title.Text" >
                           <Children>
                             <RichTextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" HorizontalAlignment="Right" VerticalAlignment="Center"

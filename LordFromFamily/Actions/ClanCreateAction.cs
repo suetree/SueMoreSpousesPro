@@ -16,17 +16,17 @@ namespace SueLordFromFamily.Actions
     public class ClanCreateAction
     {
 
-		public int selectClanTier = 2;
+		public int SelectClanTier = 2;
 
-		public bool isTogetherWithThireChildren;
+		public bool IsTogetherWithThireChildren;
 
-		public Hero targetSpouse
+		public Hero TargetSpouse
 		{
 			get;
 			set;
 		}
 
-		public Settlement targetSettlement
+		public Settlement TargetSettlement
 		{
 			get;
 			set;
@@ -34,14 +34,14 @@ namespace SueLordFromFamily.Actions
 
 		public void reset()
 		{
-			this.targetSpouse = null;
-			this.targetSettlement = null;
-			this.isTogetherWithThireChildren = false;
+			this.TargetSpouse = null;
+			this.TargetSettlement = null;
+			this.IsTogetherWithThireChildren = false;
 		}
 
 		public void CreateVassal()
 		{
-			bool flag = this.targetSettlement == null;
+			bool flag = this.TargetSettlement == null;
 			if (!flag)
 			{
 				Hero oneToOneConversationHero = Hero.OneToOneConversationHero;
@@ -52,8 +52,12 @@ namespace SueLordFromFamily.Actions
 					bool flag3 = kingdom == null;
 					if (!flag3)
 					{
-						CultureObject culture = this.targetSettlement.Culture;
-						TextObject textObject = NameGenerator.Current.GenerateClanName(culture, this.targetSettlement);
+						CultureObject culture = this.TargetSettlement.Culture;
+                        if (culture.StringId.ToLower() == "paleician")
+                        {
+
+                        }
+						TextObject textObject = NameGenerator.Current.GenerateClanName(culture, this.TargetSettlement);
 						string str = Guid.NewGuid().ToString().Replace("-", "");
 						bool flag4 = oneToOneConversationHero.LastSeenPlace == null;
 						if (flag4)
@@ -61,8 +65,9 @@ namespace SueLordFromFamily.Actions
 							oneToOneConversationHero.CacheLastSeenInformation(oneToOneConversationHero.HomeSettlement, true);
 							oneToOneConversationHero.SyncLastSeenInformation();
 						}
-						ClanLordService.DealApplyByFire(oneToOneConversationHero);
                         OccuptionService.ChangeOccupation0fHero(oneToOneConversationHero, Occupation.Lord);
+                        ClanLordService.DealApplyByFire(oneToOneConversationHero);
+                       
                         oneToOneConversationHero.ChangeState(Hero.CharacterStates.Active);
 						//Clan clan = MBObjectManager.Instance.CreateObject<Clan>("sue_clan_" + str);
 						Clan clan = Clan.CreateClan("sue_clan_" + str);
@@ -73,9 +78,9 @@ namespace SueLordFromFamily.Actions
 						bool flag5 = null != field;
 						if (flag5)
 						{
-							field.SetValue(clan, this.selectClanTier);
+							field.SetValue(clan, this.SelectClanTier);
 						}
-						clan.AddRenown((float)(50 * this.selectClanTier), true);
+						clan.AddRenown((float)(50 * this.SelectClanTier), true);
 						oneToOneConversationHero.Clan = clan;
 						oneToOneConversationHero.CompanionOf = null;
 						oneToOneConversationHero.IsNoble = true;
@@ -83,10 +88,10 @@ namespace SueLordFromFamily.Actions
 						MobileParty mobileParty = clan.CreateNewMobileParty(oneToOneConversationHero);
 						mobileParty.ItemRoster.AddToCounts(DefaultItems.Grain, 10);
 						mobileParty.ItemRoster.AddToCounts(DefaultItems.Meat, 5);
-						ChangeOwnerOfSettlementAction.ApplyByKingDecision(oneToOneConversationHero, this.targetSettlement);
-						clan.UpdateHomeSettlement(this.targetSettlement);
-						int num = this.TakeMoneyByTier(this.selectClanTier);
-						bool flag6 = this.targetSpouse != null;
+						ChangeOwnerOfSettlementAction.ApplyByKingDecision(oneToOneConversationHero, this.TargetSettlement);
+						clan.UpdateHomeSettlement(this.TargetSettlement);
+						int num = this.TakeMoneyByTier(this.SelectClanTier);
+						bool flag6 = this.TargetSpouse != null;
 						if (flag6)
 						{
 							GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, oneToOneConversationHero, num / 2, false);
@@ -95,14 +100,14 @@ namespace SueLordFromFamily.Actions
 						{
 							GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, oneToOneConversationHero, num, false);
 						}
-						int relation = this.ShipIncreateByTier(this.selectClanTier);
+						int relation = this.ShipIncreateByTier(this.SelectClanTier);
 						ChangeRelationAction.ApplyPlayerRelation(oneToOneConversationHero, relation, true, true);
-						bool flag7 = this.targetSpouse != null;
+						bool flag7 = this.TargetSpouse != null;
 						if (flag7)
 						{
-							ChangeRelationAction.ApplyPlayerRelation(this.targetSpouse, relation, true, true);
+							ChangeRelationAction.ApplyPlayerRelation(this.TargetSpouse, relation, true, true);
 						}
-						int shipReduce = this.ShipReduceByTier(this.selectClanTier);
+						int shipReduce = this.ShipReduceByTier(this.SelectClanTier);
 						Kingdom kingdom2 = Hero.MainHero.MapFaction as Kingdom;
 						bool flag8 = kingdom2 != null && shipReduce > 0;
 						if (flag8)
@@ -116,24 +121,24 @@ namespace SueLordFromFamily.Actions
 								}
 							});
 						}
-						bool flag9 = this.targetSpouse != null;
+						bool flag9 = this.TargetSpouse != null;
 						if (flag9)
 						{
-							this.targetSpouse.Spouse = oneToOneConversationHero;
-							InformationManager.AddQuickInformation(new TextObject(string.Format("{0} marry with {1}", oneToOneConversationHero.Name, this.targetSpouse.Name), null), 0, null, "event:/ui/notification/quest_finished");
-							ClanLordService.DealApplyByFire( this.targetSpouse);
-							this.targetSpouse.ChangeState(Hero.CharacterStates.Active);
-							this.targetSpouse.IsNoble = true;
-                            OccuptionService.ChangeOccupation0fHero(this.targetSpouse, Occupation.Lord);
-                            this.targetSpouse.CompanionOf = null;
-							this.targetSpouse.Clan = clan;
+							this.TargetSpouse.Spouse = oneToOneConversationHero;
+							InformationManager.AddQuickInformation(new TextObject(string.Format("{0} marry with {1}", oneToOneConversationHero.Name, this.TargetSpouse.Name), null), 0, null, "event:/ui/notification/quest_finished");
+							ClanLordService.DealApplyByFire( this.TargetSpouse);
+							this.TargetSpouse.ChangeState(Hero.CharacterStates.Active);
+							this.TargetSpouse.IsNoble = true;
+                            OccuptionService.ChangeOccupation0fHero(this.TargetSpouse, Occupation.Lord);
+                            this.TargetSpouse.CompanionOf = null;
+							this.TargetSpouse.Clan = clan;
 							//this.targetSpouse.SetTraitLevel(DefaultTraits.Commander, 1);
-							MobileParty mobileParty2 = clan.CreateNewMobileParty(this.targetSpouse);
+							MobileParty mobileParty2 = clan.CreateNewMobileParty(this.TargetSpouse);
 							mobileParty2.ItemRoster.AddToCounts(DefaultItems.Grain, 10);
 							mobileParty2.ItemRoster.AddToCounts(DefaultItems.Meat, 5);
-							GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, this.targetSpouse, num / 2, false);
+							GiveGoldAction.ApplyBetweenCharacters(Hero.MainHero, this.TargetSpouse, num / 2, false);
 						}
-						bool flag10 = this.isTogetherWithThireChildren;
+						bool flag10 = this.IsTogetherWithThireChildren;
 						if (flag10)
 						{
 							this.DealTheirChildren(oneToOneConversationHero, clan);

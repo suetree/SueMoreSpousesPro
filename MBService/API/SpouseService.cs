@@ -1,4 +1,6 @@
 ﻿
+using Helpers;
+using SueMBService.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 
 namespace SueMBService.API
 {
@@ -16,11 +20,11 @@ namespace SueMBService.API
         public static void  MainHeroMarryTo(Hero hero)
         {
             hero.CompanionOf = null;
-            ClanLordService.DealLordForClan(hero);
+          
             OccuptionService.ChangeOccupation0fHero(hero, Occupation.Lord);
+            ClanLordService.DealLordForClan(hero);
             MarryHero(hero);
-            hero.IsNoble = true;
-            RefreshClanPanelList(hero);
+            ResetPositionInClan(hero);
         }
 
         private static void MarryHero(Hero hero)
@@ -60,38 +64,60 @@ namespace SueMBService.API
 
         }
 
-
-        public static void RefreshClanPanelList(Hero hero)
+        public static void NoticeMarray(Hero hero)
         {
-            //下面逻辑是1.4.2以前
-            FieldInfo fieldInfo = Clan.PlayerClan.GetType().GetField("_nobles", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-            if (null != fieldInfo)
-            {
-                Object obj = fieldInfo.GetValue(Clan.PlayerClan);
-                if (null != obj)
-                {
-                    List<Hero> list = (List<Hero>)obj;
-                    if (!list.Contains(hero))
-                    {
-                        list.Add(hero);
-                    }
-                }
-            }
+            TextObject textObject = GameTexts.FindText("sue_more_spouses_marry_target", null);
+            StringHelpers.SetCharacterProperties("SUE_HERO", hero.CharacterObject, textObject);
+            InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
+        }
 
-            //1.4.3
-            FieldInfo fieldInfo2 = Clan.PlayerClan.GetType().GetField("_lords", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-            if (null != fieldInfo2)
+
+        public static void ResetPositionInClan(Hero hero)
+        {
+            if (null == hero.Clan) return;
+           
+            List<Hero> lordsCache = ReflectUtils.ReflectField<List<Hero>>("_lordsCache", hero.Clan);
+            if (hero.Occupation == Occupation.Lord)
             {
-                Object obj = fieldInfo2.GetValue(Clan.PlayerClan);
-                if (null != obj)
+                if (!lordsCache.Contains(hero))
                 {
-                    List<Hero> list = (List<Hero>)obj;
-                    if (!list.Contains(hero))
-                    {
-                        list.Add(hero);
-                    }
+                        lordsCache.Add(hero);
+                 }
+            }
+            else
+            {
+                if (lordsCache.Contains(hero))
+                {
+                    lordsCache.Remove(hero);
                 }
             }
+            ReflectUtils.ReflectPropertyAndSetValue("Lords", new MBReadOnlyList<Hero>(lordsCache), hero.Clan);
+
+            List<Hero> companionsCache = ReflectUtils.ReflectField<List<Hero>>("_companionsCache", hero.Clan);
+            if (hero.Occupation != Occupation.Lord)
+            {
+                if (!companionsCache.Contains(hero))
+                {
+                    companionsCache.Add(hero);
+                }
+            }
+            else
+            {
+                if (companionsCache.Contains(hero))
+                {
+                    companionsCache.Remove(hero);
+                }
+            }
+             ReflectUtils.ReflectPropertyAndSetValue("Companions", new MBReadOnlyList<Hero>(companionsCache), hero.Clan);
+            
+           
+            List<Hero> heroCache = ReflectUtils.ReflectField<List<Hero>>("_heroesCache", hero.Clan);
+            if (!heroCache.Contains(hero))
+            {
+                heroCache.Add(hero);
+            }
+            ReflectUtils.ReflectPropertyAndSetValue("Heros", new MBReadOnlyList<Hero>(heroCache), hero.Clan);
+          
         }
 
         public static void RemoveRepeatExspouses(Hero hero, Hero target)

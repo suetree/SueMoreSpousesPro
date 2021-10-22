@@ -228,7 +228,7 @@ namespace SueLordFromFamily.Dialogues
 
 	public void TogetherWithThireChildren()
 	{
-		this.clanCreateBussniess.isTogetherWithThireChildren = true;
+		this.clanCreateBussniess.IsTogetherWithThireChildren = true;
 	}
 
 	private void ResetDataForCreateClan()
@@ -257,7 +257,7 @@ namespace SueLordFromFamily.Dialogues
 			bool flag2 = oneToOneConversationHero.Spouse.Clan == Clan.PlayerClan;
 			if (flag2)
 			{
-				this.clanCreateBussniess.targetSpouse = oneToOneConversationHero.Spouse;
+				this.clanCreateBussniess.TargetSpouse = oneToOneConversationHero.Spouse;
 			}
 		}
 	}
@@ -270,7 +270,7 @@ namespace SueLordFromFamily.Dialogues
 
 	public void PlayerGetMoneyByTierResult(int tier)
 	{
-		this.clanCreateBussniess.selectClanTier = tier;
+		this.clanCreateBussniess.SelectClanTier = tier;
 	}
 
 	private void GenerateDataForCreateClan()
@@ -296,7 +296,7 @@ namespace SueLordFromFamily.Dialogues
 			return oneToOneConversationHero != spouse;
 		}, delegate
 		{
-			this.clanCreateBussniess.targetSpouse = spouse;
+			this.clanCreateBussniess.TargetSpouse = spouse;
 		}, 100, null);
 	}
 
@@ -304,7 +304,7 @@ namespace SueLordFromFamily.Dialogues
 	{
 		base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_start", "sue_clan_create_from_family_choice_other", settlement.Name.ToString(), null, delegate
 		{
-			this.clanCreateBussniess.targetSettlement = settlement;
+			this.clanCreateBussniess.TargetSettlement = settlement;
 		}, 100, null);
 	}
 
@@ -312,7 +312,7 @@ namespace SueLordFromFamily.Dialogues
 	{
 		base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_MONEY_TIER_ITEM, "sue_clan_create_from_family_take_money", "sue_clan_create_from_family_complete_take_money", string.Format("{0} GLOD ( Tier = {1} )", this.clanCreateBussniess.TakeMoneyByTier(tier), tier), null, delegate
 		{
-			this.clanCreateBussniess.selectClanTier = tier;
+			this.clanCreateBussniess.SelectClanTier = tier;
 		}, 100, null);
 	}
 }

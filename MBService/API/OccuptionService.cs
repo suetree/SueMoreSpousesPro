@@ -15,8 +15,10 @@ namespace SueMBService.API
 
         public static void ChangeOccupation0fHero(Hero hero, Occupation occupation)
         {
-            if (hero.Occupation == occupation) return;
+            if (hero.CharacterObject.Occupation == occupation) return;
+
             ReflectUtils.ReflectPropertyAndSetValue("Occupation", occupation, hero);
+            ChangeOccupation0fCharacter(hero.CharacterObject, occupation);
 
             if (Occupation.Lord == occupation)
             {
@@ -37,7 +39,7 @@ namespace SueMBService.API
         public static void ChangeOccupation0fCharacter(CharacterObject target, Occupation occupation)
         {
             if (target.Occupation == occupation) return;
-            List<CharacterObject> list = CharacterObject.Templates.Where(obj => obj.Occupation == occupation ).ToList();
+            List<CharacterObject> list = CharacterObject.Templates.Where(obj => obj.Occupation == occupation && obj.IsOriginalCharacter).ToList();
             if (list.Count > 0)
             {
                 CharacterObject source = list.OrderBy(_ => Guid.NewGuid()).First();

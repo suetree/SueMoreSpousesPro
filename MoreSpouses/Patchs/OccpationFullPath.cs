@@ -14,10 +14,10 @@ namespace SueMoreSpouses.Patch
 	{
 		public static void Postfix(ref EncyclopediaHeroPageVM __instance)
 		{
-			bool flag = ReflectUtils.ReflectField("_hero", __instance) != null;
+			bool flag = ReflectUtils.ReflectField<Hero>("_hero", __instance) != null;
 			if (flag)
 			{
-				Hero hero = (Hero)ReflectUtils.ReflectField("_hero", __instance);
+				Hero hero = (Hero)ReflectUtils.ReflectField<Hero>("_hero", __instance);
 				string value = CampaignUIHelper.GetHeroOccupationName(hero);
 				bool flag2 = string.IsNullOrEmpty(value);
 				if (flag2)

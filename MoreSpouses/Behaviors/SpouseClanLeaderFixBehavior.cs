@@ -11,8 +11,6 @@ namespace SueMoreSpouses.Behaviors
 	internal class SpouseClanLeaderFixBehavior : CampaignBehaviorBase
 	{
 	
-
-
 		public override void RegisterEvents()
 		{
 			CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, new Action(this.DailyTickFixClanLeader));
