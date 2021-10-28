@@ -56,7 +56,7 @@ namespace SueMoreSpouses
 
 		public static Mission OpenCastleCourtyardMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar)
 		{
-			return MissionState.OpenNew("TownCenter", SandBoxMissions.CreateSandBoxMissionInitializerRecord(scene, sceneLevels, false), (Mission mission) => new List<MissionBehaviour>
+			return MissionState.OpenNew("TownCenter", SandBoxMissions.CreateSandBoxMissionInitializerRecord(scene, sceneLevels, false), (Mission mission) => new List<MissionBehavior>
 			{
 				new MissionOptionsComponent(),
 				new CampaignMissionComponent(),
@@ -101,7 +101,7 @@ namespace SueMoreSpouses
 			List<string> heroesOnPlayerSideByPriority = HeroHelper.OrderHeroesOnPlayerSideByPriority();
 			return MissionState.OpenNew("Battle", rec, delegate(Mission mission)
 			{
-				List<MissionBehaviour> list = new List<MissionBehaviour>();
+				List<MissionBehavior> list = new List<MissionBehavior>();
 				list.Add(new MissionOptionsComponent());
 				list.Add(new CampaignMissionComponent());
 				list.Add(new BattleEndLogic());
@@ -145,7 +145,7 @@ namespace SueMoreSpouses
 			List<string> heroesOnPlayerSideByPriority = HeroHelper.OrderHeroesOnPlayerSideByPriority();
 			return MissionState.OpenNew("Battle", SandBoxMissions.CreateSandBoxMissionInitializerRecord(scene, sceneLevels, false), delegate(Mission mission)
 			{
-				MissionBehaviour[] array = new MissionBehaviour[26];
+				MissionBehavior[] array = new MissionBehavior[26];
 				array[0] = new MissionOptionsComponent();
 				array[1] = new CampaignMissionComponent();
 				array[2] = new BattleEndLogic();

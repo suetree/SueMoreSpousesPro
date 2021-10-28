@@ -490,7 +490,7 @@ namespace SueMoreSpouses.GauntletUI.Tableaus
                     _agentRendererSceneController = MBAgentRendererSceneController.CreateNewAgentRendererSceneController(_tableauScene, 32);
                     SceneInitializationData initData = new SceneInitializationData(true);
                     initData.InitPhysicsWorld = false;
-                    _tableauScene.Read("inventory_character_scene", initData, "");
+                    _tableauScene.Read("inventory_character_scene", ref initData, "");
                     _tableauScene.SetShadow(true);
                     _camPos = _tableauScene.ReadAndCalculateInitialCamera();
                     _mountSpawnPoint = _tableauScene.FindEntityWithTag("horse_inv").GetGlobalFrame();
@@ -509,7 +509,7 @@ namespace SueMoreSpouses.GauntletUI.Tableaus
                 bool flag4 = _bodyProperties != BodyProperties.Default;
                 if (flag4)
                 {
-                    _agentVisuals = AgentVisuals.Create(new AgentVisualsData().Banner(_banner).Equipment(_equipment).BodyProperties(_bodyProperties).Frame(_frame).UseMorphAnims(true).ActionSet(MBGlobals.HumanWarriorActionSet).ActionCode(act_inventory_idle_start).Scene(_tableauScene).Monster(Game.Current.HumanMonster).PrepareImmediately(true).SkeletonType(_isFemale ? SkeletonType.Female : SkeletonType.Male).ClothColor1(_clothColor1).ClothColor2(_clothColor2), "CharacterTableaue", true, false);
+                    _agentVisuals = AgentVisuals.Create(new AgentVisualsData().Banner(_banner).Equipment(_equipment).BodyProperties(_bodyProperties).Frame(_frame).UseMorphAnims(true).ActionSet(MBGlobals.HumanWarriorActionSet).ActionCode(act_inventory_idle_start).Scene(_tableauScene).Monster(Game.Current.HumanMonster).PrepareImmediately(true).SkeletonType(_isFemale ? SkeletonType.Female : SkeletonType.Male).ClothColor1(_clothColor1).ClothColor2(_clothColor2), "CharacterTableaue", false, false, true);
                     _agentVisuals.SetAgentLodZeroOrMaxExternal(true);
                 }
                 _initialized = true;

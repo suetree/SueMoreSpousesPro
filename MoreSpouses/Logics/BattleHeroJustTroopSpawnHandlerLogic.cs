@@ -17,10 +17,10 @@ namespace SueMoreSpouses.Logics
 
 		private MapEvent _mapEvent;
 
-		public override void OnBehaviourInitialize()
+		public override void OnBehaviorInitialize()
 		{
-			base.OnBehaviourInitialize();
-			this._missionAgentSpawnLogic = base.Mission.GetMissionBehaviour<MissionAgentSpawnLogic>();
+			base.OnBehaviorInitialize();
+			this._missionAgentSpawnLogic = base.Mission.GetMissionBehavior<MissionAgentSpawnLogic>();
 			this._mapEvent = MapEvent.PlayerMapEvent;
 		}
 

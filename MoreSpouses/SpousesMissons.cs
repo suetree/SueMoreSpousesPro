@@ -14,7 +14,7 @@ namespace SueMoreSpouses
 	{
 		public static Mission OpenDateMission(string scene, List<Hero> heros)
 		{
-			return MissionState.OpenNew("TownCenter", SandBoxMissions.CreateSandBoxMissionInitializerRecord(scene, "", false), (Mission mission) => new MissionBehaviour[]
+			return MissionState.OpenNew("TownCenter", SandBoxMissions.CreateSandBoxMissionInitializerRecord(scene, "", false), (Mission mission) => new MissionBehavior[]
 			{
 				new MissionOptionsComponent(),
 				new CampaignMissionComponent(),

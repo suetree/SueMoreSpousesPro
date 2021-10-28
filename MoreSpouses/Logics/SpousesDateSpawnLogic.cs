@@ -41,10 +41,10 @@ namespace SueMoreSpouses.Logics
 		{
 		}
 
-		public override void OnBehaviourInitialize()
+		public override void OnBehaviorInitialize()
 		{
-			base.OnBehaviourInitialize();
-			this._battleAgentLogic = Mission.Current.GetMissionBehaviour<BattleAgentLogic>();
+			base.OnBehaviorInitialize();
+			this._battleAgentLogic = Mission.Current.GetMissionBehavior<BattleAgentLogic>();
 		}
 
 		public override void OnMissionTick(float dt)
