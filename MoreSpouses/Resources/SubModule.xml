@@ -1,7 +1,7 @@
 ﻿<Module>
   <Name value="SueMoreSpouses"/>
   <Id value="SueMoreSpouses"/>
-  <Version value="v3.1.1"/>
+  <Version value="v3.1.2"/>
   <SingleplayerModule value="true"/>
   <MultiplayerModule value="false"/>
   <DependedModules>

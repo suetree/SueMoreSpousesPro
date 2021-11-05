@@ -1,4 +1,15 @@
 ﻿<Prefab>
+  <VisualDefinitions>
+    <VisualDefinition Name="BottomMenu"  TransitionDuration="0.45">
+      <VisualState PositionYOffset="6" State="Default" />
+    </VisualDefinition>
+    <VisualDefinition Name="TopPanel" EaseIn="true" TransitionDuration="0.45">
+      <VisualState PositionYOffset="-6" State="Default" />
+    </VisualDefinition>
+    <VisualDefinition Name="RightPanel" EaseIn="true" TransitionDuration="0.45">
+      <VisualState PositionXOffset="0" State="Default" />
+    </VisualDefinition>
+  </VisualDefinitions>
   <Window>
     <BrushWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="StretchToParent" Brush="Encyclopedia.SoundBrush"
                  UpdateChildrenStates="true"
@@ -32,7 +43,8 @@
 
             <ButtonWidget Command.Click="ExecuteClose" HeightSizePolicy ="Fixed" WidthSizePolicy="Fixed" SuggestedHeight="80" SuggestedWidth="80" VerticalAlignment="Top" HorizontalAlignment="Right" MarginTop="20" MarginRight="20" Brush="Popup.CloseButton"/>
 
-
+            <!-- Old Close Button Start-->
+            <!--
             <ButtonWidget
                  DoNotPassEventsToChildren="true"
                  SuggestedWidth="120"
@@ -47,6 +59,11 @@
                 <TextWidget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Brush="Popup.Button.Text" Text="@BtnName" />
               </Children>
             </ButtonWidget>
+              -->
+              <!-- Old Close Button End-->
+
+            <Standard.DialogCloseButtons VisualDefinition="BottomMenu" PositionYOffset="100" Parameter.DoneButtonAction="ExecuteClose" Parameter.DoneButtonText="@DoneLbl" Parameter.DoneInputKeyDataSource="{DoneInputKey}" Parameter.ShowCancel="false"/>
+
           </Children>
         </BrushWidget>
 
