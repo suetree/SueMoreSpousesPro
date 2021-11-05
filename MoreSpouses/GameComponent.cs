@@ -145,7 +145,7 @@ namespace SueMoreSpouses
 			List<string> heroesOnPlayerSideByPriority = HeroHelper.OrderHeroesOnPlayerSideByPriority();
 			return MissionState.OpenNew("Battle", SandBoxMissions.CreateSandBoxMissionInitializerRecord(scene, sceneLevels, false), delegate(Mission mission)
 			{
-				MissionBehaviour[] array = new MissionBehaviour[26];
+                MissionBehaviour[] array = new MissionBehaviour[26];
 				array[0] = new MissionOptionsComponent();
 				array[1] = new CampaignMissionComponent();
 				array[2] = new BattleEndLogic();

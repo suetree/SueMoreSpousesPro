@@ -188,7 +188,7 @@ namespace SueTheGeneration.Actions
 			textObject.SetTextVariable("CLAN_NAME", Clan.PlayerClan.Name);
 			TextObject textObject3 = new TextObject("{=EXp18CLD}Kingdom of the {CLAN_NAME}", null);
 			textObject3.SetTextVariable("CLAN_NAME", Clan.PlayerClan.Name);
-			kingdom.InitializeKingdom(textObject3, textObject, culture, Clan.PlayerClan.Banner, Clan.PlayerClan.Color, Clan.PlayerClan.Color2, list.First<Settlement>());
+			kingdom.InitializeKingdom(textObject3, textObject, culture, Clan.PlayerClan.Banner, Clan.PlayerClan.Color, Clan.PlayerClan.Color2, list.First<Settlement>(), textObject3, textObject3, textObject);
 			ChangeKingdomAction.ApplyByJoinToKingdom(Clan.PlayerClan, kingdom, true);
 			kingdom.RulingClan = Clan.PlayerClan;
 

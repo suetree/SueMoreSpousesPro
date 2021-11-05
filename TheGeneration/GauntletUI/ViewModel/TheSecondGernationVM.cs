@@ -45,7 +45,8 @@ namespace SueTheGenernation.GauntletUI.ViewModel
 
 
         [DataSourceProperty]
-        public string BtnName {
+        public string DoneLbl
+        {
             get
             {
                 return new TextObject("{=tsg_complete}Complete").ToString();
@@ -55,12 +56,13 @@ namespace SueTheGenernation.GauntletUI.ViewModel
         public void ExecuteClose()
         {
             this._screen.CloseScreen();
+            TheGenerationAction.PreOnGameStart();
         }
 
-        public void ExcuteTheSecondBusiness()
+     /*   public void ExecuteClose()
         {
             this._screen.CloseScreen();
             TheGenerationAction.PreOnGameStart();
-        }
+        }*/
     }
 }
