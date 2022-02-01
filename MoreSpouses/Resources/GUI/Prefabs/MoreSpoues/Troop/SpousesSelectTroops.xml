@@ -1,3 +1,4 @@
+<!--参考 Native\GUI\Prefabs\GameMenu\GameMenuTroopSelection-->
 <Prefab>
   <Constants>
 
@@ -11,7 +12,7 @@
         <ListPanel WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" MarginTop="30" LayoutImp.LayoutMethod="VerticalBottomToTop">
           <Children>
 
-            <Widget DoNotAcceptEvents="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="1128" SuggestedHeight="965" HorizontalAlignment="Center" MarginBottom="75" VerticalAlignment="Center" Sprite="GameMenu\troop_selection_panel">
+            <BrushWidget DoNotAcceptEvents="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="1128" SuggestedHeight="965" HorizontalAlignment="Center" MarginBottom="75" VerticalAlignment="Center" Sprite="SPGeneral\GameMenu\troop_selection_panel">
               <Children>
 
                 <!--Top Panel Name Text-->
@@ -30,7 +31,7 @@
                         <GridWidget DataSource="{Troops}" Id="TroopsGrid" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" ColumnCount="4" DefaultCellHeight="150" DefaultCellWidth="240" LayoutImp="GridLayout" MarginTop="10" MarginRight="20">
                           <ItemTemplate>
                             <!--Troop Card-->
-                            <ManageHideoutTroopItemButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="220" SuggestedHeight="140" HorizontalAlignment="Center" Brush="TroopSelection.Card" IsSelected="@IsSelected" Command.Add="ExecuteAdd" Command.Remove="ExecuteRemove" IsTroopHero="@IsTroopHero" Command.AlternateClick="ExecuteLink" MaxAmount="@MaxAmount" CurrentAmount="@CurrentAmount" AddButtonWidget="AddRemoveControls\AddButtonWidget" HeroHealthParent="HeroHealthParent" RemoveButtonWidget="AddRemoveControls\RemoveButtonWidget" CheckmarkVisualWidget="CheckmarkVisualWidget" IsRosterFull="@IsRosterFull" AddRemoveControls="AddRemoveControls" IsLocked="@IsLocked" HoveredCursorState="RightClickLink"  >
+                            <GameMenuTroopSelectionItemButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="220" SuggestedHeight="140" HorizontalAlignment="Center" Brush="TroopSelection.Card" IsSelected="@IsSelected" Command.Add="ExecuteAdd" Command.Remove="ExecuteRemove" IsTroopHero="@IsTroopHero" Command.AlternateClick="ExecuteLink" MaxAmount="@MaxAmount" CurrentAmount="@CurrentAmount" AddButtonWidget="AddRemoveControls\AddButtonWidget" HeroHealthParent="HeroHealthParent" RemoveButtonWidget="AddRemoveControls\RemoveButtonWidget" CheckmarkVisualWidget="CheckmarkVisualWidget" IsRosterFull="@IsRosterFull" AddRemoveControls="AddRemoveControls" IsLocked="@IsLocked" HoveredCursorState="RightClickLink"  >
                               <Children>
                                 <ImageIdentifierWidget DataSource= "{Visual}" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="67" SuggestedWidth="100" AdditionalArgs="@AdditionalArgs" ImageId="@Id" ImageTypeCode="@ImageTypeCode" MarginLeft="20" MarginTop="10" DoNotAcceptEvents="true" >
                                   <Children>
@@ -40,7 +41,7 @@
                                 </ImageIdentifierWidget>
                                 <RichTextWidget WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" SuggestedWidth="135" Brush="GameMenu.ManageHideoutTroops.NameText" Text="@Name" MarginLeft="20" MarginTop="80" DoNotAcceptEvents="true"/>
 
-                                <Widget Id="CheckmarkVisualWidget" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="47" SuggestedHeight="38" HorizontalAlignment="Right" MarginTop="20" MarginRight="20" Sprite="GameMenu\companion_selected_check" Color="#F4E1C4FF" DoNotAcceptEvents="true" />
+                                <Widget Id="CheckmarkVisualWidget" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="47" SuggestedHeight="38" HorizontalAlignment="Right" MarginTop="20" MarginRight="20" Sprite="SPGeneral\GameMenu\companion_selected_check" Color="#F4E1C4FF" DoNotAcceptEvents="true" />
 
                                 <Widget Id="HeroHealthParent" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="65" SuggestedWidth="15" MarginTop="15" MarginLeft="15" Brush="TownManagement.GovernorPopup.GoldFrame" IsEnabled="false">
                                   <Children>
@@ -69,13 +70,13 @@
                                 <Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="30" SuggestedHeight="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" PositionXOffset="-10" PositionYOffset="-10" Sprite="StdAssets\lock_closed" ColorFactor="1.3" IsVisible="@IsLocked"  DoNotAcceptEvents="true"/>
 
                               </Children>
-                            </ManageHideoutTroopItemButtonWidget>
+                            </GameMenuTroopSelectionItemButtonWidget>
                           </ItemTemplate>
                         </GridWidget>
 
-                        <Widget DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="50" VertialAlignment="Center" Sprite="SPScoreboard\leaderboard_shadow" Color="#000000FF" />
+                        <Widget DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="50" VertialAlignment="Center" Sprite="SPGeneral\SPScoreboard\leaderboard_shadow" Color="#000000FF" />
 
-                        <Widget DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="50" VertialAlignment="Center" MarginTop="650" Sprite="SPScoreboard\leaderboard_shadow"  Color="#000000FF" VerticalFlip="true"/>
+                        <Widget DoNotAcceptEvents="true" WidthSizePolicy="StretchToParent" HeightSizePolicy="Fixed" SuggestedHeight="50" VertialAlignment="Center" MarginTop="650" Sprite="SPGeneral\SPScoreboard\leaderboard_shadow"  Color="#000000FF" VerticalFlip="true"/>
 
                       </Children>
                     </Widget>
@@ -93,7 +94,7 @@
                 </ListPanel>
 
               </Children>
-            </Widget>
+            </BrushWidget>
 
             <!--Close Buttons-->
             <Standard.TriplePopupCloseButtons VerticalAlignment="Bottom" PositionYOffset="-90" Parameter.CancelButtonText="@CancelText" Parameter.DoneButtonText="@DoneText" Parameter.CancelButtonAction="ExecuteCancel" Parameter.ResetButtonAction="ExecuteReset" Parameter.DoneButtonAction="ExecuteDone" Parameter.IsDoneEnabled="true"/>

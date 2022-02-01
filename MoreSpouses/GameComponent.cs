@@ -15,13 +15,17 @@ using TaleWorlds.CampaignSystem.Actions;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.Missions.Handlers;
 using TaleWorlds.MountAndBlade.Source.Missions;
 using TaleWorlds.MountAndBlade.Source.Missions.Handlers;
 using TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic;
 
 namespace SueMoreSpouses
 {
-	internal class GameComponent
+    /**
+     * ²Î¿¼ SandBoxMissions
+     */
+    internal class GameComponent
 	{
 	
 		public static CampaignEventDispatcher CampaignEventDispatcher()
@@ -46,43 +50,6 @@ namespace SueMoreSpouses
 			}
 		}
 
-		public static void StartBattle(PartyBase defenderParty)
-		{
-			StartBattleAction.Apply(MobileParty.MainParty.Party, defenderParty);
-			PlayerEncounter.RestartPlayerEncounter(MobileParty.MainParty.Party, defenderParty, true);
-			PlayerEncounter.Update();
-			CampaignMission.OpenBattleMission(PlayerEncounter.GetBattleSceneForMapPosition(MobileParty.MainParty.Position2D));
-		}
-
-		public static Mission OpenCastleCourtyardMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar)
-		{
-			return MissionState.OpenNew("TownCenter", SandBoxMissions.CreateSandBoxMissionInitializerRecord(scene, sceneLevels, false), (Mission mission) => new List<MissionBehaviour>
-			{
-				new MissionOptionsComponent(),
-				new CampaignMissionComponent(),
-				new MissionBasicTeamLogic(),
-				new MissionSettlementPrepareLogic(),
-				new TownCenterMissionController(),
-				new MissionAgentLookHandler(),
-				new SandBoxMissionHandler(),
-				new BasicLeaveMissionLogic(),
-				new LeaveMissionLogic(),
-				new BattleAgentLogic(),
-				new MissionAgentPanicHandler(),
-				new AgentTownAILogic(),
-				new MissionConversationHandler(talkToChar),
-				new MissionAgentHandler(location, null),
-				new HeroSkillHandler(),
-				new MissionFightHandler(),
-				new MissionFacialAnimationHandler(),
-				new MissionDebugHandler(),
-				new MissionHardBorderPlacer(),
-				new MissionBoundaryPlacer(),
-				new MissionBoundaryCrossingHandler(),
-				new VisualTrackerMissionBehavior()
-			}.ToArray(), true, true);
-		}
-
 		public static Mission OpenBattleJustHero(string scene, string upgradeLevel)
 		{
 			MissionInitializerRecord rec = new MissionInitializerRecord(scene)
@@ -101,7 +68,7 @@ namespace SueMoreSpouses
 			List<string> heroesOnPlayerSideByPriority = HeroHelper.OrderHeroesOnPlayerSideByPriority();
 			return MissionState.OpenNew("Battle", rec, delegate(Mission mission)
 			{
-				List<MissionBehaviour> list = new List<MissionBehaviour>();
+				List<MissionBehavior> list = new List<MissionBehavior>();
 				list.Add(new MissionOptionsComponent());
 				list.Add(new CampaignMissionComponent());
 				list.Add(new BattleEndLogic());
@@ -109,7 +76,7 @@ namespace SueMoreSpouses
 				list.Add(new BattleMissionStarterLogic());
 				list.Add(new BattleSpawnLogic("battle_set"));
 				list.Add(new MissionAgentPanicHandler());
-				list.Add(new AgentBattleAILogic());
+				list.Add(new AgentHumanAILogic());
 				list.Add(new BattleObserverMissionLogic());
 				list.Add(lc2);
 				list.Add(new MissionFightHandler());
@@ -124,12 +91,12 @@ namespace SueMoreSpouses
 				list.Add(new HighlightsController());
 				list.Add(new BattleHighlightsController());
 				list.Add(new BattleHeroJustTroopSpawnHandlerLogic());
-				list.Add(new FieldBattleController());
-				list.Add(new AssignPlayerRoleInTeamMissionController(!isPlayerSergeant, isPlayerSergeant, isPlayerInArmy, heroesOnPlayerSideByPriority, FormationClass.NumberOfRegularFormations));
-				Hero leaderHero = MapEvent.PlayerMapEvent.AttackerSide.LeaderParty.LeaderHero;
-				string arg_1AA_0 = (leaderHero != null) ? leaderHero.Name.ToString() : null;
-				Hero leaderHero2 = MapEvent.PlayerMapEvent.DefenderSide.LeaderParty.LeaderHero;
-				return list.ToArray();
+                list.Add(new EquipmentControllerLeaveLogic());
+                list.Add(new AssignPlayerRoleInTeamMissionController(!isPlayerSergeant, isPlayerSergeant, isPlayerInArmy, heroesOnPlayerSideByPriority, FormationClass.NumberOfRegularFormations));
+                list.Add(new DeploymentMissionController(false));
+                list.Add(new BattleDeploymentHandler(false));
+               
+                return list.ToArray();
 			}, true, true);
 		}
 
@@ -142,45 +109,56 @@ namespace SueMoreSpouses
 			}, PartyBase.MainParty.Side);
 			bool isPlayerSergeant = MobileParty.MainParty.MapEvent.IsPlayerSergeant();
 			bool isPlayerInArmy = MobileParty.MainParty.Army != null;
-			List<string> heroesOnPlayerSideByPriority = HeroHelper.OrderHeroesOnPlayerSideByPriority();
-			return MissionState.OpenNew("Battle", SandBoxMissions.CreateSandBoxMissionInitializerRecord(scene, sceneLevels, false), delegate(Mission mission)
+            IEnumerable<MapEventParty> arg_6D_0 = MobileParty.MainParty.MapEvent.AttackerSide.Parties;
+  
+            bool isPlayerAttacker = !arg_6D_0.Where(p => p.Party == MobileParty.MainParty.Party).IsEmpty<MapEventParty>();
+            List<string> heroesOnPlayerSideByPriority = HeroHelper.OrderHeroesOnPlayerSideByPriority();
+            return MissionState.OpenNew("Battle", SandBoxMissions.CreateSandBoxMissionInitializerRecord(scene, sceneLevels, false), delegate(Mission mission)
 			{
-                MissionBehaviour[] array = new MissionBehaviour[26];
-				array[0] = new MissionOptionsComponent();
-				array[1] = new CampaignMissionComponent();
-				array[2] = new BattleEndLogic();
-				array[3] = new MissionCombatantsLogic(MobileParty.MainParty.MapEvent.InvolvedParties, PartyBase.MainParty, MobileParty.MainParty.MapEvent.GetLeaderParty(BattleSideEnum.Defender), MobileParty.MainParty.MapEvent.GetLeaderParty(BattleSideEnum.Attacker), Mission.MissionTeamAITypeEnum.FieldBattle, isPlayerSergeant);
-				array[4] = new MissionDefaultCaptainAssignmentLogic();
-				array[5] = new BattleMissionStarterLogic();
-				array[6] = new BattleSpawnLogic("battle_set");
-				array[7] = new AgentBattleAILogic();
-				array[8] = lc;
-				array[9] = new BaseMissionTroopSpawnHandler();
-				array[10] = new MountAgentLogic();
-				array[11] = new BattleObserverMissionLogic();
-				array[12] = new BattleAgentLogic();
-				array[13] = new AgentVictoryLogic();
-				array[14] = new MissionDebugHandler();
-				array[15] = new MissionAgentPanicHandler();
-				array[16] = new MissionHardBorderPlacer();
-				array[17] = new MissionBoundaryPlacer();
-				array[18] = new MissionBoundaryCrossingHandler();
-				array[19] = new BattleMissionAgentInteractionLogic();
-				array[20] = new FieldBattleController();
-				array[21] = new AgentMoraleInteractionLogic();
-				array[22] = new HighlightsController();
-				array[23] = new BattleHighlightsController();
-				array[24] = new AssignPlayerRoleInTeamMissionController(!isPlayerSergeant, isPlayerSergeant, isPlayerInArmy, heroesOnPlayerSideByPriority, FormationClass.NumberOfRegularFormations);
-				int num = 25;
-				Hero leaderHero = MapEvent.PlayerMapEvent.AttackerSide.LeaderParty.LeaderHero;
-				TextObject attackerGeneralName = (leaderHero != null) ? leaderHero.Name : null;
-				Hero leaderHero2 = MapEvent.PlayerMapEvent.DefenderSide.LeaderParty.LeaderHero;
-				array[num] = new CreateBodyguardMissionBehavior(attackerGeneralName, (leaderHero2 != null) ? leaderHero2.Name : null, null, null, true);
-				return array;
-			}, true, true);
+                MissionBehavior[] expr_07 = new MissionBehavior[25];
+                expr_07[0] = CreateCampaignMissionAgentSpawnLogic(false);
+                expr_07[1] = new BattleSpawnLogic("battle_set");
+                expr_07[2] = new BaseMissionTroopSpawnHandler();
+                expr_07[3] = new CampaignMissionComponent();
+                expr_07[4] = new BattleAgentLogic();
+                expr_07[5] = new MountAgentLogic();
+                expr_07[6] = new MissionOptionsComponent();
+                expr_07[7] = new BattleEndLogic();
+                expr_07[8] = new MissionCombatantsLogic(MobileParty.MainParty.MapEvent.InvolvedParties, PartyBase.MainParty, MobileParty.MainParty.MapEvent.GetLeaderParty(BattleSideEnum.Defender), MobileParty.MainParty.MapEvent.GetLeaderParty(BattleSideEnum.Attacker), Mission.MissionTeamAITypeEnum.FieldBattle, isPlayerSergeant);
+                expr_07[9] = new BattleObserverMissionLogic();
+                expr_07[10] = new AgentHumanAILogic();
+                expr_07[11] = new AgentVictoryLogic();
+                expr_07[12] = new MissionAgentPanicHandler();
+                expr_07[13] = new BattleMissionAgentInteractionLogic();
+                expr_07[14] = new AgentMoraleInteractionLogic();
+                expr_07[15] = new AssignPlayerRoleInTeamMissionController(!isPlayerSergeant, isPlayerSergeant, isPlayerInArmy, heroesOnPlayerSideByPriority, FormationClass.NumberOfRegularFormations);
+                int arg_136_1 = 16;
+                Hero expr_102 = MapEvent.PlayerMapEvent.AttackerSide.LeaderParty.LeaderHero;
+                TextObject arg_131_0 = (expr_102 != null) ? expr_102.Name : null;
+                Hero expr_122 = MapEvent.PlayerMapEvent.DefenderSide.LeaderParty.LeaderHero;
+                expr_07[arg_136_1] = new CreateBodyguardMissionBehavior(arg_131_0, (expr_122 != null) ? expr_122.Name : null, null, null, true);
+                expr_07[17] = new EquipmentControllerLeaveLogic();
+                expr_07[18] = new MissionHardBorderPlacer();
+                expr_07[19] = new MissionBoundaryPlacer();
+                expr_07[20] = new MissionBoundaryCrossingHandler();
+                expr_07[21] = new HighlightsController();
+                expr_07[22] = new BattleHighlightsController();
+                expr_07[23] = new DeploymentMissionController(isPlayerAttacker);
+                expr_07[24] = new BattleDeploymentHandler(isPlayerAttacker);
+                return expr_07;
+            }, true, true);
 		}
 
-		public static FlattenedTroopRoster GetStrongestAndPriorTroops(MobileParty mobileParty, int maxTroopCount, List<Hero> includeList)
+        private static MissionAgentSpawnLogic CreateCampaignMissionAgentSpawnLogic(bool isSiege = false)
+        {
+            return new MissionAgentSpawnLogic(new IMissionTroopSupplier[]
+            {
+                new PartyGroupTroopSupplier(MapEvent.PlayerMapEvent, BattleSideEnum.Defender, null),
+                new PartyGroupTroopSupplier(MapEvent.PlayerMapEvent, BattleSideEnum.Attacker, null)
+            }, PartyBase.MainParty.Side, isSiege);
+        }
+
+        public static FlattenedTroopRoster GetStrongestAndPriorTroops(MobileParty mobileParty, int maxTroopCount, List<Hero> includeList)
 		{
 			TroopRoster troopRoster = TroopRoster.CreateDummyTroopRoster();
 			FlattenedTroopRoster flattenedTroopRoster = mobileParty.MemberRoster.ToFlattenedRoster();

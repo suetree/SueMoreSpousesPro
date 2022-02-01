@@ -11,30 +11,31 @@ using TaleWorlds.MountAndBlade;
 
 namespace SueMoreSpouses.Logics
 {
-	internal class BattleHeroJustTroopSpawnHandlerLogic : MissionLogic
+    /**
+     * ²Î¿¼ BaseMissionTroopSpawnHandler
+     */
+    internal class BattleHeroJustTroopSpawnHandlerLogic : MissionLogic
 	{
 		private MissionAgentSpawnLogic _missionAgentSpawnLogic;
 
 		private MapEvent _mapEvent;
 
-		public override void OnBehaviourInitialize()
-		{
-			base.OnBehaviourInitialize();
-			this._missionAgentSpawnLogic = base.Mission.GetMissionBehaviour<MissionAgentSpawnLogic>();
-			this._mapEvent = MapEvent.PlayerMapEvent;
-		}
+
 
 		public override void AfterStart()
 		{
-			Scene scene = base.Mission.Scene;
+            this._missionAgentSpawnLogic = base.Mission.GetMissionBehavior<MissionAgentSpawnLogic>();
+            this._mapEvent = MapEvent.PlayerMapEvent;
+
+            Scene scene = base.Mission.Scene;
 			List<GameEntity> list = base.Mission.Scene.FindEntitiesWithTag("sp_special_item").ToList<GameEntity>();
-			int num = MBMath.Floor((float)this._mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Defender));
-			int num2 = MBMath.Floor((float)this._mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Attacker));
-			int defenderInitialSpawn = num;
-			int attackerInitialSpawn = num2;
-			this._missionAgentSpawnLogic.SetSpawnHorses(BattleSideEnum.Defender, false);
+
+			int defenderInitialSpawn = this._mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Defender);
+            int attackerInitialSpawn = this._mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Attacker);
+
+            this._missionAgentSpawnLogic.SetSpawnHorses(BattleSideEnum.Defender, false);
 			this._missionAgentSpawnLogic.SetSpawnHorses(BattleSideEnum.Attacker, false);
-			this._missionAgentSpawnLogic.InitWithSinglePhase(num, num2, defenderInitialSpawn, attackerInitialSpawn, true, true, 1f);
+			this._missionAgentSpawnLogic.InitWithSinglePhase(defenderInitialSpawn, attackerInitialSpawn, defenderInitialSpawn, attackerInitialSpawn, true, true, 1f);
 		}
 
 	}

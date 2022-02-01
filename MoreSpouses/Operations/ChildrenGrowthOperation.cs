@@ -31,7 +31,7 @@ namespace SueMoreSpouses.Operation
 							bool flag5 = Hero.MainHero.Children.Contains(child);
 							if (flag5)
 							{
-								InformationManager.DisplayMessage(new InformationMessage(child.Name.ToString() + "  AGE =" + child.Age.ToString()));
+								InformationManager.DisplayMessage(new InformationMessage(child.Name.ToString() + "  AGE =" + Math.Round(child.Age, 0, MidpointRounding.AwayFromZero)));
 							}
 						}
 						int num3 = (int)CampaignTime.Years((float)Campaign.Current.Models.AgeModel.HeroComesOfAge).ToDays;

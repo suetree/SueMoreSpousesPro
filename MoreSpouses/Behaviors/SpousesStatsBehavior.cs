@@ -56,7 +56,7 @@ namespace SueMoreSpouses.Behaviors
 			bool flag2 = mission != null && (mission.CombatType == Mission.MissionCombatType.Combat || mission.CombatType == Mission.MissionCombatType.ArenaCombat);
 			if (flag2)
 			{
-				Mission.Current.AddMissionBehaviour(new SpousesStatsMissionLogic(this.GetSpouseStatsBusiness()));
+				Mission.Current.AddMissionBehavior(new SpousesStatsMissionLogic(this.GetSpouseStatsBusiness()));
 			}
 		}
 

@@ -30,7 +30,7 @@ namespace SueMoreSpouses.Behaviors
             this.currStarter = starter;
             InformationManager.DisplayMessage(new InformationMessage("MoreSpouses OnSessionLaunched"));
             starter.AddPlayerLine("conversation_prisoner_chat_start", "start", "close_window", "{=sue_more_spouses_female_spouses_status_prisoner_become_active}Change you to active",
-                new ConversationSentence.OnConditionDelegate(this.isSpouseAndPrisoner), new ConversationSentence.OnConsequenceDelegate(this.changeSpousePrisonerStatusToActive), 100, null, null);
+                new ConversationSentence.OnConditionDelegate(this.isSpouseAndPrisoner), new ConversationSentence.OnConsequenceDelegate(this.ChangeSpousePrisonerStatusToActive), 100, null, null);
             starter.AddPlayerLine("conversation_prisoner_chat_player", "hero_main_options", "sue_more_spouses_companion_become_spouse", "{=sue_more_spouses_companion_become_spouse}I'm interested in you, become my spouse", this.Condition(new SpouseFromPrisonerBehavior.ConditionDelegate(this.IsPlayerCompanionAndCanBecomeSpouse)), null, 100, null, null);
             string arg_D1_1 = "sue_more_spouses_companion_choice_result";
             string arg_D1_2 = "sue_more_spouses_companion_become_spouse";
@@ -66,7 +66,7 @@ namespace SueMoreSpouses.Behaviors
                     HeroRlationOperation.NameLessNPCToCompanion(oneToOneConversationCharacter, this.currStarter);
                 }
             }), 100, null, null);
-            starter.AddRepeatablePlayerLine("sms_tavernmaid_ask_what_result", "sms_tavernmaid_ask_what", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);
+            starter.AddPlayerLine("sms_tavernmaid_ask_what_result", "sms_tavernmaid_ask_what", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);
             starter.AddDialogLine("sms_tavernmaid_accept_result", "sms_tavernmaid_accept_result", "sue_more_spouses_companion_become_spouse_accept", "{=sms_tavernmaid_accept_result}Thank you very much for the beginning of my wonderful life", null, null, 100, null);
             starter.AddPlayerLine("conversation_prisoner_chat_player", "prisoner_recruit_start_player", "sue_more_spouses_prisoner_punish_start", "{=sue_more_spouses_prisoner_punish_start}I will punish you", this.Condition(new SpouseFromPrisonerBehavior.ConditionDelegate(this.IsPrisioner)), null, 100, null, null);
             starter.AddDialogLine("sue_more_spouses_prisoner_beg_for_mercy", "sue_more_spouses_prisoner_punish_start", "sue_more_spouses_prisoner_beg_for_mercy", "{=sue_more_spouses_prisoner_beg_for_mercy}Forgive me, my Lord, for my sins", null, null, 100, null);
@@ -78,12 +78,12 @@ namespace SueMoreSpouses.Behaviors
             {
                 this.ChangePrisonerLordToFamily();
             }), 100, null, null);
-            starter.AddRepeatablePlayerLine("sue_more_spouses_prisoner_punish_cancel", "sue_more_spouses_prisoner_beg_for_mercy", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);
+            starter.AddPlayerLine("sue_more_spouses_prisoner_punish_cancel", "sue_more_spouses_prisoner_beg_for_mercy", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);
             starter.AddDialogLine("sue_more_spouses_prisoner_punish_result", "sue_more_spouses_prisoner_punish_result", "sue_more_spouses_companion_become_spouse_accept", "{=sue_more_spouses_prisoner_punish_accept}Thank you for your forgiveness", null, null, 100, null);
 
             ///官方已经关闭了。俘虏招募，这里自己加上俘虏对话
             starter.AddDialogLine("conversation_prisoner_chat_start", "start", "prisoner_recruit_start_player", "{=k7ebznzr}Yes?", new ConversationSentence.OnConditionDelegate(this.conversation_prisoner_chat_start_on_condition), null, 100, null);
-            starter.AddRepeatablePlayerLine("sue_more_spouses_prisoner_punish_cancel", "prisoner_recruit_start_player", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);
+            starter.AddPlayerLine("sue_more_spouses_prisoner_punish_cancel", "prisoner_recruit_start_player", "close_window", "{=sue_more_spouses_prisoner_punish_cancel}It is a joke", null, null, 100, null);
 
         }
 
@@ -94,7 +94,7 @@ namespace SueMoreSpouses.Behaviors
             return b;
         }
 
-        public void changeSpousePrisonerStatusToActive()
+        public void ChangeSpousePrisonerStatusToActive()
 		{
 			Hero oneToOneConversationHero = Hero.OneToOneConversationHero;
 			bool flag = oneToOneConversationHero != null;
