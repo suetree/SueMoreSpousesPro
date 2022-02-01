@@ -107,7 +107,7 @@ namespace SueLordFromFamily.Dialogues
 			{
 				this.addPlayerLineToSelectSettlement(settlement);
 			});
-			base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_start", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget", null, null, 100, null);
+			base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_start", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget", null, null, 100, null);
 		}
 		else
 		{
@@ -122,12 +122,12 @@ namespace SueLordFromFamily.Dialogues
 				}
 				index++;
 			});
-			base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_start", "sue_clan_create_from_family_take_settlement_change", "{=sue_clan_create_from_family_choice_spouse_item_change}The next group. ", null, delegate
+			base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_start", "sue_clan_create_from_family_take_settlement_change", "{=sue_clan_create_from_family_choice_spouse_item_change}The next group. ", null, delegate
 			{
 				this.GenerateDataForCreateClan();
 			}, 100, null);
 			base.CampaignGameStarter.AddDialogLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_take_settlement_change", "sue_clan_create_from_family_start", "{=sue_clan_create_from_family_choice_spouse_item_change_tip}Help me choose a nice one.", null, null, 100, null);
-			base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_start", "close_window", "{=sue_clan_create_from_family_of_forget} Or forget", null, null, 100, null);
+			base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_start", "close_window", "{=sue_clan_create_from_family_of_forget} Or forget", null, null, 100, null);
 		}
 	}
 
@@ -144,8 +144,8 @@ namespace SueLordFromFamily.Dialogues
 				Hero heroObject = obj.Character.HeroObject;
 				this.addPlayerLineToSelectSpouse(heroObject);
 			});
-			base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "sue_clan_create_from_family_request_money", "{=sue_clan_create_from_family_need_spouse_not}Not spouse to you", null, null, 100, null);
-			base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget ", null, null, 100, null);
+			base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "sue_clan_create_from_family_request_money", "{=sue_clan_create_from_family_need_spouse_not}Not spouse to you", null, null, 100, null);
+			base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget ", null, null, 100, null);
 		}
 		else
 		{
@@ -171,14 +171,14 @@ namespace SueLordFromFamily.Dialogues
 				}
 				index++;
 			});
-			base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "sue_clan_create_from_family_take_spouse_change", "{=sue_clan_create_from_family_choice_spouse_item_change}The next group. ", null, delegate
+			base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "sue_clan_create_from_family_take_spouse_change", "{=sue_clan_create_from_family_choice_spouse_item_change}The next group. ", null, delegate
 			{
 				this.GenerateDataForCreateClan();
 			}, 100, null);
 			base.CampaignGameStarter.AddDialogLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse_change", "sue_clan_create_from_family_take_spouse", "{=sue_clan_create_from_family_choice_spouse_item_change_tip}Help me choose a nice one.", null, null, 100, null);
-			base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "sue_clan_create_from_family_request_money", "{=sue_clan_create_from_family_need_spouse_not}Not spouse to you", null, null, 100, null);
+			base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "sue_clan_create_from_family_request_money", "{=sue_clan_create_from_family_need_spouse_not}Not spouse to you", null, null, 100, null);
 
-			base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget ", null, null, 100, null);
+			base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget ", null, null, 100, null);
 		}
 	}
 
@@ -199,7 +199,7 @@ namespace SueLordFromFamily.Dialogues
 		{
 			this.addPlayerLineToSelectClanMoneyTier(j);
 		}
-		base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_MONEY_TIER_ITEM, "sue_clan_create_from_family_take_money", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget", null, null, 100, null);
+		base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_MONEY_TIER_ITEM, "sue_clan_create_from_family_take_money", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget", null, null, 100, null);
 	}
 
 	public bool HasNoChildren()
@@ -290,7 +290,7 @@ namespace SueLordFromFamily.Dialogues
 				displayName += new StringBuilder("(").Append(new TextObject("{=slff_label_spouse}").ToString()).Append(": ").Append(spouse.Spouse.Name).Append(")");
 
 		 }
-		base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "sue_clan_create_from_family_request_money", displayName, delegate
+		base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SPOUSE_ITEM, "sue_clan_create_from_family_take_spouse", "sue_clan_create_from_family_request_money", displayName, delegate
 		{
 			Hero oneToOneConversationHero = Hero.OneToOneConversationHero;
 			return oneToOneConversationHero != spouse;
@@ -302,7 +302,7 @@ namespace SueLordFromFamily.Dialogues
 
 	private void addPlayerLineToSelectSettlement(Settlement settlement)
 	{
-		base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_start", "sue_clan_create_from_family_choice_other", settlement.Name.ToString(), null, delegate
+		base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_SETTLEMENT_ITEM, "sue_clan_create_from_family_start", "sue_clan_create_from_family_choice_other", settlement.Name.ToString(), null, delegate
 		{
 			this.clanCreateBussniess.TargetSettlement = settlement;
 		}, 100, null);
@@ -310,7 +310,7 @@ namespace SueLordFromFamily.Dialogues
 
 	private void addPlayerLineToSelectClanMoneyTier(int tier)
 	{
-		base.CampaignGameStarter.AddRepeatablePlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_MONEY_TIER_ITEM, "sue_clan_create_from_family_take_money", "sue_clan_create_from_family_complete_take_money", string.Format("{0} GLOD ( Tier = {1} )", this.clanCreateBussniess.TakeMoneyByTier(tier), tier), null, delegate
+		base.CampaignGameStarter.AddPlayerLine(CreateClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_MONEY_TIER_ITEM, "sue_clan_create_from_family_take_money", "sue_clan_create_from_family_complete_take_money", string.Format("{0} GLOD ( Tier = {1} )", this.clanCreateBussniess.TakeMoneyByTier(tier), tier), null, delegate
 		{
 			this.clanCreateBussniess.SelectClanTier = tier;
 		}, 100, null);

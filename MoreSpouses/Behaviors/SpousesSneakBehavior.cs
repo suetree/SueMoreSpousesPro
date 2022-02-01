@@ -236,7 +236,7 @@ namespace SueMoreSpouses.Behaviors
 			this._gameStarter = gameStarter;
 			gameStarter.AddGameMenuOption("town", "sms_sneak", "{=sms_sneak_on_secret_mission}Go on a secret mission", new GameMenuOption.OnConditionDelegate(this.ShowCondition), new GameMenuOption.OnConsequenceDelegate(this.SwitchStealMenuStart), false, 3, false);
 			gameStarter.AddGameMenuOption("castle", "sms_sneak", "{=sms_sneak_on_secret_mission}Go on a secret mission", new GameMenuOption.OnConditionDelegate(this.ShowCondition), new GameMenuOption.OnConsequenceDelegate(this.SwitchStealMenuStart), false, 3, false);
-			gameStarter.AddGameMenu("sms_sneak", "{=sms_sneak_menu_describe}Attack a Lord and take him prisoner. Attack the dungeon and save your companions", new OnInitDelegate(this.MenuInit), GameOverlays.MenuOverlayType.SettlementWithBoth, GameMenu.MenuFlags.none, null);
+			gameStarter.AddGameMenu("sms_sneak", "{=sms_sneak_menu_describe}Attack a Lord and take him prisoner. Attack the dungeon and save your companions", new OnInitDelegate(this.MenuInit), GameOverlays.MenuOverlayType.SettlementWithBoth, GameMenu.MenuFlags.None, null);
 			gameStarter.AddGameMenuOption("sms_sneak", "sms_sneak_lords_shall", "{=sms_sneak_attack_lord}Attack the Lord", new GameMenuOption.OnConditionDelegate(this.HasLordWithOutParty), new GameMenuOption.OnConsequenceDelegate(this.SwitchStealMenuLordWithoutParty), false, -1, false);
 			gameStarter.AddGameMenuOption("sms_sneak", "sms_sneak_party_prison", "{=sms_sneak_attack_dungeon}Attack the dungeon", new GameMenuOption.OnConditionDelegate(this.HasPrison), new GameMenuOption.OnConsequenceDelegate(this.BattleInPrison), false, -1, false);
 			gameStarter.AddGameMenuOption("sms_sneak", "sms_sneak_leave", "{=sms_sneak_leave}Leave", null, new GameMenuOption.OnConsequenceDelegate(this.Leave), true, -1, false);
@@ -281,7 +281,7 @@ namespace SueMoreSpouses.Behaviors
 
 		private void MenuPartyInit(MenuCallbackArgs args)
 		{
-			this._gameStarter.AddGameMenu("sms_sneak_party", "此时，你看到一些部队正在操练， 选择一支部队进行袭击", null, GameOverlays.MenuOverlayType.SettlementWithBoth, GameMenu.MenuFlags.none, null);
+			this._gameStarter.AddGameMenu("sms_sneak_party", "此时，你看到一些部队正在操练， 选择一支部队进行袭击", null, GameOverlays.MenuOverlayType.SettlementWithBoth, GameMenu.MenuFlags.None, null);
 			bool flag = this._parties != null && this._parties.Count<MobileParty>() > 0;
 			if (flag)
 			{
@@ -295,7 +295,7 @@ namespace SueMoreSpouses.Behaviors
 
 		private void MenuLordWithoutPartyInit(MenuCallbackArgs args)
 		{
-			this._gameStarter.AddGameMenu("sms_sneak_lord_whitout_party", "{=sms_sneak_attack_lord_describe}At this point, you see some lords in the hall, with a small number of troops", null, GameOverlays.MenuOverlayType.SettlementWithBoth, GameMenu.MenuFlags.none, null);
+			this._gameStarter.AddGameMenu("sms_sneak_lord_whitout_party", "{=sms_sneak_attack_lord_describe}At this point, you see some lords in the hall, with a small number of troops", null, GameOverlays.MenuOverlayType.SettlementWithBoth, GameMenu.MenuFlags.None, null);
 			bool flag = this._lordHerosWithOutParty != null && this._lordHerosWithOutParty.Count<Hero>() > 0;
 			if (flag)
 			{

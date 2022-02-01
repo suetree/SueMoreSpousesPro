@@ -44,14 +44,29 @@ namespace SueMBService.Utils
 			return result;
 		}
 
-		public static object ReflectMethodAndInvoke(string mothodName, object instance, object[] paramObjects)
+        public static void  ReflectMethodAndInvoke(string mothodName, object instance, object[] paramObjects)
+        {
+
+            MethodInfo method = instance.GetType().GetMethod(mothodName, ReflectUtils.GetBindingFlags());
+            bool flag = null != method;
+            if (flag)
+            {
+                method.Invoke(instance, paramObjects);
+            }
+        }
+
+        public static T ReflectMethodAndInvoke<T>(string mothodName, object instance, object[] paramObjects)
 		{
-            object result = default;
+            T result = default;
             MethodInfo method = instance.GetType().GetMethod(mothodName, ReflectUtils.GetBindingFlags());
 			bool flag = null != method;
 			if (flag)
 			{
-                result = method.Invoke(instance, paramObjects);
+                object obj = method.Invoke(instance, paramObjects);
+                if (null != obj)
+                {
+                    result = (T)obj;
+                }
 			}
             return result;
 

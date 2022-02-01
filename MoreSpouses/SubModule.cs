@@ -25,6 +25,7 @@ namespace SueMoreSpouses
             //InformationManager.DisplayMessage(new InformationMessage("SueBloodTies OnGameStart"));
             bool flag = gameStarterObject.GetType() == typeof(CampaignGameStarter);
             if (flag)
+
             {
                 CampaignGameStarter gameInitializer = (CampaignGameStarter)gameStarterObject;
                 //gameInitializer.AddBehavior(new LordFromFamilyBehavior());

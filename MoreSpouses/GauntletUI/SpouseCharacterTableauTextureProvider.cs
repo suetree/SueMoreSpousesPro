@@ -1,15 +1,16 @@
-using SueMoreSpouses.GauntletUI.Tableaus;
+
 using System;
 using TaleWorlds.Engine;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.GauntletUI;
+using TaleWorlds.MountAndBlade.View;
 using TaleWorlds.TwoDimension;
 
 namespace SueMoreSpouses.GauntletUI
 {
     internal class SpouseCharacterTableauTextureProvider : TextureProvider
 	{
-		private SpouseCharacterTableau _characterTableau;
+		private CharacterTableau _characterTableau;
 
 		private TaleWorlds.Engine.Texture _texture;
 
@@ -97,7 +98,7 @@ namespace SueMoreSpouses.GauntletUI
 
 		public SpouseCharacterTableauTextureProvider()
 		{
-			this._characterTableau = new SpouseCharacterTableau();
+			this._characterTableau = new CharacterTableau();
 		}
 
 		public override void Clear()

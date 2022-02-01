@@ -70,7 +70,7 @@ namespace SueMBService.Dialogue
 			bool flag = this.isPlayer;
 			if (flag)
 			{
-				campaignGameStarter.AddRepeatablePlayerLine(this.id, this.inputOrder, this.outOrder, this.text, this.NewCondition(this.condition), this.NewResult(this.result), 100, null);
+				campaignGameStarter.AddPlayerLine(this.id, this.inputOrder, this.outOrder, this.text, this.NewCondition(this.condition), this.NewResult(this.result), 100, null, null);
 			}
 			else
 			{

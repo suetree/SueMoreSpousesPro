@@ -44,7 +44,7 @@ namespace SueLordFromFamily.Dialogues
 			{
 				this.addPlayerLineToSelectClan(clan);
 			});
-			base.CampaignGameStarter.AddRepeatablePlayerLine(ChaneHeroClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_ITEM, "sue_clan_create_from_family_change_clan_answer_select", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget", null, null, 100, null);
+			base.CampaignGameStarter.AddPlayerLine(ChaneHeroClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_ITEM, "sue_clan_create_from_family_change_clan_answer_select", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget", null, null, 100, null);
 		}
 		else
 		{
@@ -59,12 +59,12 @@ namespace SueLordFromFamily.Dialogues
 				}
 				index++;
 			});
-			base.CampaignGameStarter.AddRepeatablePlayerLine(ChaneHeroClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_ITEM, "sue_clan_create_from_family_change_clan_answer_select", "sue_clan_create_from_family_take_clan_change", "{=sue_clan_create_from_family_choice_spouse_item_change}The next group.", null, delegate
+			base.CampaignGameStarter.AddPlayerLine(ChaneHeroClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_ITEM, "sue_clan_create_from_family_change_clan_answer_select", "sue_clan_create_from_family_take_clan_change", "{=sue_clan_create_from_family_choice_spouse_item_change}The next group.", null, delegate
 			{
 				this.GenerateDialogueForSelectClan();
 			}, 100, null);
 			base.CampaignGameStarter.AddDialogLine(ChaneHeroClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_ITEM, "sue_clan_create_from_family_take_clan_change", "sue_clan_create_from_family_change_clan_answer_select", "{=sue_clan_create_from_family_choice_spouse_item_change_tip}Help me choose a nice one.", null, null, 100, null);
-			base.CampaignGameStarter.AddRepeatablePlayerLine(ChaneHeroClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_ITEM, "sue_clan_create_from_family_change_clan_answer_select", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget", null, null, 100, null);
+			base.CampaignGameStarter.AddPlayerLine(ChaneHeroClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_ITEM, "sue_clan_create_from_family_change_clan_answer_select", "close_window", "{=sue_clan_create_from_family_of_forget}Or forget", null, null, 100, null);
 		}
 	}
 
@@ -73,7 +73,7 @@ namespace SueLordFromFamily.Dialogues
 		IEnumerable<Hero> heros = clan.Heroes;
 		int num = heros.Select((obj) => (int)obj.Age >= Campaign.Current.Models.AgeModel.HeroComesOfAge).Count<bool>();
 		string text = clan.Name.ToString() + string.Format("   ( Hero Count = {0};  Clan Tier = {1} )", num, clan.Tier);
-		base.CampaignGameStarter.AddRepeatablePlayerLine(ChaneHeroClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_ITEM, "sue_clan_create_from_family_change_clan_answer_select", "sue_clan_create_from_family_change_clan_answer_select_result", text, null, delegate
+		base.CampaignGameStarter.AddPlayerLine(ChaneHeroClanDialogue.FLAG_CLAN_CREATE_CHOICE_CLAN_ITEM, "sue_clan_create_from_family_change_clan_answer_select", "sue_clan_create_from_family_change_clan_answer_select_result", text, null, delegate
 		{
 			this.targetChangeClan = clan;
 		}, 100, null);

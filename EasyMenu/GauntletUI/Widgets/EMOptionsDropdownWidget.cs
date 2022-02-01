@@ -13,7 +13,7 @@ namespace SueEasyMenu.GauntletUI.Widgets
 
 		private Action<Widget> _listSelectionHandler;
 
-		private Action<Widget> _listItemRemovedHandler;
+		private Action<Widget, Widget> _listItemRemovedHandler;
 
 		private Action<Widget, Widget> _listItemAddedHandler;
 
@@ -193,7 +193,7 @@ namespace SueEasyMenu.GauntletUI.Widgets
 		{
 			this._clickHandler = new Action<Widget>(this.OnButtonClick);
 			this._listSelectionHandler = new Action<Widget>(this.OnSelectionChanged);
-			this._listItemRemovedHandler = new Action<Widget>(this.OnListChanged);
+			this._listItemRemovedHandler = new Action<Widget, Widget>(this.OnListChanged);
 			this._listItemAddedHandler = new Action<Widget, Widget>(this.OnListChanged);
 			
 		}
@@ -323,7 +323,17 @@ namespace SueEasyMenu.GauntletUI.Widgets
 			}
 		}
 
-		private void RefreshSelectedItem()
+        public void OnListItemAdded(Widget parentWidget, Widget newChild)
+        {
+            this.RefreshSelectedItem();
+        }
+
+        public void OnListItemRemoved(Widget removedItem, Widget removedChild)
+        {
+            this.RefreshSelectedItem();
+        }
+
+        private void RefreshSelectedItem()
 		{
 			if (this.UpdateSelectedItem)
 			{

@@ -39,7 +39,7 @@
   <PropertyGroup>
     <StartAction>Program</StartAction>
     <StartProgram>$(GamePath)\bin\Win64_Shipping_Client\Bannerlord.exe</StartProgram>
-    <StartArguments>/singleplayer _MODULES_*BetterExceptionWindow*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*SueMoreSpouses*_MODULES_</StartArguments>
+    <StartArguments>/singleplayer _MODULES_*Bannerlord.Harmony*BetterExceptionWindow*Native*SandBoxCore*CustomBattle*Sandbox*StoryMode*SueMoreSpouses*_MODULES_</StartArguments>
     <StartWorkingDirectory>$(GamePath)\bin\Win64_Shipping_Client</StartWorkingDirectory>
   </PropertyGroup>
 

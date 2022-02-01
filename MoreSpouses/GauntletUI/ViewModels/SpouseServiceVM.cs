@@ -244,7 +244,7 @@ namespace SueMoreSpouses.GauntletUI.ViewModels
 
         public void ExecuteDate()
         {
-            string battleSceneForMapPosition = PlayerEncounter.GetBattleSceneForMapPosition(MobileParty.MainParty.Position2D);
+            string battleSceneForMapPosition = PlayerEncounter.GetConversationSceneForMapPosition(MobileParty.MainParty.Position2D);
             List<Hero> list = new List<Hero>();
             list.AddRange(_spouses);
             list.Add(Hero.MainHero);

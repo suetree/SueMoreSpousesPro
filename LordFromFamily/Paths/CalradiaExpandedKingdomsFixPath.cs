@@ -91,7 +91,7 @@ namespace SueLordFromFamily.Paths
             {
                 list.Add(new ValueTuple<TextObject, float>(textObject1, (float)(num2 - clanNameWeights[textObject1])));
             }
-            MBRandom.ChooseWeighted<TextObject>(clanNameWeights.Keys, (TextObject t) => (float)(maxOccurence - clanNameWeights[t]), out index);
+            MBRandom.ChooseWeighted<TextObject>(list, out index);
             TextObject textObject = clanNameWeights.ElementAt(index).Key.CopyTextObject();
             if (culture.StringId.ToLower() == "vlandia")
             {

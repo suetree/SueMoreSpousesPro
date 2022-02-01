@@ -44,7 +44,7 @@ namespace SueMoreSpouses.Utils
 					if (flag4)
 					{
 						TextObject name = new TextObject(string.Format("\"{0}\"", agent.Name) + hero.Name.ToString(), null);
-						hero.SetName(name);
+						hero.SetName(name, name);
 						FieldInfo field2 = agent.GetType().GetField("_name", BindingFlags.Instance | BindingFlags.NonPublic);
 						bool flag5 = null != field2;
 						if (flag5)

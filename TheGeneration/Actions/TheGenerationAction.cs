@@ -116,7 +116,7 @@ namespace SueTheGeneration.Actions
 							{
 								for (int i = 0; i < templateData.Number; i++)
 								{
-									Hero hero = HeroCreator.DeliverOffSpring( character.HeroObject, Hero.MainHero, false, Hero.MainHero.Culture, templateData.Age);
+									Hero hero = HeroCreator.DeliverOffSpring( character.HeroObject, Hero.MainHero, false, Hero.MainHero.Culture);
 									if (templateData.Age < Campaign.Current.Models.AgeModel.HeroComesOfAge)
 									{
 										//Settlement

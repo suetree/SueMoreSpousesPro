@@ -12,14 +12,11 @@
     <Compile Include="Behaviors\SpouseFromPrisonerBehavior.cs" />
     <Compile Include="Behaviors\SpousesSneakBehavior.cs" />
     <Compile Include="Behaviors\SpousesStatsBehavior.cs" />
-    <Compile Include="Patchs\CheckAreNearbyPath.cs" />
-    <Compile Include="Patchs\ChildConceivedPath.cs" />
-    <Compile Include="Patchs\DailyTickHeroPath.cs" />
+    <Compile Include="Patchs\ExSpousesPregnancy\ExSpousesPregnancyPath.cs" />
     <Compile Include="GameComponent.cs" />
     <Compile Include="GauntletUI\FaceDetailsCreatorScreen.cs" />
     <Compile Include="GauntletUI\SpouseCharacterTableauTextureProvider.cs" />
     <Compile Include="GauntletUI\States\FaceDetailsCreatorState.cs" />
-    <Compile Include="GauntletUI\Tableaus\SpouseCharacterTableau.cs" />
     <Compile Include="GauntletUI\ViewModels\BattleHitoryRecordVM.cs" />
     <Compile Include="GauntletUI\ViewModels\Sneack\GauntletMenuSpousesSelectTroops.cs" />
     <Compile Include="GauntletUI\ViewModels\Sneack\SpousesDefaultSelectTroops.cs" />
@@ -43,7 +40,6 @@
     <Compile Include="GauntletUI\Widgets\ADOptionsScreenWidget.cs" />
     <Compile Include="GauntletUI\Widgets\SPBattleResultTitleBackgroundWidget.cs" />
     <Compile Include="GauntletUI\Widgets\SpouseCharacterTableauWidget.cs" />
-    <Compile Include="GetDailyChanceOfPregnancyForHero.cs" />
     <Compile Include="HeroRlationOperation.cs" />
     <Compile Include="Patchs\KindomPath.cs" />
     <Compile Include="Logics\BattleHeroJustTroopSpawnHandlerLogic.cs" />
@@ -60,21 +56,17 @@
     <Compile Include="Operations\ChildrenGrowthOperation.cs" />
     <Compile Include="Operations\DistinctSpouse.cs" />
     <Compile Include="Operations\SpouseOperation.cs" />
-    <Compile Include="Patchs\AgingCampaignBehaviorPatch.cs" />
+    <Compile Include="Patchs\ChildrenFastGrowth\AgingCampaignBehaviorPatch.cs" />
     <Compile Include="Patchs\BattleSimulationInitializePath.cs" />
     <Compile Include="Patchs\BattleSimulationOnExitBattlePath.cs" />
     <Compile Include="Patchs\BattleSimulationTroopNumberChangedPath.cs" />
     <Compile Include="Patchs\ClanMemberRolesCampaignBehavior_AddClanMembersAsAccompanyingCharacter_Path.cs" />
-    <Compile Include="Patchs\ClanScreenLayerPatch.cs" />
+    <Compile Include="Patchs\ScreenBase\ClanScreenLayerPatch.cs" />
     <Compile Include="Patchs\GameBUGFixPath.cs" />
-    <Compile Include="Patchs\HeroCreatorDeliverOffSpringPath.cs" />
-    <Compile Include="Patchs\LocationContainsCharacterrPath.cs" />
-    <Compile Include="Patchs\LocationGetLocationCharacterPath.cs" />
-    <Compile Include="Patchs\LocatonCanPlayerEnterPath.cs" />
-    <Compile Include="Patchs\LocatonCanPlayerSeePath.cs" />
-    <Compile Include="Patchs\LocatonDeserializeDelegatePath.cs" />
-    <Compile Include="Patchs\OccpationFullPath.cs" />
-    <Compile Include="Patchs\TestGameProgressPath.cs" />
+    <Compile Include="Patchs\ChildrenFastGrowth\HeroCreatorDeliverOffSpringPath.cs" />
+    <Compile Include="Patchs\LocationCrashBugFix\LocationCrashBugFixPath.cs" />
+    <Compile Include="Patchs\Discard\OccpationFullPath.cs" />
+    <Compile Include="Patchs\Discard\TestGameProgressPath.cs" />
     <Compile Include="Settings\ChildrenFastGrowthSetting.cs" />
     <Compile Include="Settings\EXSpouseGetPregnancySetting.cs" />
     <Compile Include="Settings\MoreSpouseSetting.cs" />
@@ -141,6 +133,9 @@
       <Project>{a9523583-7730-4cb6-9487-99f07b547237}</Project>
       <Name>SueTheGeneration</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Patchs\ModCompatibility\" />
   </ItemGroup>
   <!-- Post-Build -->
   <PropertyGroup>

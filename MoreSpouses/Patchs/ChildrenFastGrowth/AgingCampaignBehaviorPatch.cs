@@ -11,7 +11,7 @@ using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
-namespace SueMoreSpouses.Patch
+namespace SueMoreSpouses.Patch.ChildrenFastGrowth
 {
     internal class AgingCampaignBehaviorPatch
 	{

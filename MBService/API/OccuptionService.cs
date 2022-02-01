@@ -39,7 +39,7 @@ namespace SueMBService.API
         public static void ChangeOccupation0fCharacter(CharacterObject target, Occupation occupation)
         {
             if (target.Occupation == occupation) return;
-            List<CharacterObject> list = CharacterObject.Templates.Where(obj => obj.Occupation == occupation && obj.IsOriginalCharacter).ToList();
+            List<CharacterObject> list = CharacterObject.All.Where(obj => obj.Occupation == occupation && obj.IsOriginalCharacter).ToList();
             if (list.Count > 0)
             {
                 CharacterObject source = list.OrderBy(_ => Guid.NewGuid()).First();
