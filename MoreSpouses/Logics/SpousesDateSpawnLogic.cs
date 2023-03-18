@@ -1,7 +1,9 @@
 using SandBox;
+using SandBox.Missions.MissionLogics;
 using System;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.AgentOrigins;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
 using TaleWorlds.Library;
@@ -101,7 +103,8 @@ namespace SueMoreSpouses.Logics
 				invalid = new WorldFrame(gameEntity.GetGlobalFrame().rotation, new WorldPosition(gameEntity.Scene, gameEntity.GetGlobalFrame().origin));
 				SimpleAgentOrigin troopOrigin = new SimpleAgentOrigin(current.CharacterObject, -1, null, default(UniqueTroopDescriptor));
 				bool spawnWithHorse = true;
-				Agent agent = Mission.Current.SpawnTroop(troopOrigin, true, false, spawnWithHorse, false, false, 0, 0, true, false, false, null, new Vec2?(invalid.Rotation.f.AsVec2));
+                Vec3 initPosition = Vec3.Zero;
+				Agent agent = Mission.Current.SpawnTroop(troopOrigin, true, false, spawnWithHorse, false, 0, 0, false, true, false, initPosition, new Vec2?(invalid.Rotation.f.AsVec2));
 				agent.UpdateSpawnEquipmentAndRefreshVisuals(current.CivilianEquipment);
 				bool flag = !agent.IsMainAgent;
 				if (flag)
@@ -134,5 +137,25 @@ namespace SueMoreSpouses.Logics
 				}
 			}
 		}
-	}
+
+        public void StartSpawner(BattleSideEnum side)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StopSpawner(BattleSideEnum side)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsSideSpawnEnabled(BattleSideEnum side)
+        {
+            throw new NotImplementedException();
+        }
+
+        public float GetReinforcementInterval()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

@@ -4,6 +4,8 @@ using SueMoreSpouses.Data.sp;
 using System;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Encounters;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 
 namespace SueMoreSpouses

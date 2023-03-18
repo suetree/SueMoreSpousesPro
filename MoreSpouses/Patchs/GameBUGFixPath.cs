@@ -1,7 +1,6 @@
 using HarmonyLib;
 using System;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors.Towns;
 
 namespace SueMoreSpouses.Patch
 {

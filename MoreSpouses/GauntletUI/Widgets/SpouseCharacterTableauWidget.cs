@@ -1,5 +1,6 @@
 using System;
 using TaleWorlds.GauntletUI;
+using TaleWorlds.GauntletUI.BaseTypes;
 
 namespace SueMoreSpouses.GauntletUI.Widgets
 {

@@ -9,6 +9,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
@@ -64,8 +66,8 @@ namespace SueMoreSpouses
                 CharacterObject oneToOneConversationCharacter = CharacterObject.OneToOneConversationCharacter;
                 hero = HeroCreator.CreateSpecialHero(oneToOneConversationCharacter, null, Clan.PlayerClan, Clan.PlayerClan, -1);
                 hero.ChangeState(Hero.CharacterStates.Active);
-                hero.CacheLastSeenInformation(hero.HomeSettlement, true);
-                hero.SyncLastSeenInformation();
+                //hero.CacheLastSeenInformation(hero.HomeSettlement, true);
+                //hero.SyncLastSeenInformation();
                 HeroInitPropertyUtils.InitHeroForNPC(hero);
                 AddHeroToPartyAction.Apply(hero, MobileParty.MainParty, true);
                 CampaignEventDispatcher.Instance.OnHeroCreated(hero, false);

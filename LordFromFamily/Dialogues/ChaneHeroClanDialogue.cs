@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace SueLordFromFamily.Dialogues
 {
@@ -95,7 +96,7 @@ namespace SueLordFromFamily.Dialogues
 			if (flag3)
 			{
 				Kingdom kingdom = Hero.MainHero.MapFaction as Kingdom;
-				bool flag4 = ((kingdom != null) ? kingdom.Ruler : null) == Hero.MainHero && kingdom.Clans.Count > 1;
+				bool flag4 = ((kingdom != null) ? kingdom.Leader : null) == Hero.MainHero && kingdom.Clans.Count > 1;
 				if (flag4)
 				{
 					this.ResetDataForChangeClan();

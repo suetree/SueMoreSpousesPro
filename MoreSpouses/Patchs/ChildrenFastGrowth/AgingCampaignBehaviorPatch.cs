@@ -7,8 +7,10 @@ using SueMoreSpouses.Utils;
 using System;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.Extensions;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace SueMoreSpouses.Patch.ChildrenFastGrowth
@@ -130,7 +132,7 @@ namespace SueMoreSpouses.Patch.ChildrenFastGrowth
 			}
 		}
 
-		[HarmonyPatch(typeof(HeroCreationCampaignBehavior), "DeriveSkillsFromTraits")]
+		// [HarmonyPatch(typeof(HeroCreationCampaignBehavior), "DeriveSkillsFromTraits")]
 		public class OnHeroComesOfAgePatch
 		{
 			private static void Postfix(Hero hero, CharacterObject templateCharacter = null)
@@ -186,14 +188,15 @@ namespace SueMoreSpouses.Patch.ChildrenFastGrowth
 						if (flag3)
 						{
 							num3 *= 1.5f;
-							InformationManager.AddQuickInformation(new TextObject(string.Format("Your children {0} get more power", hero.Name), null), 0, null, "event:/ui/notification/quest_finished");
+                            // InformationManager.AddQuickInformation(new TextObject(string.Format("Your children {0} get more power", hero.Name), null), 0, null, "event:/ui/notification/quest_finished");
+                            InformationManager.DisplayMessage(new InformationMessage(new TextObject(string.Format("Your children {0} get more power", hero.Name), null).ToString()));
 						}
 					}
 					foreach (SkillObject current in Skills.All)
 					{
 						int num5 = (int)((float)hero2.GetSkillValue(current) * num + (float)hero3.GetSkillValue(current) * num2);
 						hero.HeroDeveloper.ChangeSkillLevel(current, (int)((float)num5 * num3), false);
-						hero.HeroDeveloper.TakeAllPerks(current);
+						// hero.HeroDeveloper.TakeAllPerks(current);
 					}
 					hero.Level = 0;
 					hero.HeroDeveloper.UnspentFocusPoints = 20;

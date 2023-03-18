@@ -22,11 +22,11 @@ namespace SueMBService.API
 
             if (Occupation.Lord == occupation)
             {
-                hero.IsNoble = true;
+                //hero.IsNoble = true;
             }
             else
             {
-                hero.IsNoble = false;
+                //hero.IsNoble = false;
             }
         } 
      

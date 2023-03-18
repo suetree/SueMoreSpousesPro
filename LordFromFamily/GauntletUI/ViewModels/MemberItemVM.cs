@@ -258,8 +258,9 @@ namespace SueLordFromFamily.GauntletUI.ViewModels
 			}
 			else
 			{
-				this.LocationText = ((this._hero != Hero.MainHero) ? StringHelpers.GetLastKnownLocation(this._hero).ToString() : " ");
-			}
+				//this.LocationText = ((this._hero != Hero.MainHero) ? StringHelpers.GetLastKnownLocation(this._hero).ToString() : " ");
+                this.LocationText = ((this._hero != Hero.MainHero) ? this._hero.Name.ToString() : " ");
+            }
 		}
 	}
 }

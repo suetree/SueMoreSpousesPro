@@ -132,11 +132,11 @@ namespace SueLordFromFamily.GauntletUI.ViewModels
 		{
 			field.SetValue(newClanBannerEditorState, Game.Current.GameStateManager);
 		}
-		bool flag2 = Game.Current.GameStateManager.GameStateManagerListener != null;
+	/*	bool flag2 = Game.Current.GameStateManager.GameStateManagerListener != null;
 		if (flag2)
 		{
 			Game.Current.GameStateManager.GameStateManagerListener.OnCreateState(newClanBannerEditorState);
-		}
+		}*/
 		Game.Current.GameStateManager.PushState(newClanBannerEditorState, 0);
 	}
 

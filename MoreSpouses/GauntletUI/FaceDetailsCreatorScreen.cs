@@ -5,9 +5,12 @@ using TaleWorlds.Core;
 using TaleWorlds.Core.ViewModelCollection;
 using TaleWorlds.Engine;
 using TaleWorlds.Engine.Screens;
+using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.GauntletUI;
-using TaleWorlds.MountAndBlade.View.Screen;
+using TaleWorlds.MountAndBlade.GauntletUI.BodyGenerator;
+using TaleWorlds.MountAndBlade.View.Screens;
+using TaleWorlds.ScreenSystem;
 
 namespace SueMoreSpouses.GauntletUI
 {
@@ -48,7 +51,7 @@ namespace SueMoreSpouses.GauntletUI
         {
             base.OnInitialize();
             _oldGameStateManagerDisabledStatus = Game.Current.GameStateManager.ActiveStateDisabledByUser;
-            Game.Current.GameStateManager.ActiveStateDisabledByUser = true;
+            //Game.Current.GameStateManager.ActiveStateDisabledByUser = true;
             AddLayer(_facegenLayer.GauntletLayer);
         }
 
@@ -60,7 +63,7 @@ namespace SueMoreSpouses.GauntletUI
             {
                 LoadingWindow.DisableGlobalLoadingWindow();
             }
-            Game.Current.GameStateManager.ActiveStateDisabledByUser = _oldGameStateManagerDisabledStatus;
+           // Game.Current.GameStateManager.ActiveStateDisabledByUser = _oldGameStateManagerDisabledStatus;
         }
 
         protected override void OnActivate()
@@ -74,14 +77,14 @@ namespace SueMoreSpouses.GauntletUI
             base.OnDeactivate();
             _facegenLayer.OnFinalize();
             LoadingWindow.EnableGlobalLoadingWindow();
-            InformationManager.HideInformations();
+            InformationManager.ClearAllMessages();
             Mission current = Mission.Current;
             bool flag = current != null;
             if (flag)
             {
                 foreach (Agent current2 in current.Agents)
                 {
-                    current2.EquipItemsFromSpawnEquipment();
+                    current2.EquipItemsFromSpawnEquipment(true);
                     current2.UpdateAgentProperties();
                 }
             }

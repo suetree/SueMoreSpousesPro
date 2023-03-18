@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.MapEvents;
 using TaleWorlds.Core;
 using TaleWorlds.Engine;
 using TaleWorlds.Library;
@@ -35,7 +36,9 @@ namespace SueMoreSpouses.Logics
 
             this._missionAgentSpawnLogic.SetSpawnHorses(BattleSideEnum.Defender, false);
 			this._missionAgentSpawnLogic.SetSpawnHorses(BattleSideEnum.Attacker, false);
-			this._missionAgentSpawnLogic.InitWithSinglePhase(defenderInitialSpawn, attackerInitialSpawn, defenderInitialSpawn, attackerInitialSpawn, true, true, 1f);
+            MissionSpawnSettings spawnSettings = new MissionSpawnSettings();
+
+            this._missionAgentSpawnLogic.InitWithSinglePhase(defenderInitialSpawn, attackerInitialSpawn, defenderInitialSpawn, attackerInitialSpawn, true, true, spawnSettings);
 		}
 
 	}

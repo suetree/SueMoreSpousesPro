@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using TaleWorlds.GauntletUI;
+using TaleWorlds.GauntletUI.BaseTypes;
 
 namespace TaleWorlds.MountAndBlade.GauntletUI.Widgets.Options
 {
 	public class ADOptionsScreenWidget : OptionsScreenWidget
 	{
-		private Widget _currentOptionWidget;
 
 		private bool _initialized;
 

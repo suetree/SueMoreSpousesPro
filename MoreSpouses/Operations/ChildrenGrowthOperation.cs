@@ -3,6 +3,7 @@ using SueMoreSpouses.Settings;
 using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace SueMoreSpouses.Operation
@@ -44,8 +45,9 @@ namespace SueMoreSpouses.Operation
 							{
                                 TextObject textObject = GameTexts.FindText("suems_children_grow_up_to_hero_age");
 								StringHelpers.SetCharacterProperties("SUE_HERO", child.CharacterObject, textObject);
-								InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
-							}
+                                InformationManager.DisplayMessage(new InformationMessage(textObject.ToString()));
+                                //InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
+                            }
 						}
 					}
 				}
