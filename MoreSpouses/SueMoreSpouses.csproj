@@ -107,7 +107,7 @@
     <Content Include="Resources\ModuleData\Languages\CNt\sue_more_spoues-CNt.xml" />
     <Content Include="Resources\ModuleData\Languages\sue_more_spoues-EN.xml" />
     <Content Include="Resources\ModuleData\Languages\TR\sue_more_spoues-TR.xml" />
-    <Content Include="Resources\ModuleData\language_data.xml" />
+    <Content Include="Resources\ModuleData\xml_attributes_to_be_identified.txt" />
     <Content Include="Resources\ModuleData\sue_more_spoues.xml" />
     <Content Include="Resources\SceneObj\sms_prison\atmosphere.xml" />
     <Content Include="Resources\SceneObj\sms_prison\references.txt" />
@@ -142,5 +142,9 @@
   <!-- Post-Build -->
   <PropertyGroup>
     <PostBuildEvent>xcopy  /Y /S "$(MSBuildProjectDirectory)\Resources" "$(GamePath)\Modules\SueMoreSpouses\"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 </Project>

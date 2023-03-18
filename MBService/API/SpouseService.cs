@@ -112,7 +112,8 @@ namespace SueMBService.API
                     companionsCache.Remove(hero);
                 }
             }
-             ReflectUtils.ReflectPropertyAndSetValue("Companions", new MBReadOnlyList<Hero>(companionsCache), hero.Clan);
+            MBList<Hero> heroes = new MBList<Hero>(companionsCache);
+            ReflectUtils.ReflectPropertyAndSetValue("_companionsCache", heroes, hero.Clan);
             
            
             List<Hero> heroCache = ReflectUtils.ReflectField<List<Hero>>("_heroesCache", hero.Clan);
