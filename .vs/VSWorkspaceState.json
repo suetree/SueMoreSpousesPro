@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\MoreSpouses",
+    "\\MoreSpouses\\Resources",
+    "\\MoreSpouses\\Resources\\ModuleData"
   ],
-  "SelectedNode": "\\SueMoreSpousesPro.sln",
+  "SelectedNode": "\\MoreSpouses\\Resources\\ModuleData\\sue_more_spoues.xml",
   "PreviewInSolutionExplorer": false
 }

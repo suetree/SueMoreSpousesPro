@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
 
   <strings>
-
     <!-- dialogue  -->
 	  <string id="sue_more_spouses_female_spouses_status_prisoner_become_active" text="Change you to active" />
 	  <string id="sue_more_spouses_marry_target" text="{SUE_HERO.NAME} become your spouse" />
@@ -119,4 +117,3 @@
     <string id="suems_setting_group_nameless_npc" text="Nameless NPC" />
     
   </strings>
-</base>

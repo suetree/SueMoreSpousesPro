@@ -30,8 +30,8 @@
     <Content Include="Resources\GUI\Prefabs\LordFromFamily\VassalService.xml" />
     <Content Include="Resources\GUI\Prefabs\LordFromFamily\VassalsPannel.xml" />
     <Content Include="Resources\GUI\Prefabs\LordFromFamily\VassalsPannelOld.xml" />
-    <Content Include="Resources\ModuleData\Languages\CNs\sue_lord_from_family.xml" />
-    <Content Include="Resources\ModuleData\Languages\CNt\sue_lord_from_family.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNs\sue_lord_from_family-CN.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNt\sue_lord_from_family-CNt.xml" />
     <Content Include="Resources\ModuleData\Languages\sue_lord_from_family.xml" />
   </ItemGroup>
   <ItemGroup>
