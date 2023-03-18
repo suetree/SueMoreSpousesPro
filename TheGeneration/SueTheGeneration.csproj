@@ -18,8 +18,8 @@
     <Compile Include="TheGenerationDataSetting.cs" />
     <Content Include="Resources\GUI\Brushes\TheSecondGenerationBrushs.xml" />
     <Content Include="Resources\GUI\Prefabs\TheGeneration\TheGenerationDashboard.xml" />
-    <Content Include="Resources\ModuleData\Languages\CNs\the_second_generation.xml" />
-    <Content Include="Resources\ModuleData\Languages\CNt\the_second_generation.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNs\the_second_generation-CN.xml" />
+    <Content Include="Resources\ModuleData\Languages\CNt\the_second_generation-CNt.xml" />
     <Content Include="Resources\ModuleData\Languages\the_second_generation.xml" />
   </ItemGroup>
   <ItemGroup>
