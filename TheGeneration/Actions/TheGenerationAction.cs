@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Extensions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.ObjectSystem;
@@ -86,7 +89,7 @@ namespace SueTheGeneration.Actions
         {
 			if (setting.PlayerSkill > 0)
 			{
-				foreach (SkillObject current in TaleWorlds.CampaignSystem.Skills.All)
+				foreach (SkillObject current in Skills.All)
 				{
 					Hero.MainHero.HeroDeveloper.ChangeSkillLevel(current, setting.PlayerSkill, false);
 				}
@@ -116,7 +119,7 @@ namespace SueTheGeneration.Actions
 							{
 								for (int i = 0; i < templateData.Number; i++)
 								{
-									Hero hero = HeroCreator.DeliverOffSpring( character.HeroObject, Hero.MainHero, false, Hero.MainHero.Culture);
+									Hero hero = HeroCreator.DeliverOffSpring( character.HeroObject, Hero.MainHero, false);
 									if (templateData.Age < Campaign.Current.Models.AgeModel.HeroComesOfAge)
 									{
 										//Settlement
@@ -132,7 +135,7 @@ namespace SueTheGeneration.Actions
 										skillLevel = new Random().Next(templateData.MinSkill, templateData.MaxSkill);
 									}
 
-									foreach (SkillObject current in TaleWorlds.CampaignSystem.Skills.All)
+									foreach (SkillObject current in Skills.All)
 									{
 										hero.HeroDeveloper.ChangeSkillLevel(current, skillLevel, false);
 										//hero.HeroDeveloper.TakeAllPerks(current);

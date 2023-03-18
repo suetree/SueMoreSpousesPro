@@ -9,7 +9,7 @@ namespace SueMoreSpouses.Patch.ChildrenFastGrowth
     [HarmonyPatch(typeof(HeroCreator), "DeliverOffSpring")]
 	internal class HeroCreatorDeliverOffSpringPath
 	{
-		private static void Postfix(ref Hero __result, Hero mother, Hero father, bool isOffspringFemale, CultureObject culture = null)
+		private static void Postfix(ref Hero __result, Hero mother, Hero father, bool isOffspringFemale)
 		{
 			bool flag = Hero.MainHero.Children.Contains(__result);
 			ChildrenFastGrowthSetting setting = MoreSpouseSetting.GetInstance().ChildrenFastGrowthSetting;

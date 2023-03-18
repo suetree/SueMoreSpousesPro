@@ -1,4 +1,5 @@
 ﻿using SandBox.GauntletUI;
+using SandBox.GauntletUI.BannerEditor;
 using SueLordFromFamily.GauntletUI.States;
 using System;
 using TaleWorlds.CampaignSystem;
@@ -8,7 +9,8 @@ using TaleWorlds.Engine;
 using TaleWorlds.Engine.Screens;
 using TaleWorlds.InputSystem;
 using TaleWorlds.Localization;
-using TaleWorlds.MountAndBlade.View.Screen;
+using TaleWorlds.MountAndBlade.View.Screens;
+using TaleWorlds.ScreenSystem;
 
 namespace SueLordFromFamily.GauntletUI
 {
@@ -60,7 +62,7 @@ namespace SueLordFromFamily.GauntletUI
 		{
 			base.OnInitialize();
 			this._oldGameStateManagerDisabledStatus = Game.Current.GameStateManager.ActiveStateDisabledByUser;
-			Game.Current.GameStateManager.ActiveStateDisabledByUser = true;
+			//Game.Current.GameStateManager.ActiveStateDisabledByUser = true;
 		}
 
 		protected override void OnFinalize()
@@ -72,7 +74,7 @@ namespace SueLordFromFamily.GauntletUI
 			{
 				LoadingWindow.DisableGlobalLoadingWindow();
 			}
-			Game.Current.GameStateManager.ActiveStateDisabledByUser = this._oldGameStateManagerDisabledStatus;
+			//Game.Current.GameStateManager.ActiveStateDisabledByUser = this._oldGameStateManagerDisabledStatus;
 		}
 
 		protected override void OnActivate()

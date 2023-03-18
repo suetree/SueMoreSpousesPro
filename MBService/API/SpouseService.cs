@@ -2,6 +2,7 @@
 using Helpers;
 using SueMBService.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
@@ -68,7 +70,8 @@ namespace SueMBService.API
         {
             TextObject textObject = GameTexts.FindText("sue_more_spouses_marry_target", null);
             StringHelpers.SetCharacterProperties("SUE_HERO", hero.CharacterObject, textObject);
-            InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
+            // InformationManager.AddQuickInformation(textObject, 0, null, "event:/ui/notification/quest_finished");
+            InformationManager.AddSystemNotification(textObject.ToString() + "instead of ");
         }
 
 
@@ -91,7 +94,8 @@ namespace SueMBService.API
                     lordsCache.Remove(hero);
                 }
             }
-            ReflectUtils.ReflectPropertyAndSetValue("Lords", new MBReadOnlyList<Hero>(lordsCache), hero.Clan);
+            MBList<Hero> cacheLords = new MBList<Hero>(lordsCache);
+            ReflectUtils.ReflectFieldAndSetValue("_lordsCache", cacheLords, hero.Clan);
 
             List<Hero> companionsCache = ReflectUtils.ReflectField<List<Hero>>("_companionsCache", hero.Clan);
             if (hero.Occupation != Occupation.Lord)

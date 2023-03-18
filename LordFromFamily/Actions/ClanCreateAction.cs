@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
@@ -59,12 +61,12 @@ namespace SueLordFromFamily.Actions
                         }
 						TextObject textObject = NameGenerator.Current.GenerateClanName(culture, this.TargetSettlement);
 						string str = Guid.NewGuid().ToString().Replace("-", "");
-						bool flag4 = oneToOneConversationHero.LastSeenPlace == null;
+					/*	bool flag4 = oneToOneConversationHero.LastSeenPlace == null;
 						if (flag4)
 						{
-							oneToOneConversationHero.CacheLastSeenInformation(oneToOneConversationHero.HomeSettlement, true);
-							oneToOneConversationHero.SyncLastSeenInformation();
-						}
+							//oneToOneConversationHero.CacheLastSeenInformation(oneToOneConversationHero.HomeSettlement, true);
+							//oneToOneConversationHero.SyncLastSeenInformation();
+						}*/
                         OccuptionService.ChangeOccupation0fHero(oneToOneConversationHero, Occupation.Lord);
                         ClanLordService.DealApplyByFire(oneToOneConversationHero);
                        
@@ -83,7 +85,7 @@ namespace SueLordFromFamily.Actions
 						clan.AddRenown((float)(50 * this.SelectClanTier), true);
 						oneToOneConversationHero.Clan = clan;
 						oneToOneConversationHero.CompanionOf = null;
-						oneToOneConversationHero.IsNoble = true;
+						//oneToOneConversationHero.IsNoble = true;
 						//oneToOneConversationHero.SetTraitLevel(DefaultTraits.Commander, 1);
 						MobileParty mobileParty = clan.CreateNewMobileParty(oneToOneConversationHero);
 						mobileParty.ItemRoster.AddToCounts(DefaultItems.Grain, 10);
@@ -125,10 +127,10 @@ namespace SueLordFromFamily.Actions
 						if (flag9)
 						{
 							this.TargetSpouse.Spouse = oneToOneConversationHero;
-							InformationManager.AddQuickInformation(new TextObject(string.Format("{0} marry with {1}", oneToOneConversationHero.Name, this.TargetSpouse.Name), null), 0, null, "event:/ui/notification/quest_finished");
+							//InformationManager.AddQuickInformation(new TextObject(string.Format("{0} marry with {1}", oneToOneConversationHero.Name, this.TargetSpouse.Name), null), 0, null, "event:/ui/notification/quest_finished");
 							ClanLordService.DealApplyByFire( this.TargetSpouse);
 							this.TargetSpouse.ChangeState(Hero.CharacterStates.Active);
-							this.TargetSpouse.IsNoble = true;
+							//this.TargetSpouse.IsNoble = true;
                             OccuptionService.ChangeOccupation0fHero(this.TargetSpouse, Occupation.Lord);
                             this.TargetSpouse.CompanionOf = null;
 							this.TargetSpouse.Clan = clan;

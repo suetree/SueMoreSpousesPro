@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 using TaleWorlds.GauntletUI;
+using TaleWorlds.GauntletUI.BaseTypes;
 using TaleWorlds.Library;
 
 namespace SueEasyMenu.GauntletUI.Widgets

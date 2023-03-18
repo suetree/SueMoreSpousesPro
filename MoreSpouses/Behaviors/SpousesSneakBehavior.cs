@@ -9,8 +9,14 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Encounters;
 using TaleWorlds.CampaignSystem.GameMenus;
+using TaleWorlds.CampaignSystem.MapEvents;
 using TaleWorlds.CampaignSystem.Overlay;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Roster;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.CampaignSystem.Settlements.Locations;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
@@ -177,11 +183,11 @@ namespace SueMoreSpouses.Behaviors
 		{
 			List<PartyBase> list = new List<PartyBase>
 			{
-				this._lastSettlement.GetComponent<Town>().Owner
+				this._lastSettlement.Town.Owner
 			};
-			foreach (MobileParty current in this._lastSettlement.GetComponent<Town>().Owner.Settlement.Parties)
+			foreach (MobileParty current in this._lastSettlement.Town.Owner.Settlement.Parties)
 			{
-				bool flag = current.IsCommonAreaParty || current.IsGarrison;
+				bool flag = current.IsCustomParty || current.IsGarrison;
 				if (flag)
 				{
 					list.Add(current.Party);
@@ -254,11 +260,11 @@ namespace SueMoreSpouses.Behaviors
 			{
 				this._prisoners.Clear();
 			}
-			bool flag2 = Settlement.CurrentSettlement.GetComponent<Town>() != null;
+			bool flag2 = Settlement.CurrentSettlement.Town != null;
 			if (flag2)
 			{
 				int count = this._lastSettlement.Parties.Count;
-				this._prisoners = Settlement.CurrentSettlement.GetComponent<Town>().GetPrisonerHeroes();
+				this._prisoners = Settlement.CurrentSettlement.Town.GetPrisonerHeroes();
 			}
 			GameMenuManager gameMenuManager = ReflectUtils.ReflectField<GameMenuManager>("_gameMenuManager", this._gameStarter);
 			bool flag3 = gameMenuManager != null;
@@ -346,14 +352,14 @@ namespace SueMoreSpouses.Behaviors
 
 		public bool HasPrison(MenuCallbackArgs args)
 		{
-			List<CharacterObject> prisonerHeroes = Settlement.CurrentSettlement.GetComponent<SettlementComponent>().GetPrisonerHeroes();
-			return Settlement.CurrentSettlement.GetComponent<Town>() != null && prisonerHeroes.Count > 0;
+			List<CharacterObject> prisonerHeroes = Settlement.CurrentSettlement.SettlementComponent.GetPrisonerHeroes();
+			return Settlement.CurrentSettlement.Town != null && prisonerHeroes.Count > 0;
 		}
 
 		private void BattleInTavern(MenuCallbackArgs args)
 		{
 			this._sneakType = SpousesSneakBehavior.SneakType.Tavern;
-			int upgradeLevel = Settlement.CurrentSettlement.GetComponent<Town>().GetWallLevel();
+			int upgradeLevel = Settlement.CurrentSettlement.Town.GetWallLevel();
 			string scene = LocationComplex.Current.GetLocationWithId("tavern").GetSceneName(upgradeLevel);
 			int settlementUpgradeLevel = Campaign.Current.Models.LocationModel.GetSettlementUpgradeLevel(PlayerEncounter.LocationEncounter);
 			this._tempTargetParty = MBObjectManager.Instance.CreateObject<MobileParty>("sms_prison");
@@ -368,7 +374,7 @@ namespace SueMoreSpouses.Behaviors
 		private void BattleInPrison(MenuCallbackArgs args)
 		{
 			this._sneakType = SpousesSneakBehavior.SneakType.Prison;
-			int upgradeLevel = Settlement.CurrentSettlement.GetComponent<Town>().GetWallLevel();
+			int upgradeLevel = Settlement.CurrentSettlement.Town.GetWallLevel();
 			string scene = LocationComplex.Current.GetLocationWithId("prison").GetSceneName(upgradeLevel);
 			scene = "sms_prison";
 			this._tempTargetParty = MBObjectManager.Instance.CreateObject<MobileParty>("sms_prison");
@@ -398,7 +404,7 @@ namespace SueMoreSpouses.Behaviors
 			}
 			else
 			{
-				int upgradeLevel = Settlement.CurrentSettlement.GetComponent<Town>().GetWallLevel();
+				int upgradeLevel = Settlement.CurrentSettlement.Town.GetWallLevel();
 				string scene = LocationComplex.Current.GetLocationWithId("lordshall").GetSceneName(upgradeLevel);
 				this._tempTargetParty = randomElement.Clan.CreateNewMobileParty(randomElement);
 				this.AddRandomTroopToParty(this._tempTargetParty);
@@ -424,7 +430,7 @@ namespace SueMoreSpouses.Behaviors
 			}
 			else
 			{
-				int wallLevel = Settlement.CurrentSettlement.GetComponent<Town>().GetWallLevel();
+				int wallLevel = Settlement.CurrentSettlement.Town.GetWallLevel();
 				string sceneName = LocationComplex.Current.GetLocationWithId("center").GetSceneName(wallLevel);
 				this.PreBattle(randomElement);
 				this.StartBattleNormal(sceneName, wallLevel);

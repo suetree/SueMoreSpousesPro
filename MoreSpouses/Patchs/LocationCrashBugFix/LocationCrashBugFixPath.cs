@@ -2,6 +2,7 @@ using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements.Locations;
 using TaleWorlds.Core;
 
 namespace SueMoreSpouses.Patch.LocationCrashBugFix

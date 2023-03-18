@@ -2,6 +2,7 @@
 using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace SueLordFromFamily.Behaviors
 {

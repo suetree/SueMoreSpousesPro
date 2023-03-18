@@ -330,7 +330,7 @@ namespace SueMoreSpouses.GauntletUI.ViewModels
             }
             else
             {
-                LocationText = _hero != Hero.MainHero ? StringHelpers.GetLastKnownLocation(_hero).ToString() : " ";
+                LocationText = _hero != Hero.MainHero ? _hero.Name.ToString() : " ";
             }
         }
     }

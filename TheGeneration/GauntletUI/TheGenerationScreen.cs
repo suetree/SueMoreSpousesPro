@@ -8,7 +8,8 @@ using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.Engine.Screens;
 using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
-using TaleWorlds.MountAndBlade.View.Screen;
+using TaleWorlds.MountAndBlade.View.Screens;
+using TaleWorlds.ScreenSystem;
 using TaleWorlds.TwoDimension;
 
 namespace SueTheGeneration.GauntletUI
@@ -89,7 +90,7 @@ namespace SueTheGeneration.GauntletUI
 		{
 			base.OnDeactivate();
 			LoadingWindow.EnableGlobalLoadingWindow();
-			InformationManager.HideInformations();
+			InformationManager.ClearAllMessages();
 		}
 
 		void IGameStateListener.OnActivate()

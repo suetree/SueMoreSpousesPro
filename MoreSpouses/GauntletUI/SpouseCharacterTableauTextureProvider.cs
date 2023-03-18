@@ -4,6 +4,7 @@ using TaleWorlds.Engine;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.GauntletUI;
 using TaleWorlds.MountAndBlade.View;
+using TaleWorlds.MountAndBlade.View.Tableaus;
 using TaleWorlds.TwoDimension;
 
 namespace SueMoreSpouses.GauntletUI

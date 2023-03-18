@@ -10,6 +10,9 @@ using TaleWorlds.Core;
 using SueLordFromFamily.Actions;
 using System.Text;
 using TaleWorlds.Localization;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.CampaignSystem.Roster;
+using TaleWorlds.CampaignSystem.Party;
 
 namespace SueLordFromFamily.Dialogues
 {
@@ -70,7 +73,7 @@ namespace SueLordFromFamily.Dialogues
 				if (flag3)
 				{
 					Kingdom kingdom = Hero.MainHero.MapFaction as Kingdom;
-					bool flag4 = ((kingdom != null) ? kingdom.Ruler : null) == Hero.MainHero;
+					bool flag4 = ((kingdom != null) ? kingdom.Leader : null) == Hero.MainHero;
 					if (flag4)
 					{
 						bool flag5 = Hero.MainHero.Clan.Gold >= 50000;

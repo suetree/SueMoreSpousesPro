@@ -1,7 +1,9 @@
 using SandBox;
+using SandBox.Missions.MissionLogics;
 using System;
 using System.Linq;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
 namespace SueMoreSpouses.Logics
@@ -70,7 +72,9 @@ namespace SueMoreSpouses.Logics
 					bool flag2 = (!flag || this._numberOfMaxTroopForPlayer >= this._playerSideSpawnedTroopCount) && (flag || this._numberOfMaxTroopForEnemy >= this._otherSideSpawnedTroopCount);
 					if (flag2)
 					{
-						Mission.Current.SpawnTroop(current, flag, false, false, false, false, 0, 0, true, false, false, null, null);
+                        Vec3 initializePosiition = Vec3.Zero;
+
+                        Mission.Current.SpawnTroop(current, flag, false, false, false, 0, 0, false, true, false, initializePosiition, null, null);
 						bool flag3 = flag;
 						if (flag3)
 						{
@@ -103,5 +107,26 @@ namespace SueMoreSpouses.Logics
 			}
 			return result;
 		}
-	}
+
+        public void StartSpawner(BattleSideEnum side)
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void StopSpawner(BattleSideEnum side)
+        {
+           // throw new NotImplementedException();
+        }
+
+        public bool IsSideSpawnEnabled(BattleSideEnum side)
+        {
+            return true;
+        }
+
+        public float GetReinforcementInterval()
+        {
+            return 0;
+           // throw new NotImplementedException();
+        }
+    }
 }

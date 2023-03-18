@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Extensions;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 
 namespace SueMBService.API
@@ -35,7 +37,7 @@ namespace SueMBService.API
 		}
 
 
-		public  static List<Hero> GeranateHeros(int num, int level, string culture, int skillLevl, bool TakeAllPerks)
+		public  static List<Hero> GeranateHeros(int num, int level, string culture, int skillLevl, bool isTakeAllPerks)
 		{
 			List<Hero> list = new List<Hero>();
 			List<CharacterObject> e = new List<CharacterObject>();
@@ -56,18 +58,20 @@ namespace SueMBService.API
 				MobileParty.MainParty.MemberRoster.AddToCounts(hero.CharacterObject, 1, false, 0, 0, true, -1);
 				hero.ChangeState(Hero.CharacterStates.Active);
 				hero.CompanionOf = Clan.PlayerClan;
-				hero.CacheLastSeenInformation(hero.HomeSettlement, true);
-				hero.SyncLastSeenInformation();
+				//hero.CacheLastSeenInformation(hero.HomeSettlement, true);
+				//hero.SyncLastSeenInformation();
 				bool flag2 = skillLevl > 0;
 				if (flag2)
 				{
-					foreach (SkillObject current in TaleWorlds.CampaignSystem.Skills.All)
+					foreach (SkillObject current in Skills.All)
 					{
 						hero.HeroDeveloper.ChangeSkillLevel(current, skillLevl, false);
-						if (TakeAllPerks)
+						if (isTakeAllPerks)
 						{
-							hero.HeroDeveloper.TakeAllPerks(current);
-						}
+							//hero.HeroDeveloper.TakeAllPerks(current);
+                           
+
+                        }
 					}
 				}
 

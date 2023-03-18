@@ -3,6 +3,7 @@ using SandBox.ViewModelCollection;
 using SueMoreSpouses.Behaviors;
 using System;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Encounters;
 
 namespace SueMoreSpouses.Patch
 {

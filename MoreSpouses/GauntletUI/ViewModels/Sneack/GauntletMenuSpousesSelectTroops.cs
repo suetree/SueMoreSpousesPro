@@ -1,13 +1,16 @@
 using SandBox.View.Map;
 using SandBox.View.Menu;
+using SueMBService.Utils;
 using System;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.Engine.GauntletUI;
 using TaleWorlds.Engine.Screens;
 using TaleWorlds.GauntletUI.Data;
 using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
-using TaleWorlds.MountAndBlade.View.Missions;
+using TaleWorlds.MountAndBlade.View;
+using TaleWorlds.ScreenSystem;
 
 namespace SueMoreSpouses.GauntletUI.ViewModels
 {
@@ -60,7 +63,8 @@ namespace SueMoreSpouses.GauntletUI.ViewModels
             bool flag = (mapScreen = ScreenManager.TopScreen as MapScreen) != null;
             if (flag)
             {
-                mapScreen.IsInHideoutTroopManage = true;
+                // mapScreen.IsInHideoutTroopManage = true;
+                ReflectUtils.ReflectPropertyAndSetValue("IsInHideoutTroopManage", true, mapScreen);
             }
         }
 
@@ -78,7 +82,8 @@ namespace SueMoreSpouses.GauntletUI.ViewModels
             bool flag = (mapScreen = ScreenManager.TopScreen as MapScreen) != null;
             if (flag)
             {
-                mapScreen.IsInHideoutTroopManage = false;
+                //mapScreen.IsInHideoutTroopManage = false;
+                ReflectUtils.ReflectPropertyAndSetValue("IsInHideoutTroopManage", false, mapScreen);
             }
             base.OnFinalize();
         }

@@ -1,7 +1,7 @@
 using Helpers;
 using SandBox;
+using SandBox.Missions.MissionLogics;
 using SandBox.Source.Missions;
-using SandBox.Source.Missions.Handlers;
 using SueMBService.Utils;
 using SueMoreSpouses.Logics;
 using SueMoreSpouses.Utils;
@@ -12,6 +12,10 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.MapEvents;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Roster;
+using TaleWorlds.CampaignSystem.TroopSuppliers;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 using TaleWorlds.MountAndBlade;
@@ -62,7 +66,7 @@ namespace SueMoreSpouses
 			{
 				new PartyGroupTroopSupplier(MapEvent.PlayerMapEvent, BattleSideEnum.Defender, null),
 				new PartyGroupTroopSupplier(MapEvent.PlayerMapEvent, BattleSideEnum.Attacker, null)
-			}, PartyBase.MainParty.Side);
+			}, PartyBase.MainParty.Side, Mission.BattleSizeType.Battle);
 			bool isPlayerSergeant = MobileParty.MainParty.MapEvent.IsPlayerSergeant();
 			bool isPlayerInArmy = MobileParty.MainParty.Army != null;
 			List<string> heroesOnPlayerSideByPriority = HeroHelper.OrderHeroesOnPlayerSideByPriority();
@@ -106,7 +110,7 @@ namespace SueMoreSpouses
 			{
 				new PartyGroupTroopSupplier(MapEvent.PlayerMapEvent, BattleSideEnum.Defender, null),
 				new PartyGroupTroopSupplier(MapEvent.PlayerMapEvent, BattleSideEnum.Attacker, null)
-			}, PartyBase.MainParty.Side);
+			}, PartyBase.MainParty.Side, Mission.BattleSizeType.Battle);
 			bool isPlayerSergeant = MobileParty.MainParty.MapEvent.IsPlayerSergeant();
 			bool isPlayerInArmy = MobileParty.MainParty.Army != null;
             IEnumerable<MapEventParty> arg_6D_0 = MobileParty.MainParty.MapEvent.AttackerSide.Parties;
@@ -118,7 +122,7 @@ namespace SueMoreSpouses
                 MissionBehavior[] expr_07 = new MissionBehavior[25];
                 expr_07[0] = CreateCampaignMissionAgentSpawnLogic(false);
                 expr_07[1] = new BattleSpawnLogic("battle_set");
-                expr_07[2] = new BaseMissionTroopSpawnHandler();
+                expr_07[2] = new SandBoxBattleMissionSpawnHandler();
                 expr_07[3] = new CampaignMissionComponent();
                 expr_07[4] = new BattleAgentLogic();
                 expr_07[5] = new MountAgentLogic();
@@ -132,11 +136,7 @@ namespace SueMoreSpouses
                 expr_07[13] = new BattleMissionAgentInteractionLogic();
                 expr_07[14] = new AgentMoraleInteractionLogic();
                 expr_07[15] = new AssignPlayerRoleInTeamMissionController(!isPlayerSergeant, isPlayerSergeant, isPlayerInArmy, heroesOnPlayerSideByPriority, FormationClass.NumberOfRegularFormations);
-                int arg_136_1 = 16;
-                Hero expr_102 = MapEvent.PlayerMapEvent.AttackerSide.LeaderParty.LeaderHero;
-                TextObject arg_131_0 = (expr_102 != null) ? expr_102.Name : null;
-                Hero expr_122 = MapEvent.PlayerMapEvent.DefenderSide.LeaderParty.LeaderHero;
-                expr_07[arg_136_1] = new CreateBodyguardMissionBehavior(arg_131_0, (expr_122 != null) ? expr_122.Name : null, null, null, true);
+                expr_07[16] = new SandboxGeneralsAndCaptainsAssignmentLogic(MapEvent.PlayerMapEvent.AttackerSide.LeaderParty.LeaderHero?.Name, MapEvent.PlayerMapEvent.DefenderSide.LeaderParty.LeaderHero?.Name);
                 expr_07[17] = new EquipmentControllerLeaveLogic();
                 expr_07[18] = new MissionHardBorderPlacer();
                 expr_07[19] = new MissionBoundaryPlacer();
@@ -155,7 +155,7 @@ namespace SueMoreSpouses
             {
                 new PartyGroupTroopSupplier(MapEvent.PlayerMapEvent, BattleSideEnum.Defender, null),
                 new PartyGroupTroopSupplier(MapEvent.PlayerMapEvent, BattleSideEnum.Attacker, null)
-            }, PartyBase.MainParty.Side, isSiege);
+            }, PartyBase.MainParty.Side,  Mission.BattleSizeType.Battle);
         }
 
         public static FlattenedTroopRoster GetStrongestAndPriorTroops(MobileParty mobileParty, int maxTroopCount, List<Hero> includeList)

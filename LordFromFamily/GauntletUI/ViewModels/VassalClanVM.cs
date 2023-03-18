@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.GameState;
+using TaleWorlds.CampaignSystem.Settlements;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
-using TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.KingdomClan;
+using TaleWorlds.CampaignSystem.ViewModelCollection.KingdomManagement.Clans;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.Localization;
@@ -280,20 +282,21 @@ namespace SueLordFromFamily.GauntletUI.ViewModels
 		private void OnChangeClanNameDone(string newClanName)
 		{
 			TextObject textObject = new TextObject(newClanName ?? "", null);
-			this.Clan.ChangeClanName(textObject);
+			//this.Clan.ChangeClanName(textObject);
 			this.Name = textObject.ToString();
 		}
 
 		private void OpenBannerSelectionScreen(Clan clan, Hero hero)
 		{
 			NewClanBannerEditorState gameState = new NewClanBannerEditorState(hero.CharacterObject, clan);
-			bool flag = Game.Current.GameStateManager.GameStateManagerListener != null;
+			/*bool flag = Game.Current.GameStateManager.GameStateManagerListener != null;
 			if (flag)
 			{
 				Game.Current.GameStateManager.GameStateManagerListener.OnCreateState(gameState);
-			}
+			}*/
 			Game.Current.GameStateManager.PushState(gameState, 0);
-		}
+           /// Game.Current.GameStateManager.PushState(Game.Current.GameStateManager.CreateState<BannerEditorState>());
+        }
 
 		public override void RefreshValues()
 		{

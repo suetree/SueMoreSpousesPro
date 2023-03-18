@@ -1,6 +1,6 @@
 ﻿<Project>
   <PropertyGroup>
-    <GamePath>F:\steam\steamapps\common\Mount &amp; Blade II Bannerlord</GamePath>
+    <GamePath>E:\steam\steamapps\common\Mount &amp; Blade II Bannerlord</GamePath>
     <GameResourcesPath>$(GamePath)\Modules\SueMoreSpouses</GameResourcesPath>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -86,8 +86,6 @@
     </ItemGroup>
     <Copy SourceFiles="@(ReferenceResourceFiles)" DestinationFolder="$(GameResourcesPath)\%(RecursiveDir)" SkipUnchangedFiles="True"></Copy>
   </Target>
-
-
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

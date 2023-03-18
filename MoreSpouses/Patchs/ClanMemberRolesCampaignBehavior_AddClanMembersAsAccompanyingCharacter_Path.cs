@@ -1,9 +1,11 @@
 using HarmonyLib;
-using SandBox.Source.CampaignComponents;
+using SandBox.CampaignBehaviors;
 using System;
 using System.Runtime.CompilerServices;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox;
+using TaleWorlds.CampaignSystem.Encounters;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements.Locations;
 
 namespace SueMoreSpouses.Patch
 {

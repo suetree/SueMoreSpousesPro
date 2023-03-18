@@ -9,6 +9,9 @@ using SueLordFromFamily.Behaviors;
 using SueMoreSpouses.Behaviors;
 using System.Reflection;
 using TaleWorlds.Library;
+using StoryMode;
+using TaleWorlds.ModuleManager;
+using TaleWorlds.ObjectSystem;
 
 namespace SueMoreSpouses
 {
@@ -30,12 +33,17 @@ namespace SueMoreSpouses
                 CampaignGameStarter gameInitializer = (CampaignGameStarter)gameStarterObject;
                 //gameInitializer.AddBehavior(new LordFromFamilyBehavior());
 
-                gameInitializer.LoadGameTexts(string.Format("{0}/Modules/{1}/ModuleData/sue_more_spoues.xml", BasePath.Name, "SueMoreSpouses"));
+                //gameInitializer.LoadGameTexts(string.Format("{0}/Modules/{1}/ModuleData/sue_more_spoues.xml", BasePath.Name, "SueMoreSpouses"));
                 gameInitializer.AddBehavior(new SpouseFromPrisonerBehavior());
                 gameInitializer.AddBehavior(new SpousesStatsBehavior());
                 gameInitializer.AddBehavior(new SpouseClanLeaderFixBehavior());
                 gameInitializer.AddBehavior(new SpousesSneakBehavior());
             }
+        }
+
+        public override void RegisterSubModuleObjects(bool isSavedCampaign)
+        {
+            MBObjectManager.Instance.LoadOneXmlFromFile(ModuleHelper.GetModuleFullPath("SueMoreSpouses") + "ModuleData/sue_more_spoues.xml", null, skipValidation: true);
         }
 
 

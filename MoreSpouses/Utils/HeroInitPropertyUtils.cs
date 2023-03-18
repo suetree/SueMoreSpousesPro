@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
+using TaleWorlds.CampaignSystem.Extensions;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.Localization;
 
 namespace SueMoreSpouses.Utils
@@ -24,12 +27,12 @@ namespace SueMoreSpouses.Utils
 		public static void InitTrait(Hero hero)
 		{
 			Random random = new Random();
-			hero.SetTraitLevelInternal(GetTraitObjectByName("Valor"), random.Next(0, 5));
-			hero.SetTraitLevelInternal(GetTraitObjectByName("Manager"), random.Next(0, 5));
-			hero.SetTraitLevelInternal(GetTraitObjectByName("Calculating"), random.Next(0, 5));
-			hero.SetTraitLevelInternal(GetTraitObjectByName("Politician"), random.Next(0, 5));
-			hero.SetTraitLevelInternal(GetTraitObjectByName("Commander"), random.Next(0, 5));
-			hero.SetTraitLevelInternal(GetTraitObjectByName("HopliteFightingSkills"), random.Next(0, 5));
+			hero.SetTraitLevel(GetTraitObjectByName("Valor"), random.Next(0, 5));
+			hero.SetTraitLevel(GetTraitObjectByName("Manager"), random.Next(0, 5));
+			hero.SetTraitLevel(GetTraitObjectByName("Calculating"), random.Next(0, 5));
+			hero.SetTraitLevel(GetTraitObjectByName("Politician"), random.Next(0, 5));
+			hero.SetTraitLevel(GetTraitObjectByName("Commander"), random.Next(0, 5));
+			hero.SetTraitLevel(GetTraitObjectByName("HopliteFightingSkills"), random.Next(0, 5));
 		}
 
 		private static TraitObject GetTraitObjectByName(string Name)
@@ -128,7 +131,11 @@ namespace SueMoreSpouses.Utils
 			{
 				foreach (SkillObject current2 in Skills.All)
 				{
-					hero.HeroDeveloper.TakeAllPerks(current2);
+                    foreach (PerkObject perk in PerkObject.All)
+                    {
+                        hero.HeroDeveloper.AddPerk(perk);
+                    }
+					// hero.HeroDeveloper.TakeAllPerks(current2);
 				}
 			}
 		}

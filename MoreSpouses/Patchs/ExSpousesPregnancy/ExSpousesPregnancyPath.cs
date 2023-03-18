@@ -6,9 +6,10 @@ using System.Collections;
 using System.IO;
 using System.Reflection;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
-using TaleWorlds.CampaignSystem.SandBox.GameComponents;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace SueMoreSpouses.Patch.ExSpousesPregnancy
 {
